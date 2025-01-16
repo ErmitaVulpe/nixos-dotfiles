@@ -8,17 +8,23 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
     hyprland.url = "github:hyprwm/Hyprland";
-    # rose-pine-hyprcursor.url = "github:ndom91/rose-pine-hyprcursor";
   };
 
   outputs = { self, nixpkgs, nixos-hardware, ... }@inputs: {
-    nixosConfigurations = {
-      vmware = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs;};
-        modules = [ ./configs/vmware/configuration.nix ];
-      };
+    # nixosConfigurations = {
+    #   uwuntu = nixpkgs.lib.nixosSystem {
+    #     specialArgs = {inherit inputs;};
+    #     modules = [ ./configs/uwuntu ];
+    #   };
+    #   vmware = nixpkgs.lib.nixosSystem {
+    #     specialArgs = {inherit inputs;};
+    #     modules = [ ./configs/vmware ];
+    #   };
+    # };
+    nixosConfigurations.uwuntu = nixpkgs.lib.nixosSystem {
+      specialArgs = {inherit inputs;};
+      modules = [ ./configs/uwuntu ];
     };
   };
 }
