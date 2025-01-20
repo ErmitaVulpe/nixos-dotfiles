@@ -1,4 +1,4 @@
-{ pkgs, lib, inputs, ... }: {
+{ config, pkgs, lib, inputs, ... }: {
   imports = [
     ./waybar
   ];
@@ -17,7 +17,7 @@
 
   # install cursor pack
   home.file = {
-    ".local/share/icons/rose-pine-cursor" = {
+    ".local/share/icons/default" = {
       source = "${pkgs.rose-pine-cursor.outPath}/share/icons/BreezeX-RosePine-Linux";
       recursive = true;
     };
@@ -30,8 +30,6 @@
 
       exec-once = [
 	"dunst"
-        "hyprctl setcursor rose-pine-cursor 24"
-        # "hyprctl setcursor ${pkgs.rose-pine-cursor.outPath} 24"
       ];
 
       "$mod" = "SUPER";

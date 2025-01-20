@@ -12,19 +12,15 @@
   };
 
   outputs = { self, nixpkgs, nixos-hardware, ... }@inputs: {
-    # nixosConfigurations = {
-    #   uwuntu = nixpkgs.lib.nixosSystem {
-    #     specialArgs = {inherit inputs;};
-    #     modules = [ ./configs/uwuntu ];
-    #   };
-    #   vmware = nixpkgs.lib.nixosSystem {
-    #     specialArgs = {inherit inputs;};
-    #     modules = [ ./configs/vmware ];
-    #   };
-    # };
-    nixosConfigurations.uwuntu = nixpkgs.lib.nixosSystem {
-      specialArgs = {inherit inputs;};
-      modules = [ ./configs/uwuntu ];
+    nixosConfigurations = {
+      uwuntu = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs;};
+        modules = [ ./configs/uwuntu ];
+      };
+      vmware = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs;};
+        modules = [ ./configs/vmware ];
+      };
     };
   };
 }
