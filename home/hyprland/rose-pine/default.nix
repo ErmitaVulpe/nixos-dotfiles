@@ -6,11 +6,13 @@
   home.packages = with pkgs; [
     # cursor
     rose-pine-cursor
+    # font
+    nerd-fonts.hack
     # notifications
     dunst
     libnotify
-    # wallpaper
-    swww
+    # # wallpaper
+    # swww
     # launcher
     rofi-wayland
   ];
@@ -19,6 +21,14 @@
   home.file = {
     ".local/share/icons/default" = {
       source = "${pkgs.rose-pine-cursor.outPath}/share/icons/BreezeX-RosePine-Linux";
+      recursive = true;
+    };
+  };
+
+  # install font
+  home.file = {
+    ".local/share/fonts/default" = {
+      source = "${pkgs.nerd-fonts.hack.outPath}/share/fonts/truetype/NerdFonts/Hack";
       recursive = true;
     };
   };

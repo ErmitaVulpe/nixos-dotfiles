@@ -1,5 +1,5 @@
 { pkgs, lib, ... }: {
   imports = [ ./rose-pine ];
 
-  wayland.windowManager.hyprland.systemd.enable = false;
+  wayland.windowManager.hyprland.systemd.enable = true;
 }

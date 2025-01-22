@@ -15,6 +15,7 @@
     ../../home/firefox
     ../../home/foot
     ../../home/hyprland
+    ../../home/neovim
   ];
 
   hyprland.nvidia = true;

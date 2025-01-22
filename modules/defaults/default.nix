@@ -1,6 +1,7 @@
 { config, pkgs, lib, ... }: with lib; {
   environment.defaultPackages = with pkgs; mkForce [
     fastfetch
+    fzf
     gh
     git
     jq
@@ -9,6 +10,7 @@
     tmux
     tree
     wget
+    yazi
   ];
 
   i18n.defaultLocale = mkDefault "en_US.UTF-8";
@@ -18,6 +20,7 @@
   };
 
   environment.shellAliases = {
+    cls = "clear";
     l = null;
     ls = "ls --color=tty";
     ll = "ls -lah";
