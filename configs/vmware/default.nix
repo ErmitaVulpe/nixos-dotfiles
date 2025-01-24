@@ -10,13 +10,19 @@
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.root.initialHashedPassword = "$6$aS.0EG/z$7cgSogPyLF2IXtZmH7gn5CZaAWTDS3y71j1gnVh2m4MOgU9.AWtLmAjZIpn2TWcYuuM9HtJta/V3hg4xkPyT01";
-  users.users.uwuntu.homeImports = [
-    ../../home/bullshit
-    ../../home/firefox
-    ../../home/foot
-    ../../home/hyprland
-    ../../home/neovim
-  ];
+  users.users.uwuntu = {
+    homeImports = [
+      ../../home/bullshit
+      ../../home/firefox
+      ../../home/foot
+      ../../home/hyprland
+      ../../home/neovim
+    ];
+    packages = with pkgs; [
+      rustup
+      nmap
+    ];
+  };
 
   # vm specific options
   environment.systemPackages = with pkgs; [

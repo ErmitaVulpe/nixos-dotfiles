@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: {
+{ lib, config, pkgs, ... }: {
   programs.neovim = {
     enable = true;
     viAlias = true;
@@ -7,11 +7,36 @@
     extraLuaConfig = ''
       ${builtins.readFile ./opts.lua}
       ${builtins.readFile ./remap.lua}
+      ${builtins.readFile ./lsp.lua}
+      lspConfigurator("rustup --version > /dev/null 2>&1", "rust_analyzer")
     '';
 
     plugins = with pkgs.vimPlugins;
     let
       list = map (obj: obj // { type = "lua"; }) [
+        {
+          plugin = nvim-treesitter;
+          config = builtins.readFile ./plugins/treesitter.lua;
+        }
+        # treesitter grammar packages
+        (nvim-treesitter.withPlugins (p: [
+          p.bash
+          p.c
+          p.javascript
+          p.lua
+	  p.nix
+          p.python
+          p.rust
+          p.typescript
+        ]))
+
+        # LSP
+        (nvim-lspconfig)
+        (nvim-cmp)
+        (cmp-nvim-lsp)
+        (luasnip)
+
+        # other plugins
         {
           plugin = nvim-autopairs;
           config = "require(\"nvim-autopairs\").setup {}";
@@ -29,9 +54,6 @@
           config = builtins.readFile ./plugins/harpoon.lua;
         }
         {
-          plugin = vim-devicons;
-        }
-        {
           plugin = lualine-nvim;
           config = builtins.readFile ./plugins/lualine.lua;
         }
@@ -44,30 +66,16 @@
           config = builtins.readFile ./plugins/telescope.lua;
         }
         {
-          plugin = nvim-treesitter;
-          config = builtins.readFile ./plugins/treesitter.lua;
+          plugin = undotree;
+          config = "vim.keymap.set(\"n\", \"<leader>u\", vim.cmd.UndotreeToggle)";
         }
-        # {
-        #   plugin = ;
-        #   config = "";
-        # }
-        # {
-        #   plugin = ;
-        #   config = "";
-        # }
-        # {
-        #   plugin = ;
-        #   config = "";
-        # }
-        # {
-        #   plugin = ;
-        #   config = "";
-        # }
-        # {
-        #   plugin = ;
-        #   config = "";
-        # }
+        {
+          plugin = nvim-web-devicons;
+        }
       ];
     in list;
+
+    extraPackages = with pkgs; [
+    ];
   };
 }

@@ -13,7 +13,7 @@ in
         };
       });
     };
- };
+  };
 
   config = {
     users.users."${username}" = {

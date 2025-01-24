@@ -15,7 +15,8 @@
 
   i18n.defaultLocale = mkDefault "en_US.UTF-8";
   console = {
-    font = mkDefault "Lat2-Terminus16";
+    # font = mkDefault "Lat2-Terminus16";
+    font = mkDefault "Uni3-Terminus20";
     keyMap = mkDefault "pl";
   };
 
