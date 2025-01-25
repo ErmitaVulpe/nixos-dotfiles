@@ -11,7 +11,7 @@
     hyprland.url = "github:hyprwm/Hyprland";
   };
 
-  outputs = { self, nixpkgs, nixos-hardware, ... }@inputs: {
+  outputs = { nixpkgs, ... }@inputs: {
     nixosConfigurations = {
       uwuntu = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};

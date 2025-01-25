@@ -1,4 +1,4 @@
-{ config, lib, pkgs, inputs, ... }: {
+{ lib, pkgs, inputs, ... }: {
   imports = [
     ./hardware-configuration.nix
     inputs.home-manager.nixosModules.default
@@ -19,8 +19,9 @@
       ../../home/neovim
     ];
     packages = with pkgs; [
-      rustup
+      # rustup
       nmap
+      nixd
     ];
   };
 

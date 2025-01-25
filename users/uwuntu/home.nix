@@ -1,8 +1,4 @@
-{ config, pkgs, lib, username, ... }:
-let
-  modules = a: ../../home/${a};
-in
-{
+{ config, pkgs, username, ... }: {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "${username}";
@@ -11,8 +7,6 @@ in
   imports = config.users.users."${username}".homeImports;
 
   home.packages = with pkgs; [
-    vulkan-tools
-    virtualgl
   ];
 
   home.file = {
@@ -24,6 +18,10 @@ in
   };
 
   programs = {
+    git = {
+      userEmail = "tymon.wilczek@gmail.com";
+      userName = "ErmitaVulpe";
+    };
     neovim = {
       vimAlias = true;
       viAlias = true;

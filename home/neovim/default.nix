@@ -1,4 +1,4 @@
-{ lib, config, pkgs, ... }: {
+{ pkgs, ... }: {
   programs.neovim = {
     enable = true;
     viAlias = true;
@@ -9,6 +9,7 @@
       ${builtins.readFile ./remap.lua}
       ${builtins.readFile ./lsp.lua}
       lspConfigurator("rustup --version > /dev/null 2>&1", "rust_analyzer")
+      lspConfigurator("nixd --version > /dev/null 2>&1", "nixd")
     '';
 
     plugins = with pkgs.vimPlugins;
@@ -31,10 +32,10 @@
         ]))
 
         # LSP
-        (nvim-lspconfig)
-        (nvim-cmp)
-        (cmp-nvim-lsp)
-        (luasnip)
+        nvim-lspconfig
+        nvim-cmp
+        cmp-nvim-lsp
+        luasnip
 
         # other plugins
         {
@@ -74,8 +75,5 @@
         }
       ];
     in list;
-
-    extraPackages = with pkgs; [
-    ];
   };
 }

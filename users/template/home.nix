@@ -1,8 +1,4 @@
-{ config, pkgs, lib, username, ... }:
-let
-  modules = a: ../../home/${a};
-in
-{
+{ config, pkgs, username, ... }: {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "${username}";
@@ -19,6 +15,13 @@ in
 
   home.sessionVariables = {
     # EDITOR = "emacs";
+  };
+
+  programs = {
+    git = {
+      userEmail = "";
+      userName = "";
+    };
   };
 
   # Let Home Manager install and manage itself.

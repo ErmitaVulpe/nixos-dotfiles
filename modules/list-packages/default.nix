@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, ... }:
 let
   packages = builtins.map (p: "${p.name}") config.environment.systemPackages;
   sortedUnique = builtins.sort builtins.lessThan (pkgs.lib.lists.unique packages);

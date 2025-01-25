@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }: with lib; {
+{ pkgs, lib, ... }: with lib; {
   environment.defaultPackages = with pkgs; mkForce [
     fastfetch
     fzf
