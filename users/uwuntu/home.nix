@@ -19,6 +19,7 @@
 
   programs = {
     git = {
+      enable = true;
       userEmail = "tymon.wilczek@gmail.com";
       userName = "ErmitaVulpe";
     };

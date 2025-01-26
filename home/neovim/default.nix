@@ -10,6 +10,11 @@
       ${builtins.readFile ./lsp.lua}
       lspConfigurator("rustup --version > /dev/null 2>&1", "rust_analyzer")
       lspConfigurator("nixd --version > /dev/null 2>&1", "nixd")
+
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = "nix",
+        command = "setlocal shiftwidth=2 tabstop=2"
+      })
     '';
 
     plugins = with pkgs.vimPlugins;

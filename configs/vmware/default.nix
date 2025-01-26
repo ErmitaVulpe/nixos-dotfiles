@@ -8,7 +8,6 @@
     ../../users/uwuntu
   ];
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.root.initialHashedPassword = "$6$aS.0EG/z$7cgSogPyLF2IXtZmH7gn5CZaAWTDS3y71j1gnVh2m4MOgU9.AWtLmAjZIpn2TWcYuuM9HtJta/V3hg4xkPyT01";
   users.users.uwuntu = {
     homeImports = [
@@ -19,8 +18,6 @@
       ../../home/neovim
     ];
     packages = with pkgs; [
-      # rustup
-      nmap
       nixd
     ];
   };
@@ -96,5 +93,4 @@
   #
   # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
   system.stateVersion = "24.11"; # Did you read the comment?
-
 }
