@@ -6,6 +6,7 @@
 
     extraPackages = with pkgs; [
       ripgrep
+      wl-clipboard
     ];
 
     extraLuaConfig = ''
