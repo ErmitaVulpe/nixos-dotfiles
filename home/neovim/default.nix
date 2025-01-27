@@ -4,6 +4,10 @@
     viAlias = true;
     vimAlias = true;
 
+    extraPackages = with pkgs; [
+      ripgrep
+    ];
+
     extraLuaConfig = ''
       ${builtins.readFile ./opts.lua}
       ${builtins.readFile ./remap.lua}
@@ -30,7 +34,7 @@
           p.c
           p.javascript
           p.lua
-	  p.nix
+          p.nix
           p.python
           p.rust
           p.typescript
