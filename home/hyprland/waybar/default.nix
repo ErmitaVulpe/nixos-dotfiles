@@ -22,10 +22,9 @@
         modules-center = [
           "hyprland/workspaces"
         ];
-
-        "hyprland/workspaces" = {
-          persistent-workspace."*" = 5;
-        };
+        modules-right = [
+          "custom/exit"
+        ];
       }
         // import ./modules.nix;
     };

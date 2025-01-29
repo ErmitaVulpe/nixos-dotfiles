@@ -19,7 +19,7 @@
       ../../home/neovim
     ];
     packages = with pkgs; [
-      rustup
+      nixd
     ];
   };
 

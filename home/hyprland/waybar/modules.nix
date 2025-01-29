@@ -1,4 +1,10 @@
 {
+  "custom/exit" = {
+    format = "";
+    on-click = "wlogout";
+    tooltip = false;
+  };
+
   "hyprland/workspaces" = {
     on-click = "activate";
     active-only = "false";

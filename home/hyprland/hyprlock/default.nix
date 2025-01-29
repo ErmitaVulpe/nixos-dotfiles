@@ -15,7 +15,7 @@
     wayland.windowManager.hyprland = {
       settings = {
         bind = [
-          "$mod CTLR, x, exec, hyprlock"
+          "SUPER CTRL, x, exec, hyprlock"
         ];
       };
     };
