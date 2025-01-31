@@ -22,14 +22,15 @@
     ];
   };
 
+  hyprland.nvidia = true;
+  hyprland.withPowerProfiles = true;
+
   # vm specific options
   environment.systemPackages = with pkgs; [
     open-vm-tools
   ];
   virtualisation.vmware.guest.enable = true;
   virtualisation.vmware.guest.headless = false;
-
-  hyprland.nvidia = true;
 
   # Use the GRUB 2 boot loader.
   boot.loader.grub.enable = lib.mkDefault true;

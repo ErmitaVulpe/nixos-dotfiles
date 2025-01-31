@@ -7,6 +7,7 @@
   imports = config.users.users."${username}".homeImports;
 
   home.packages = with pkgs; [
+    gamemode
   ];
 
   home.file = {

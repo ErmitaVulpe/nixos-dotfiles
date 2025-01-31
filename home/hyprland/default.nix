@@ -24,12 +24,22 @@
       recursive = true;
     };
   };
+  ## This should work. TODO test on real hardware
+  # home.pointerCursor = {
+  #   name = "rose-pine";
+  #   package = pkgs.rose-pine-cursor;
+  #   # gtk.enable = true;
+  # };
 
   # install font
-  home.file = {
-    ".local/share/fonts/default" = {
-      source = "${pkgs.nerd-fonts.hack.outPath}/share/fonts/truetype/NerdFonts/Hack";
-      recursive = true;
+  fonts.fontconfig = {
+    enable = true;
+    defaultFonts = {
+      monospace = [
+        # "Hack Nerd Font Propo"
+        # "Hack Nerd Font"
+        "Hack Nerd Font Mono"
+      ];
     };
   };
 
@@ -37,6 +47,12 @@
     enable = true;
     settings = {
       monitor = ", preferred, auto, 1";
+
+      input = {
+        kb_layout = "pl";
+        repeat_delay = 250;
+        repeat_rate = 45;
+      };
 
       exec-once = [
         "pkill dunst; dunst"

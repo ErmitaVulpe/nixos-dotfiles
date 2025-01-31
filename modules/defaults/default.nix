@@ -2,6 +2,7 @@
   environment.defaultPackages = with pkgs; mkForce [
     btop
     fastfetch
+    file
     fzf
     gh
     git
@@ -14,11 +15,18 @@
     yazi
   ];
 
-  i18n.defaultLocale = mkDefault "en_US.UTF-8";
-  console = {
-    font = mkDefault "Lat2-Terminus16";
-    # font = mkDefault "Uni3-Terminus20";
-    keyMap = mkDefault "pl";
+  i18n = mkDefault {
+    defaultLocale = "en_US.UTF-8";
+    extraLocaleSettings.LC_TIME = "en_GB.UTF-8";
+    supportedLocales = [
+      "en_GB.UTF-8/UTF-8"
+      "en_US.UTF-8/UTF-8"
+    ];
+  };
+
+  console = mkDefault {
+    font = "Lat2-Terminus16";
+    keyMap = "pl";
   };
 
   environment.shellAliases = {
@@ -28,7 +36,7 @@
     ll = "ls -lah";
   };
 
-  programs = {
+  programs = mkDefault {
     bash.promptInit = ''
       # Provide a nice prompt if the terminal supports it.
       if [ "$TERM" != "dumb" ] || [ -n "$INSIDE_EMACS" ]; then
@@ -45,10 +53,10 @@
         fi
       fi
     '';
-    nano.enable = mkDefault false;
+    nano.enable = false;
     neovim = {
-      enable = mkDefault true;
-      defaultEditor = mkDefault true;
+      enable = true;
+      defaultEditor = true;
     };
   };
 }

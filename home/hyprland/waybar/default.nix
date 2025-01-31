@@ -23,6 +23,10 @@
           "hyprland/workspaces"
         ];
         modules-right = [
+          "gamemode"
+          "power-profiles-daemon"
+          "battery"
+          "clock"
           "custom/exit"
         ];
       }
