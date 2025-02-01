@@ -12,8 +12,13 @@
       ${builtins.readFile ./opts.lua}
       ${builtins.readFile ./remap.lua}
       ${builtins.readFile ./lsp.lua}
-      lspConfigurator("rustup --version > /dev/null 2>&1", "rust_analyzer")
-      lspConfigurator("nixd --version > /dev/null 2>&1", "nixd")
+
+      lspConfigurator("vscode-css-language-server", "cssls")
+      lspConfigurator("vscode-eslint-language-server", "eslint")
+      lspConfigurator("vscode-html-language-server", "html")
+      lspConfigurator("vscode-json-language-server", "jsonls")
+      lspConfigurator("rustup", "rust_analyzer")
+      lspConfigurator("nixd", "nixd")
 
       vim.api.nvim_create_autocmd("FileType", {
         pattern = "nix",
@@ -53,7 +58,7 @@
         }
         {
           plugin = nvim-colorizer-lua;
-          config = "require(\"colorizer\").setup()";
+          config = builtins.readFile ./plugins/colorizer.lua;
         }
         {
           plugin = vim-fugitive;

@@ -41,8 +41,8 @@ cmp.setup({
 
 local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
 
-lspConfigurator = function(cond, server_name)
-  if os.execute(cond) == 0 then
+lspConfigurator = function(executable, server_name)
+  if os.execute("which " .. executable .. " > /dev/null 2>&1") == 0 then
     require('lspconfig')[server_name].setup({
       capabilities = lsp_capabilities,
     })

@@ -16,19 +16,23 @@
         layer = "top";
         position = "top";
         modules-left = [
-          "wlr/taskbar"
           "hyprland/window"
         ];
         modules-center = [
           "hyprland/workspaces"
         ];
         modules-right = [
-          "gamemode"
+          "bluetooth"
+          "pulseaudio"
+          "wireplumber"
+          "network"
           "power-profiles-daemon"
           "battery"
           "clock"
           "custom/exit"
         ];
+
+        reload_style_on_change = true;
       }
         // import ./modules.nix;
     };

@@ -18,7 +18,6 @@ in {
   config = {
     environment.systemPackages = with pkgs; [
       hyprland
-      xwayland
     ];
 
     programs.xwayland.enable = true;

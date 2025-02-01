@@ -17,7 +17,10 @@
 
   i18n = mkDefault {
     defaultLocale = "en_US.UTF-8";
-    extraLocaleSettings.LC_TIME = "en_GB.UTF-8";
+    extraLocaleSettings = {
+      LC_COLLATE = "C";
+      LC_TIME = "en_GB.UTF-8";
+    };
     supportedLocales = [
       "en_GB.UTF-8/UTF-8"
       "en_US.UTF-8/UTF-8"
@@ -31,9 +34,12 @@
 
   environment.shellAliases = {
     cls = "clear";
+    egrep = "egrep --color=auto01;34";
+    fgrep = "fgrep --color=auto";
+    grep = "grep --color=auto";
     l = null;
-    ls = "ls --color=tty";
     ll = "ls -lah";
+    ls = "ls --color=tty";
   };
 
   programs = mkDefault {
