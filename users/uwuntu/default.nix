@@ -18,7 +18,6 @@ in
   config = {
     users.users."${username}" = {
       isNormalUser = true;
-      # group = "uwuntu";
       group = "${username}";
       extraGroups = [ "wheel" ];
       initialHashedPassword = "$y$j9T$CJyHPv2s.on.ZRekXaXL50$h6cGCKZU2nKZ/zarN1hWLM8oU99rvBGBs9DG2qtl3yB";

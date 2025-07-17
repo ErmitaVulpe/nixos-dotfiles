@@ -20,6 +20,9 @@
   };
 
   programs = {
+    gh = {
+      gitCredentialHelper.enable = true;
+    };
     git = {
       enable = true;
       userEmail = "tymon.wilczek@gmail.com";
