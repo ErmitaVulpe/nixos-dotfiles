@@ -17,14 +17,16 @@
 
   i18n = mkDefault {
     defaultLocale = "en_US.UTF-8";
-    extraLocaleSettings = {
-      LC_COLLATE = "C";
-      LC_TIME = "en_GB.UTF-8";
-    };
-    supportedLocales = [
+    extraLocales = [
       "en_GB.UTF-8/UTF-8"
       "en_US.UTF-8/UTF-8"
     ];
+    localeCharsets = {
+      LC_COLLATE = "C";
+    };
+    extraLocaleSettings = {
+      LC_TIME = "en_GB.UTF-8";
+    };
   };
 
   console = mkDefault {
