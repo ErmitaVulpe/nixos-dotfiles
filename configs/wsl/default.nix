@@ -9,6 +9,10 @@
   wsl.enable = true;
   wsl.defaultUser = "uwuntu";
 
+  environment.systemPackages = with pkgs; [
+    wslu
+  ];
+
   imports = [
     inputs.home-manager.nixosModules.default
     inputs.nixos-wsl.nixosModules.default
