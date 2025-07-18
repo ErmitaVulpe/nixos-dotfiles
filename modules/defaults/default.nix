@@ -10,6 +10,7 @@
     neovim
     pciutils
     tmux
+    trashy
     tree
     wget
     yazi
@@ -42,6 +43,7 @@
     l = null;
     ll = "ls -lah";
     ls = "ls --color=tty";
+    trash = "trash -t never";
   };
 
   programs = mkDefault {

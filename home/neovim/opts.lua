@@ -1,4 +1,4 @@
--- Copy to KDE clipboard
+-- Copy to clipboard
 -- vim.o.clipboard = "unnamedplus"
 
 -- Set search options
@@ -26,7 +26,7 @@ vim.opt.undofile = true
 
 vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes"
-vim.opt.colorcolumn = "80"
+vim.opt.colorcolumn = { "80", "100" }
 
 -- enable inlay hints
 vim.lsp.inlay_hint.enable()
@@ -37,7 +37,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   desc = 'Hightlight selection on yank',
   pattern = '*',
   callback = function()
-    vim.highlight.on_yank { higroup = 'IncSearch', timeout = 100 }
+    vim.highlight.on_yank { higroup = 'IncSearch', timeout = 75 }
   end,
 })
 
@@ -45,3 +45,4 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 if vim.fn.has("gui_running") == 1 or vim.env.COLORTERM or vim.env.TERM_PROGRAM then
   vim.o.termguicolors = true
 end
+

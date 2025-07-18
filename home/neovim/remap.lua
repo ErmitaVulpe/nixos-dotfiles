@@ -37,3 +37,4 @@ vim.keymap.set("t", "<C-w><C-q>", "<C-\\><C-N><C-w><C-q>")
 vim.keymap.set('n', 'gl', '<cmd>lua vim.diagnostic.open_float()<cr>')
 vim.keymap.set('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<cr>')
 vim.keymap.set('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<cr>') 
+

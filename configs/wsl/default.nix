@@ -25,6 +25,7 @@
     homeImports = [
       ../../home/bullshit
       ../../home/neovim
+      ../../home/tmux
     ];
     packages = with pkgs; [
       nixd
