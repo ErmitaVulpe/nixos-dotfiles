@@ -24,6 +24,7 @@
   users.users.uwuntu = {
     homeImports = [
       ../../home/bullshit
+      ../../home/hyfetch
       ../../home/neovim
       ../../home/tmux
     ];

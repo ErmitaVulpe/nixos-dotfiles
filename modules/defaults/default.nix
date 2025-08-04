@@ -8,6 +8,7 @@
     git
     jq
     neovim
+    p7zip
     pciutils
     tmux
     trashy
