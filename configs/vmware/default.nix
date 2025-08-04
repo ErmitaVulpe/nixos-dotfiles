@@ -5,11 +5,11 @@
     ../../modules/defaults
     ../../modules/hyprland
     ../../modules/list-packages
-    ../../users/uwuntu
+    ../../users/winter
   ];
 
   users.users.root.initialHashedPassword = "$6$aS.0EG/z$7cgSogPyLF2IXtZmH7gn5CZaAWTDS3y71j1gnVh2m4MOgU9.AWtLmAjZIpn2TWcYuuM9HtJta/V3hg4xkPyT01";
-  users.users.uwuntu = {
+  users.users.winter = {
     homeImports = [
       ../../home/bullshit
       ../../home/firefox

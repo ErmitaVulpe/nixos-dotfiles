@@ -1,6 +1,6 @@
 { config, pkgs, lib, inputs, ... }:
 let
-  username = "uwuntu";
+  username = "winter";
 in
 {
   options = {
