@@ -26,6 +26,7 @@
       ../../home/bullshit
       ../../home/hyfetch
       ../../home/neovim
+      ../../home/shell/fish
       ../../home/tmux
     ];
     packages = with pkgs; [

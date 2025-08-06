@@ -18,16 +18,12 @@
   ];
 
   i18n = mkDefault {
-    defaultLocale = "en_US.UTF-8";
+    defaultLocale = "en_DK.UTF-8";
     extraLocales = [
-      "en_GB.UTF-8/UTF-8"
-      "en_US.UTF-8/UTF-8"
+      "en_DK.UTF-8/UTF-8"
     ];
-    localeCharsets = {
-      LC_COLLATE = "C";
-    };
     extraLocaleSettings = {
-      LC_TIME = "en_GB.UTF-8";
+      LC_COLLATE = "C.UTF-8";
     };
   };
 

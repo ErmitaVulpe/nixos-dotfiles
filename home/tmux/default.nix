@@ -1,7 +1,7 @@
 { pkgs, ... }: {
-  home.packages = with pkgs; [
-    tmux
-  ];
+  # home.packages = with pkgs; [
+  #   tmux
+  # ];
 
   programs.tmux = {
     baseIndex = 1;
@@ -9,6 +9,7 @@
     enable = true;
     extraConfig = ''
       set-option -g status-left-length 50
+      set -s escape-time 0
 
 
       # set -g status-style bg=default,fg=#dddddd
@@ -48,6 +49,7 @@
 
   home.file.".config/tmux/git.sh" = {
     source = ./git.sh;
+    executable = true;
   };
 }
 
