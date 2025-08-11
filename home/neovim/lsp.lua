@@ -48,3 +48,4 @@ lspConfigurator = function(executable, server_name)
     })
   end
 end
+

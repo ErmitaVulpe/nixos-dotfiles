@@ -14,6 +14,7 @@
       ${builtins.readFile ./lsp.lua}
 
       lspConfigurator("nixd", "nixd")
+      lspConfigurator("lua-language-server", "lua_ls")
       lspConfigurator("rustup", "rust_analyzer")
       lspConfigurator("vscode-css-language-server", "cssls")
       lspConfigurator("vscode-eslint-language-server", "eslint")
@@ -51,6 +52,12 @@
           cmp-nvim-lsp
           luasnip
 
+          # theme
+          {
+            plugin = nightfox-nvim;
+            config = builtins.readFile ./themes/carbonfox.lua;
+          }
+
           # other plugins
           {
             plugin = nvim-autopairs;
@@ -65,8 +72,16 @@
             config = "vim.keymap.set(\"n\", \"<leader>gs\", vim.cmd.Git)";
           }
           {
+            plugin = gitsigns-nvim;
+            config = "require(\"gitsigns\").setup {}";
+          }
+          {
             plugin = harpoon2;
             config = builtins.readFile ./plugins/harpoon.lua;
+          }
+          {
+            plugin = oil-nvim;
+            config = builtins.readFile ./plugins/oil.lua;
           }
           {
             plugin = lualine-nvim;
@@ -91,3 +106,4 @@
       in list;
   };
 }
+
