@@ -9,13 +9,22 @@
     enable = true;
     extraConfig = ''
       set-option -g status-left-length 50
-      set -s escape-time 0
       set-option -g default-terminal "screen-256color"
+      set -g renumber-windows on
+      set -s escape-time 0
 
       # create new.. everything in current pwd
       bind c new-window -c "#{pane_current_path}"
       bind '"' split-window -c "#{pane_current_path}"
       bind % split-window -h -c "#{pane_current_path}"
+
+      # window navigation
+      bind -n C-Left previous-window
+      bind -n C-Right next-window
+
+      # binds for reordering windows
+      bind -n C-S-Left swap-window -t -1\; select-window -t -1
+      bind -n C-S-Right swap-window -t +1\; select-window -t +1
 
       # Theme
       set -g mode-style "fg=#0c0c0c,bg=#b6b8bb"
