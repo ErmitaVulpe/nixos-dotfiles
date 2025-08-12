@@ -26,13 +26,6 @@ vim.keymap.set("t", "<C-w>l", "<C-\\><C-N><C-w>l")
 vim.keymap.set("t", "<C-w>q", "<C-\\><C-N><C-w>q")
 vim.keymap.set("t", "<C-w><C-q>", "<C-\\><C-N><C-w><C-q>")
 
--- -- since tmux navigator occupies the <C-l> keybinding i rebind it's
--- -- functionality to "\"
--- vim.keymap.set("n", "\\", function ()
---     vim.cmd("noh")
---     print(" ")
--- end)
-
 -- open diagnostics
 vim.keymap.set('n', 'gl', '<cmd>lua vim.diagnostic.open_float()<cr>')
 vim.keymap.set('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<cr>')

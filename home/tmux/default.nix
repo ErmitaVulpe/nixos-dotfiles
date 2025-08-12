@@ -19,8 +19,8 @@
       bind % split-window -h -c "#{pane_current_path}"
 
       # window navigation
-      bind -n C-Left previous-window
-      bind -n C-Right next-window
+      bind -n S-Left previous-window
+      bind -n S-Right next-window
 
       # binds for reordering windows
       bind -n C-S-Left swap-window -t -1\; select-window -t -1
