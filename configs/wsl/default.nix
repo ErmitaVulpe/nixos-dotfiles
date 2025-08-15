@@ -17,6 +17,7 @@
     inputs.home-manager.nixosModules.default
     inputs.nixos-wsl.nixosModules.default
     ../../modules/defaults
+    ../../modules/docker
     ../../users/winter
   ];
 
@@ -32,6 +33,7 @@
     packages = with pkgs; [
       nixd
     ];
+    extraGroups = [ "docker" ];
   };
 
   networking.hostName = "wsl"; # Define your hostname.
