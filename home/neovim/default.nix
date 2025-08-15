@@ -84,6 +84,10 @@
             config = builtins.readFile ./plugins/oil.lua;
           }
           {
+            plugin = render-markdown-nvim;
+            config = "require(\"render-markdown\").setup()";
+          }
+          {
             plugin = lualine-nvim;
             config = builtins.readFile ./plugins/lualine.lua;
           }
