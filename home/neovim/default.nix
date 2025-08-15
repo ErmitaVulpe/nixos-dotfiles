@@ -15,7 +15,7 @@
 
       lspConfigurator("nixd", "nixd")
       lspConfigurator("lua-language-server", "lua_ls")
-      lspConfigurator("rustup", "rust_analyzer")
+      lspConfigurator("rust-analyzer", "rust_analyzer")
       lspConfigurator("vscode-css-language-server", "cssls")
       lspConfigurator("vscode-eslint-language-server", "eslint")
       lspConfigurator("vscode-html-language-server", "html")
