@@ -11,6 +11,7 @@
     p7zip
     pciutils
     tmux
+    tokei
     trashy
     tree
     wget
