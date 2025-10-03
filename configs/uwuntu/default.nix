@@ -2,9 +2,11 @@
   imports = [
     ./hardware-configuration.nix
     inputs.home-manager.nixosModules.default
+    inputs.nixos-hardware.nixosModules.common-pc-laptop
+    inputs.nixos-hardware.nixosModules.common-pc-laptop-ssd
     ../../modules/defaults
-    ../../modules/hyprland
-    ../../modules/list-packages
+    ../../modules/dm/ly
+    ../../modules/wm/dwm
     ../../users/winter
   ];
 
@@ -13,16 +15,15 @@
     homeImports = [
       ../../home/bullshit
       ../../home/firefox
-      ../../home/foot
-      ../../home/hyprland
+      ../../home/hyfetch
       ../../home/neovim
+      ../../home/shell/fish
+      ../../home/tmux
     ];
     packages = with pkgs; [
       nixd
     ];
   };
-
-  hyprland.nvidia = true;
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
@@ -30,15 +31,15 @@
 
   networking.hostName = "uwuntu"; # Define your hostname.
   # Pick only one of the below networking options.
-  networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  networking.wireless.userControlled.enable = true;
+  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  # networking.wireless.userControlled.enable = true;
   # networking.wireless.interfaces = [ "wlp0s20f3" ];
   # environment.etc."wpa_supplicant.conf".text = ''
   #   ctrl_interface=/run/wpa_supplicant
   #   ctrl_interface_group=wheel
   #   update_config=1
   # '';
-  # networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
+  networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
 
   # Set your time zone.
   time.timeZone = "Europe/Warsaw";
@@ -47,7 +48,7 @@
   services.printing.enable = true;
 
   # Enable touchpad support (enabled default in most desktopManager).
-  # services.libinput.enable = true;
+  services.libinput.enable = true;
 
   users.mutableUsers = false;
   security.sudo.wheelNeedsPassword = false;
@@ -88,6 +89,6 @@
   # and migrated your data accordingly.
   #
   # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
-  system.stateVersion = "24.11"; # Did you read the comment?
+  system.stateVersion = "25.05"; # Did you read the comment?
 
 }
