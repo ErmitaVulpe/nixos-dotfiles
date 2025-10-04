@@ -18,6 +18,8 @@
     yazi
   ];
 
+  nixpkgs.config.allowUnfree = true;
+
   i18n = mkDefault {
     defaultLocale = "en_DK.UTF-8";
     extraLocales = [

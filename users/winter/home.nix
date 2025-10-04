@@ -28,6 +28,11 @@
       enable = true;
       userEmail = "tymon.wilczek@gmail.com";
       userName = "ErmitaVulpe";
+      extraConfig = {
+        credential = {
+          helper = "store";
+        };
+      };
     };
     neovim = {
       vimAlias = true;

@@ -1,13 +1,12 @@
 { pkgs, inputs, ... }: {
   imports = [
     ./hardware-configuration.nix
-    inputs.home-manager.nixosModules.default
-    inputs.nixos-hardware.nixosModules.common-pc-laptop
-    inputs.nixos-hardware.nixosModules.common-pc-laptop-ssd
+    ./nixos-hardware.nix
     ../../modules/defaults
     ../../modules/dm/ly
     ../../modules/wm/dwm
     ../../users/winter
+    inputs.home-manager.nixosModules.default
   ];
 
   users.users.root.initialHashedPassword = "$6$aS.0EG/z$7cgSogPyLF2IXtZmH7gn5CZaAWTDS3y71j1gnVh2m4MOgU9.AWtLmAjZIpn2TWcYuuM9HtJta/V3hg4xkPyT01";
@@ -19,6 +18,7 @@
       ../../home/neovim
       ../../home/shell/fish
       ../../home/tmux
+      ../../home/wezterm
     ];
     packages = with pkgs; [
       nixd
