@@ -8,6 +8,10 @@
   
   hardware.enableRedistributableFirmware = lib.mkDefault true;
 
+  environment.systemPackages = with pkgs; [
+    nvitop
+  ];
+
   hardware.nvidia = {
     open = false;
     prime = {

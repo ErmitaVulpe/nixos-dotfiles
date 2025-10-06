@@ -22,6 +22,7 @@
       ../../home/neovim
       ../../home/shell/fish
       ../../home/tmux
+      ../../home/wallpapers/xenia
       ../../home/wezterm
     ];
     packages = with pkgs; [
@@ -68,20 +69,52 @@
       '';
     };
   };
-  # services.libinput.enable = false;
-  # services.xserver.synaptics = {
-  #   enable = true;
-  #   additionalOptions = ''
-  #     Option    "VertTwoFingerScroll" "1"
-  #     Option    "HorizTwoFingerScroll" "1"
-  #     Option    "RightButtonAreaTop" "0"
-  #     Option    "RightButtonAreaLeft" "0"
-  #     Option    "VertScrollDelta" "-300"
-  #     Option    "HorizScrollDelta" "-300"
-  #     Option    "CoastingSpeed" "17"
-  #     Option    "CoastingFriction" "34"
-  #     OPtion    "PalmDetect" "0"
-  #   '';
+
+  # services.tlp.settings = {
+  #     TLP_DEFAULT_MODE="balanced";
+  #     TLP_PERSISTENT_DEFAULT=0;
+  #     TLP_PS_IGNORE_SUBMODE_ON_AC=0;
+  #     TLP_PS_IGNORE_SUBMODE_ON_BAT=0;
+  #
+  #     # --------- CPU Settings ---------
+  #     CPU_SCALING_GOVERNOR_ON_AC="performance";
+  #     CPU_SCALING_GOVERNOR_ON_BAT="powersave";
+  #     CPU_ENERGY_PERF_POLICY_ON_AC="performance";
+  #     CPU_ENERGY_PERF_POLICY_ON_BAT="power";
+  #
+  #     # Intel P-state (for newer Intel CPUs)
+  #     CPU_HWP_ON_AC="balance_performance";
+  #     CPU_HWP_ON_BAT="balance_power";
+  #
+  #     # --------- PCI Express Active State Power Management ---------
+  #     PCIE_ASPM_ON_AC="performance";
+  #     PCIE_ASPM_ON_BAT="power_supersave";
+  #
+  #     # --------- Runtime Power Management for PCI Devices ---------
+  #     RUNTIME_PM_ON_AC="on";
+  #     RUNTIME_PM_ON_BAT="auto";
+  #
+  #     # --------- USB Autosuspend ---------
+  #     USB_AUTOSUSPEND=1;
+  #     USB_BLACKLIST_BTUSB=0;
+  #     USB_BLACKLIST_PHONE=1;
+  #     USB_BLACKLIST_PRINTER=1;
+  #
+  #     # --------- WiFi Power Saving ---------
+  #     WIFI_PWR_ON_AC="on";
+  #     WIFI_PWR_ON_BAT="on";
+  #
+  #     # --------- Audio Power Saving ---------
+  #     SOUND_POWER_SAVE_ON_AC=0;
+  #     SOUND_POWER_SAVE_ON_BAT=10;
+  #
+  #     # --------- Graphics (Intel/NVIDIA/AMD Hybrid Support) ---------
+  #     NVIDIA_PWRM="auto";
+  #     NVIDIA_HYBRID_AUTO_DISABLE_GPU=1;
+  #
+  #     # --------- Platform Profile (if supported, e.g., modern ThinkPads, Dells) ---------
+  #     PLATFORM_PROFILE_ON_AC="performance";
+  #     PLATFORM_PROFILE_ON_BAT="balanced";
   # };
 
   swapDevices = [{
