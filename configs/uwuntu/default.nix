@@ -9,6 +9,10 @@
     inputs.home-manager.nixosModules.default
   ];
 
+  environment.systemPackages = with pkgs; [
+    brightnessctl
+  ];
+
   users.users.root.initialHashedPassword = "$6$aS.0EG/z$7cgSogPyLF2IXtZmH7gn5CZaAWTDS3y71j1gnVh2m4MOgU9.AWtLmAjZIpn2TWcYuuM9HtJta/V3hg4xkPyT01";
   users.users.winter = {
     homeImports = [
@@ -48,7 +52,42 @@
   services.printing.enable = true;
 
   # Enable touchpad support (enabled default in most desktopManager).
-  services.libinput.enable = true;
+  services.libinput = {
+    enable = true;
+    touchpad = {
+      accelProfile = "adaptive";
+      accelSpeed = "-0.5";
+      accelStepScroll = 0.1;
+      accelPointsMotion = [6.0 7.0 14.0 30.0 70.0];
+      accelStepMotion = 3;
+      clickMethod = "clickfinger";
+      naturalScrolling = true;
+      tapping = false;
+      additionalOptions = ''
+        Option "ScrollPixelDistance" "30"
+      '';
+    };
+  };
+  # services.libinput.enable = false;
+  # services.xserver.synaptics = {
+  #   enable = true;
+  #   additionalOptions = ''
+  #     Option    "VertTwoFingerScroll" "1"
+  #     Option    "HorizTwoFingerScroll" "1"
+  #     Option    "RightButtonAreaTop" "0"
+  #     Option    "RightButtonAreaLeft" "0"
+  #     Option    "VertScrollDelta" "-300"
+  #     Option    "HorizScrollDelta" "-300"
+  #     Option    "CoastingSpeed" "17"
+  #     Option    "CoastingFriction" "34"
+  #     OPtion    "PalmDetect" "0"
+  #   '';
+  # };
+
+  swapDevices = [{
+    device = "/.swapfile";
+    size = 32 * 1024; # 32GiB
+  }];
 
   users.mutableUsers = false;
   security.sudo.wheelNeedsPassword = false;

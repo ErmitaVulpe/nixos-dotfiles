@@ -83,10 +83,6 @@
             nix shell $pkgs
           '';
         };
-        "!!" = {
-          description = "Port for the \"!!\" from bash";
-          body = "eval $history[1]";
-        };
       };
     };
     nix-your-shell = {
