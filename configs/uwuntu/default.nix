@@ -117,10 +117,25 @@
   #     PLATFORM_PROFILE_ON_BAT="balanced";
   # };
 
+  # Swap and hibernation
   swapDevices = [{
     device = "/.swapfile";
     size = 32 * 1024; # 32GiB
   }];
+  # These two need to be changed on a new system to work properly
+  # https://nixos.wiki/wiki/Hibernation
+  boot = {
+    kernelParams = ["resume_offset=4161536"];
+    resumeDevice = "/dev/disk/by-uuid/9177a52e-b785-48e3-9532-6d5d2ec31a90";
+  };
+  services = {
+    logind.settings.Login = {
+      HandleLidSwitch = "suspend";
+      HandleLidSwitchDocked = "ignore";
+    };
+    upower.enable = true;
+  };
+  systemd.sleep.extraConfig = "HibernateDelaySec=30min";
 
   users.mutableUsers = false;
   security.sudo.wheelNeedsPassword = false;
