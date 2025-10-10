@@ -39,13 +39,9 @@ cmp.setup({
   },
 })
 
-local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
-
 lspConfigurator = function(executable, server_name)
   if os.execute("which " .. executable .. " > /dev/null 2>&1") == 0 then
-    require('lspconfig')[server_name].setup({
-      capabilities = lsp_capabilities,
-    })
+    vim.lsp.enable(server_name)
   end
 end
 

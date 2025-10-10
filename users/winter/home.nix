@@ -6,11 +6,6 @@
 
   imports = config.users.users."${username}".homeImports;
 
-  home.packages = with pkgs; [
-    gamemode
-    vscode-langservers-extracted
-  ];
-
   home.file = {
     # sex.text = "not real";
   };
