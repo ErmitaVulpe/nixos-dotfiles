@@ -4,6 +4,8 @@
     ./nixos-hardware.nix
     ../../modules/defaults
     ../../modules/dm/ly
+    ../../modules/fwupd
+    ../../modules/school
     ../../modules/wm/dwm
     ../../users/winter
     inputs.home-manager.nixosModules.default

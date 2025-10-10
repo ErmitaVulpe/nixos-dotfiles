@@ -17,5 +17,6 @@ config.window_padding = {
     top = "5px",
     bottom = "5px",
 }
+config.harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' }
 
 return config
