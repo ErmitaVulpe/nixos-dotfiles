@@ -48,6 +48,7 @@
           ]))
 
           # LSP
+          nvim-lspconfig
           nvim-cmp
           luasnip
 

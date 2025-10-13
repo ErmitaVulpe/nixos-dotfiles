@@ -41,6 +41,9 @@ cmp.setup({
 
 lspConfigurator = function(executable, server_name)
   if os.execute("which " .. executable .. " > /dev/null 2>&1") == 0 then
+    vim.lsp.config(server_name, {
+      capabilities = lsp_capabilities,
+    })
     vim.lsp.enable(server_name)
   end
 end
