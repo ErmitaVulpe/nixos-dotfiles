@@ -61,7 +61,7 @@
       accelProfile = "adaptive";
       accelSpeed = "-0.5";
       accelStepScroll = 0.1;
-      accelPointsMotion = [6.0 7.0 14.0 30.0 70.0];
+      accelPointsMotion = [10.0 12.0 14.0 20.0 30.0 50.0];
       accelStepMotion = 3;
       clickMethod = "clickfinger";
       naturalScrolling = true;
