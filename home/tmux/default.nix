@@ -9,7 +9,7 @@
     enable = true;
     extraConfig = ''
       set-option -g status-left-length 50
-      set-option -g default-terminal "screen-256color"
+      set-option -g default-terminal "$TERM"
       set -g renumber-windows on
       set -s escape-time 0
 
