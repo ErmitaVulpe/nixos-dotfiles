@@ -1,4 +1,13 @@
-{ config, lib, pkgs, inputs, ... }: {
+{ config, lib, pkgs, inputs, ... }: let
+  slock-pkg = (pkgs.slock.override {
+    extraLibs = with pkgs; [
+      xorg.libXinerama
+      xorg.libXft
+    ];
+  }).overrideAttrs (old: {
+      src = ./slock-1.6;
+    });
+in {
   config = {
     environment.systemPackages = with pkgs; [
       xorg.xauth
@@ -38,6 +47,23 @@
         dwmblocks &
         xset r rate 300 40 &
       '';
+    };
+    programs.slock = {
+      enable = true;
+      package = slock-pkg;
+    };
+    systemd.services.lockBeforeSuspend = {
+      description = "Lock session before suspend/hibernate";
+      serviceConfig = {
+        Type = "simple";
+        ExecStart = "${slock-pkg}/bin/slock";
+      };
+      environment = {
+        DISPLAY = ":0";
+        XAUTHORITY = "%h/.Xauthority";
+      };
+      before = [ "sleep.target" ];
+      wantedBy = [ "sleep.target" ];
     };
     fonts.packages = with pkgs; [
       dejavu_fonts

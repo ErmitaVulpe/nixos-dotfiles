@@ -69,6 +69,7 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "wezterm", NULL };
+static const char *lockscreencmd[]  = { "slock", NULL };
 
 static const char *brupcmd[]   = { "brightnessctl", "set", "5%+", NULL };
 static const char *brdowncmd[] = { "brightnessctl", "set", "5%-", NULL };
@@ -114,6 +115,7 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
+	{ MODKEY,                       XK_l,      spawn,          {.v = lockscreencmd} },
     { 0,        XF86XK_MonBrightnessUp,        spawn,          {.v = brupcmd} },
     { 0,        XF86XK_MonBrightnessDown,      spawn,          {.v = brdowncmd} },
     { 0,        XF86XK_AudioMute,              spawn,          {.v = voltogglemutecmd} },
