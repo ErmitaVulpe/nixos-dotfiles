@@ -19,6 +19,7 @@
   users.users.winter = {
     homeImports = [
       ../../home/bullshit
+      ../../home/cursors/phinger
       ../../home/firefox
       ../../home/hyfetch
       ../../home/neovim
@@ -58,11 +59,11 @@
   services.libinput = {
     enable = true;
     touchpad = {
-      accelProfile = "adaptive";
+      accelProfile = "custom";
       accelSpeed = "-0.5";
       accelStepScroll = 0.1;
-      accelPointsMotion = [10.0 12.0 14.0 20.0 30.0 50.0];
-      accelStepMotion = 3;
+      accelPointsMotion = [0 0.25 1.35 1.5 1.75 3];
+      accelStepMotion = 2.5;
       clickMethod = "clickfinger";
       naturalScrolling = true;
       tapping = false;
@@ -70,6 +71,17 @@
         Option "ScrollPixelDistance" "30"
       '';
     };
+  };
+
+  # Custom settings for X11
+  services.xserver = {
+    videoDrivers = [
+      "intel"
+      "nvidia"
+    ];
+    deviceSection = ''
+      Option "TearFree" "true"
+    '';
   };
 
   # services.tlp.settings = {
@@ -164,6 +176,11 @@
   # networking.firewall.enable = false;
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+  programs.nh = {
+    enable = true;
+    flake = "/home/winter/nixos-dotfiles";
+  };
 
   # This option defines the first version of NixOS you have installed on this particular machine,
   # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.

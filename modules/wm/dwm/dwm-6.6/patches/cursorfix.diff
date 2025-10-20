@@ -1,0 +1,20 @@
+diff --git a/dwm.c b/dwm.c
+index fbca3c8..5f2d279 100644
+--- a/dwm.c
++++ b/dwm.c
+@@ -20,6 +20,7 @@
+  *
+  * To understand everything else, start reading main().
+  */
++#include <dlfcn.h>
+ #include <errno.h>
+ #include <locale.h>
+ #include <signal.h>
+@@ -2501,6 +2502,7 @@ zoom(const Arg *arg)
+ int
+ main(int argc, char *argv[])
+ {
++    dlopen("/nix/store/ksk6xsnj5i79xfdi2m677gvnhaqs3hp9-libxcursor-1.2.3/lib/libXcursor.so.1", RTLD_LAZY);
+ 	if (argc == 2 && !strcmp("-v", argv[1]))
+ 		die("dwm-"VERSION);
+ 	else if (argc != 1)

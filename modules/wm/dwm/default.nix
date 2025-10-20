@@ -1,8 +1,9 @@
-{ config, lib, pkgs, inputs, ... }: with lib; {
+{ config, lib, pkgs, inputs, ... }: {
   config = {
     environment.systemPackages = with pkgs; [
       xorg.xauth
       xorg.xf86inputlibinput
+      xorg.libXcursor
       dmenu
       feh
       (dwmblocks.overrideAttrs {
@@ -12,19 +13,24 @@
     ];
     services.xserver = {
       enable = true;
-      xkb.layout = "pl";
       displayManager.startx = {
         enable = true;
         generateScript = true;
       };
+      xkb.layout = "pl";
     };
     services.xserver.windowManager.dwm = {
       enable = true;
-      package = pkgs.dwm.overrideAttrs {
-        src = ./dwm-6.6;
-      };
+      package = (pkgs.dwm.override {
+        extraLibs = [ pkgs.xorg.libXcursor ];
+      }).overrideAttrs (old: {
+          src = ./dwm-6.6;
+          patches = old.patches ++ [
+            ./dwm-6.6/patches/cursorfix.diff
+          ];
+        });
       extraSessionCommands = ''
-        feh --bg-scale ~/.local/share/backgrounds/default.png
+        feh --bg-scale ~/.local/share/backgrounds/default.png &
         dwmblocks &
       '';
     };
