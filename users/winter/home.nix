@@ -21,9 +21,11 @@
     };
     git = {
       enable = true;
-      userEmail = "tymon.wilczek@gmail.com";
-      userName = "ErmitaVulpe";
-      extraConfig = {
+      settings = {
+        user = {
+          email = "tymon.wilczek@gmail.com";
+          name = "ErmitaVulpe";
+        };
         credential = {
           helper = "store";
         };
