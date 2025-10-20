@@ -10,6 +10,10 @@
         src = ./dwmblocks;
         version = "0-unstable-2024-08-24";
       })
+
+      # System apps
+      pavucontrol
+      pamixer
     ];
     services.xserver = {
       enable = true;
@@ -32,6 +36,7 @@
       extraSessionCommands = ''
         feh --bg-scale ~/.local/share/backgrounds/default.png &
         dwmblocks &
+        xset r rate 300 40 &
       '';
     };
     fonts.packages = with pkgs; [

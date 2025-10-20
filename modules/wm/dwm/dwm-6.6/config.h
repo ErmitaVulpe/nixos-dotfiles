@@ -34,12 +34,12 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
+	{ "Firefox",  NULL,       NULL,       0,            0,           -1 },
+	{ "pavucontrol", NULL,    NULL,       0,            1,           -1 },
 };
 
 /* layout(s) */
-static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
+static const float mfact     = 0.6; /* factor of master area size [0.05..0.95] */
 static const int nmaster     = 1;    /* number of clients in master area */
 static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
 static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen window */
@@ -66,8 +66,13 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "wezterm", NULL };
-static const char *brupcmd[] = { "brightnessctl", "set", "5%+", NULL };
+
+static const char *brupcmd[]   = { "brightnessctl", "set", "5%+", NULL };
 static const char *brdowncmd[] = { "brightnessctl", "set", "5%-", NULL };
+
+static const char *voltogglemutecmd[] = { "pamixer", "-t", NULL };
+static const char *volupcmd[]      = { "pamixer", "-i", "5", NULL };
+static const char *voldowncmd[]    = { "pamixer", "-d", "5", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -106,6 +111,9 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
     { 0,        XF86XK_MonBrightnessUp,        spawn,          {.v = brupcmd} },
     { 0,        XF86XK_MonBrightnessDown,      spawn,          {.v = brdowncmd} },
+    { 0,        XF86XK_AudioMute,              spawn,          {.v = voltogglemutecmd} },
+    { 0,        XF86XK_AudioRaiseVolume,       spawn,          {.v = volupcmd} },
+    { 0,        XF86XK_AudioLowerVolume,       spawn,          {.v = voldowncmd} },
 };
 
 /* button definitions */
