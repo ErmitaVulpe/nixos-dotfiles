@@ -1,4 +1,4 @@
-{ config, lib, pkgs, inputs, ... }: with lib; {
+{ pkgs, ... }: {
   config = {
     boot.kernelPackages = pkgs.linuxPackages_latest;
   };

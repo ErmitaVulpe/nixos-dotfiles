@@ -4,7 +4,9 @@
     ./nixos-hardware.nix
     ../../modules/defaults
     ../../modules/dm/ly
+    ../../modules/firmware
     ../../modules/fwupd
+    ../../modules/kernel/zen
     ../../modules/school
     ../../modules/wm/dwm
     ../../users/winter
