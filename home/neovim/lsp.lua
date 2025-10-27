@@ -22,9 +22,12 @@ vim.api.nvim_create_autocmd('LspAttach', {
 local cmp = require('cmp')
 
 cmp.setup({
-  sources = {
-    {name = 'nvim_lsp'},
-  },
+  sources = cmp.config.sources({
+    { name = 'nvim_lsp' },
+    { name = 'luasnip' },
+  }, {
+    { name = 'buffer' },
+  }),
   mapping = cmp.mapping.preset.insert({
     -- Enter key confirms completion item
     ['<CR>'] = cmp.mapping.confirm({select = false}),

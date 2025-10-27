@@ -21,6 +21,7 @@ in {
       })
 
       # System apps
+      brightnessctl
       pavucontrol
       pamixer
     ];

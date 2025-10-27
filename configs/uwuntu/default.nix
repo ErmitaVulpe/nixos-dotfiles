@@ -13,10 +13,6 @@
     inputs.home-manager.nixosModules.default
   ];
 
-  environment.systemPackages = with pkgs; [
-    brightnessctl
-  ];
-
   users.users.root.initialHashedPassword = "$6$aS.0EG/z$7cgSogPyLF2IXtZmH7gn5CZaAWTDS3y71j1gnVh2m4MOgU9.AWtLmAjZIpn2TWcYuuM9HtJta/V3hg4xkPyT01";
   users.users.winter = {
     homeImports = [
@@ -62,15 +58,15 @@
     enable = true;
     touchpad = {
       accelProfile = "custom";
-      accelSpeed = "-0.5";
-      accelStepScroll = 0.1;
+      accelSpeed = "0";
+      accelStepScroll = 3;
       accelPointsMotion = [0 0.25 1.35 1.5 1.75 3];
       accelStepMotion = 2.5;
       clickMethod = "clickfinger";
       naturalScrolling = true;
       tapping = false;
       additionalOptions = ''
-        Option "ScrollPixelDistance" "30"
+        Option "ScrollPixelDistance" "10"
       '';
     };
   };

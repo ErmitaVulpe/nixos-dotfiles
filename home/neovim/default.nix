@@ -48,9 +48,11 @@
           ]))
 
           # LSP
-          nvim-lspconfig
-          nvim-cmp
+          cmp-nvim-lsp
+          cmp_luasnip
           luasnip
+          nvim-cmp
+          nvim-lspconfig
 
           # theme
           {
