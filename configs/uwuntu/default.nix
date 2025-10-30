@@ -59,6 +59,7 @@
     touchpad = {
       accelProfile = "custom";
       accelSpeed = "0";
+      accelPointsScroll = [ 0 1 2.4 2.5 ];
       accelStepScroll = 3;
       accelPointsMotion = [0 0.25 1.35 1.5 1.75 3];
       accelStepMotion = 2.5;
