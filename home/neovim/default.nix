@@ -78,6 +78,10 @@
             config = "require(\"gitsigns\").setup {}";
           }
           {
+            plugin = tiny-inline-diagnostic-nvim;
+            config = builtins.readFile ./plugins/tiny-inline-diagnostic.lua;
+          }
+          {
             plugin = harpoon2;
             config = builtins.readFile ./plugins/harpoon.lua;
           }
