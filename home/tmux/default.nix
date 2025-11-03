@@ -10,6 +10,7 @@
     extraConfig = ''
       set-option -g status-left-length 50
       set-option -g default-terminal "$TERM"
+      set -as terminal-features ",xterm-256color:RGB"
       set -g renumber-windows on
       set -s escape-time 0
 

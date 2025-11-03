@@ -10,7 +10,7 @@ config.colors = {
     cursor_bg = "silver",
     foreground = "#E2DEFF",
 }
-config.text_background_opacity = 0.7
+config.text_background_opacity = 1.0
 config.window_padding = {
     left = "5px",
     right = "5px",
@@ -20,3 +20,4 @@ config.window_padding = {
 config.harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' }
 
 return config
+
