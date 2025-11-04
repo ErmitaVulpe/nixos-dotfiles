@@ -1,4 +1,4 @@
-{ config, pkgs, username, ... }: {
+{ config, username, ... }: {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "${username}";
@@ -11,7 +11,9 @@
   };
 
   home.sessionVariables = {
-    # EDITOR = "emacs";
+    # pixel scrolling in firefox
+    # see: https://askubuntu.com/questions/1148934/precise-scrolling-in-firefox
+    MOZ_USE_XINPUT2 = 1;
   };
 
   programs = {
@@ -49,3 +51,4 @@
   # release notes.
   home.stateVersion = "24.11"; # Please read the comment before changing.
 }
+
