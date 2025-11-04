@@ -6,7 +6,7 @@ require("tiny-inline-diagnostic").setup({
         left = "",
         right = "",
         diag = "●",
-        arrow = " ",
+        arrow = "  ",
         up_arrow = "",
         vertical = " │",
         vertical_end = " └",
