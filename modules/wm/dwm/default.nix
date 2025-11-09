@@ -24,6 +24,8 @@ in {
       brightnessctl
       pavucontrol
       pamixer
+      xclip
+      scrot
     ];
     services.xserver = {
       enable = true;

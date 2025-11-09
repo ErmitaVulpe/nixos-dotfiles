@@ -78,6 +78,11 @@ static const char *voltogglemutecmd[] = { "pamixer", "-t", NULL };
 static const char *volupcmd[]      = { "pamixer", "-i", "5", NULL };
 static const char *voldowncmd[]    = { "pamixer", "-d", "5", NULL };
 
+static const char *screenshotcmd[] = {
+    "scrot", "-os", "/tmp/screenshot.png",
+    "-e", "xclip -selection clipboard -t image/png -i $f", NULL
+};
+
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
@@ -121,6 +126,7 @@ static const Key keys[] = {
     { 0,        XF86XK_AudioMute,              spawn,          {.v = voltogglemutecmd} },
     { 0,        XF86XK_AudioRaiseVolume,       spawn,          {.v = volupcmd} },
     { 0,        XF86XK_AudioLowerVolume,       spawn,          {.v = voldowncmd} },
+	{ MODKEY|ShiftMask,             XK_s,      spawn,          {.v = screenshotcmd} },
 };
 
 /* button definitions */
