@@ -71,8 +71,8 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *termcmd[]  = { "wezterm", NULL };
 static const char *lockscreencmd[]  = { "slock", NULL };
 
-static const char *brupcmd[]   = { "brightnessctl", "set", "5%+", NULL };
-static const char *brdowncmd[] = { "brightnessctl", "set", "5%-", NULL };
+static const char *brupcmd[]   = { "brightnessctl", "-e", "set", "5%+", NULL };
+static const char *brdowncmd[] = { "brightnessctl", "-e", "set", "5%-", NULL };
 
 static const char *voltogglemutecmd[] = { "pamixer", "-t", NULL };
 static const char *volupcmd[]      = { "pamixer", "-i", "5", NULL };
