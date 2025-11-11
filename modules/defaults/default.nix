@@ -41,7 +41,7 @@
     fgrep = "fgrep --color=auto";
     grep = "grep --color=auto";
     l = null;
-    ll = "ls -lah";
+    ll = "ls -lah --group-directories-first";
     ls = "ls --color=tty";
     trash = "trash -t never";
   };
@@ -68,5 +68,6 @@
       enable = true;
       defaultEditor = true;
     };
+    nix-ld.enable = true;
   };
 }

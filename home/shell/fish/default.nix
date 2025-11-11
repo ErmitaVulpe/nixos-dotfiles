@@ -67,7 +67,7 @@
         ll = {
           description = "List contents of directory using long format";
           wraps = "ls";
-          body = "ls -lah $argv";
+          body = "ls -lah --group-directories-first $argv";
         };
         ns = {
           description = "Shorthand for `nix shell`";
