@@ -31,6 +31,7 @@
         credential = {
           helper = "store";
         };
+        init.defaultBranch = "main";
       };
     };
     neovim = {
