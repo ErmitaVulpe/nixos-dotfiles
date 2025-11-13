@@ -33,6 +33,9 @@
         };
         init.defaultBranch = "main";
       };
+      ignores = [
+        "nix.profile*"
+      ];
     };
     neovim = {
       vimAlias = true;
