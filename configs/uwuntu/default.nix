@@ -23,6 +23,7 @@
       ../../home/neovim
       ../../home/shell/fish
       ../../home/tmux
+      ../../home/vesktop
       ../../home/wallpapers/xenia
       ../../home/wezterm
     ];
