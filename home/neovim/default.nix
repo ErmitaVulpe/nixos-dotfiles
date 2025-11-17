@@ -63,7 +63,7 @@
           # other plugins
           {
             plugin = nvim-autopairs;
-            config = "require(\"nvim-autopairs\").setup {}";
+            config = builtins.readFile ./plugins/autopairs.lua;
           }
           {
             plugin = nvim-colorizer-lua;
@@ -96,10 +96,6 @@
           {
             plugin = lualine-nvim;
             config = builtins.readFile ./plugins/lualine.lua;
-          }
-          {
-            plugin = nvim-surround;
-            config = "require(\"nvim-surround\").setup()";
           }
           {
             plugin = telescope-nvim;
