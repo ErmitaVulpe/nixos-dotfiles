@@ -2,7 +2,7 @@ require("nvim-autopairs").setup({
     fast_wrap = {
       map = '<M-e>',
       chars = { '{', '[', '(', '"', "'" },
-      pattern = [=[[%'%"%>%]%)%}%,]]=],
+      pattern = [=[[%'%"%>%]%)%}%,%.]]=],
       end_key = '$',
       before_key = 'h',
       after_key = 'l',

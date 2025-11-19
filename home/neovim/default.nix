@@ -98,6 +98,10 @@
             config = builtins.readFile ./plugins/lualine.lua;
           }
           {
+            plugin = nvim-surround;
+            config = "require(\"nvim-surround\").setup()";
+          }
+          {
             plugin = telescope-nvim;
             config = builtins.readFile ./plugins/telescope.lua;
           }
