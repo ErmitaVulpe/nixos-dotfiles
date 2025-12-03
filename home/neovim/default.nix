@@ -90,6 +90,10 @@
             config = builtins.readFile ./plugins/oil.lua;
           }
           {
+            plugin = oil-git-nvim;
+            config = "require(\"oil-git\").setup()";
+          }
+          {
             plugin = render-markdown-nvim;
             config = "require(\"render-markdown\").setup()";
           }
