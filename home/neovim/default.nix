@@ -94,6 +94,10 @@
             config = "require(\"oil-git\").setup()";
           }
           {
+            plugin = oil-lsp-diagnostics-nvim;
+            config = "require(\"oil-lsp-diagnostics\").setup()";
+          }
+          {
             plugin = render-markdown-nvim;
             config = "require(\"render-markdown\").setup()";
           }
