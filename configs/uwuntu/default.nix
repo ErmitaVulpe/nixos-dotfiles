@@ -6,6 +6,7 @@
     ../../modules/dm/ly
     ../../modules/firmware
     ../../modules/fwupd
+    ../../modules/gaming
     ../../modules/kernel/zen
     ../../modules/school
     ../../modules/wm/dwm
