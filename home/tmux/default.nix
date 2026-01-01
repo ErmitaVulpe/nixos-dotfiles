@@ -13,8 +13,9 @@
       set -as terminal-features ",xterm-256color:RGB"
       set -g renumber-windows on
       set -s escape-time 0
+      set -g detach-on-destroy off
 
-      # create new.. everything in current pwd
+      # create new... everything in current pwd
       bind c new-window -c "#{pane_current_path}"
       bind '"' split-window -c "#{pane_current_path}"
       bind % split-window -h -c "#{pane_current_path}"
@@ -26,6 +27,9 @@
       # binds for reordering windows
       bind -n C-S-Left swap-window -t -1\; select-window -t -1
       bind -n C-S-Right swap-window -t +1\; select-window -t +1
+
+      # session shorthands
+      bind-key C-n new-session
 
       # Theme
       set -g mode-style "fg=#0c0c0c,bg=#b6b8bb"
@@ -55,12 +59,6 @@
       tmuxPlugins.vim-tmux-navigator
     ];
     sensibleOnTop = false;
-  };
-
-
-  home.file.".config/tmux/git.sh" = {
-    source = ./git.sh;
-    executable = true;
   };
 }
 

@@ -10,6 +10,10 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
+-- buffer switching
+vim.keymap.set("n", "<Tab>", ":bn<CR>", { silent = true })
+vim.keymap.set("n", "<S-Tab>", ":bp<CR>", { silent = true })
+
 -- delete to void
 vim.keymap.set("x", "<leader>p", [["_dP]])
 vim.keymap.set({"n", "v"}, "<leader>d", [["_d]])
