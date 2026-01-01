@@ -62,7 +62,7 @@
       accelSpeed = "0";
       accelPointsScroll = [ 0 0.5 1.2 1.25 ];
       accelStepScroll = 3;
-      accelPointsMotion = [0 0.25 1.35 1.5 1.75 3];
+      accelPointsMotion = [0 0.33 1.5 2 3.75 5.5];
       accelStepMotion = 2.5;
       clickMethod = "clickfinger";
       naturalScrolling = true;
