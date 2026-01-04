@@ -70,6 +70,10 @@
             config = builtins.readFile ./plugins/colorizer.lua;
           }
           {
+            plugin = conform-nvim;
+            config = builtins.readFile ./plugins/conform.lua;
+          }
+          {
             plugin = vim-fugitive;
             config = "vim.keymap.set(\"n\", \"<leader>gs\", vim.cmd.Git)";
           }

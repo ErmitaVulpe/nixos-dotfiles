@@ -19,9 +19,6 @@ vim.keymap.set("x", "<leader>p", [["_dP]])
 vim.keymap.set({"n", "v"}, "<leader>d", [["_d]])
 vim.keymap.set({"n", "v"}, "<leader>x", [["_x]])
 
--- format whole buffer
-vim.keymap.set("n", "<leader>=", "gg=G``")
-
 -- terminal navigation
 vim.keymap.set("t", "<C-w>h", "<C-\\><C-N><C-w>h")
 vim.keymap.set("t", "<C-w>j", "<C-\\><C-N><C-w>j")
