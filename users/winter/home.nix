@@ -32,6 +32,7 @@
           helper = "store";
         };
         init.defaultBranch = "main";
+        pull.rebase = false;
       };
       ignores = [
         "nix.profile*"
