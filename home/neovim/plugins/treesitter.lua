@@ -1,16 +1,4 @@
-require("nvim-treesitter.configs").setup({
-    -- -- A list of parser names, or "all"
-    -- ensure_installed = {
-    --     "javascript", "typescript", "c", "lua", "rust", "bash", "python",
-    -- },
-
-    -- -- Install parsers synchronously (only applied to `ensure_installed`)
-    -- sync_install = false,
-    --
-    -- -- Automatically install missing parsers when entering buffer
-    -- -- Recommendation: set to false if you don"t have `tree-sitter` CLI installed locally
-    -- auto_install = true,
-
+require("nvim-treesitter").setup({
     indent = {
         enable = true
     },
@@ -26,3 +14,7 @@ require("nvim-treesitter.configs").setup({
         additional_vim_regex_highlighting = { "markdown" },
     },
 })
+
+vim.wo[0][0].foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+vim.wo[0][0].foldmethod = 'expr'
+

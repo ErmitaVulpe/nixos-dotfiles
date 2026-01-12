@@ -39,12 +39,20 @@
           (nvim-treesitter.withPlugins (p: [
             p.bash
             p.c
+            p.css
+            p.dockerfile
+            p.html
             p.javascript
+            p.json
             p.lua
             p.nix
             p.python
             p.rust
+            p.sql
+            p.tmux
+            p.toml
             p.typescript
+            p.yaml
           ]))
 
           # LSP
