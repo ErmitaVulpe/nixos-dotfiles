@@ -17,9 +17,6 @@
       ../../home/hyprland
       ../../home/neovim
     ];
-    packages = with pkgs; [
-      nixd
-    ];
   };
 
   hyprland.nvidia = true;

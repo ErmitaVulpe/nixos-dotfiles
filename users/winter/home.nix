@@ -1,10 +1,15 @@
-{ config, username, ... }: {
+{ config, username, pkgs, ... }: {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "${username}";
   home.homeDirectory = "/home/${username}";
 
   imports = config.users.users."${username}".homeImports;
+
+  home.packages = with pkgs; [
+    nixd
+    nixfmt
+  ];
 
   home.file = {
     # sex.text = "not real";

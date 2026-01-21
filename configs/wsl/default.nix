@@ -31,9 +31,6 @@
       ../../home/shell/fish
       ../../home/tmux
     ];
-    packages = with pkgs; [
-      nixd
-    ];
     extraGroups = [ "docker" ];
   };
 

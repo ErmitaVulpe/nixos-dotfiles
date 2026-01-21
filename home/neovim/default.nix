@@ -6,6 +6,10 @@
 
     extraPackages = with pkgs; [
       ripgrep
+
+      # Just for easier config editing
+      lua-language-server
+      # stylua
     ];
 
     extraLuaConfig = ''
@@ -23,7 +27,7 @@
       lspConfigurator("vscode-json-language-server", "jsonls")
 
       vim.api.nvim_create_autocmd("FileType", {
-        pattern = "nix",
+        pattern = { "lua", "nix" },
         command = "setlocal shiftwidth=2 tabstop=2"
       })
     '';

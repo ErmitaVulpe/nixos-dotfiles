@@ -29,9 +29,6 @@
       ../../home/wallpapers/xenia
       ../../home/wezterm
     ];
-    packages = with pkgs; [
-      nixd
-    ];
   };
 
   # Use the systemd-boot EFI boot loader.
