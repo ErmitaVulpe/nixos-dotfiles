@@ -24,10 +24,9 @@ in {
 
       # System apps
       brightnessctl
-      pavucontrol
-      pamixer
-      xclip
       scrot
+      xclip
+      xss-lock
     ];
     services.xserver = {
       enable = true;
@@ -51,24 +50,12 @@ in {
         feh --bg-scale ~/.local/share/backgrounds/default.png &
         dwmblocks &
         xset r rate 300 40 &
+        xss-lock -- slock &
       '';
     };
     programs.slock = {
       enable = true;
       package = slock-pkg;
-    };
-    systemd.services.lockBeforeSuspend = {
-      description = "Lock session before suspend/hibernate";
-      serviceConfig = {
-        Type = "simple";
-        ExecStart = "${slock-pkg}/bin/slock";
-      };
-      environment = {
-        DISPLAY = ":0";
-        XAUTHORITY = "%h/.Xauthority";
-      };
-      before = [ "sleep.target" ];
-      wantedBy = [ "sleep.target" ];
     };
     fonts.packages = with pkgs; [
       dejavu_fonts
