@@ -4,6 +4,7 @@
     ./hardware-configuration.nix
     ./nixos-hardware.nix
     ../../modules/audio
+    ../../modules/dconf
     ../../modules/defaults
     ../../modules/dm/ly
     ../../modules/firmware
@@ -22,6 +23,7 @@
       ../../home/bullshit
       ../../home/cursors/phinger
       ../../home/firefox
+      ../../home/gtk/carbonfox
       ../../home/hyfetch
       ../../home/neovim
       ../../home/shell/fish
