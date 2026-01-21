@@ -12,6 +12,7 @@
     nvitop
   ];
 
+  hardware.enableAllFirmware = true;
   hardware.nvidia = {
     open = false;
     modesetting.enable = true;

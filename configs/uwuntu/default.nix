@@ -2,6 +2,7 @@
   imports = [
     ./hardware-configuration.nix
     ./nixos-hardware.nix
+    ../../modules/audio
     ../../modules/defaults
     ../../modules/dm/ly
     ../../modules/firmware
