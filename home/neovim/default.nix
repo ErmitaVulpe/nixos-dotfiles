@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   programs.neovim = {
     enable = true;
     viAlias = true;
@@ -32,7 +33,8 @@
       })
     '';
 
-    plugins = with pkgs.vimPlugins;
+    plugins =
+      with pkgs.vimPlugins;
       let
         list = map (obj: obj // { type = "lua"; }) [
           {
@@ -137,7 +139,7 @@
             plugin = nvim-web-devicons;
           }
         ];
-      in list;
+      in
+      list;
   };
 }
-

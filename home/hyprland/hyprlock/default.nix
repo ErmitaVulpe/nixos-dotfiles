@@ -1,4 +1,6 @@
-{ pkgs, lib, ... }: with lib; {
+{ pkgs, lib, ... }:
+with lib;
+{
   options.hyprlock = {
     enableFprintd = mkOption {
       type = types.bool;
@@ -44,4 +46,3 @@
     };
   };
 }
-

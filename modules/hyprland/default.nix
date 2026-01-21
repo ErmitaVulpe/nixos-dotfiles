@@ -1,7 +1,15 @@
-{ config, lib, pkgs, inputs, ... }: with lib;
+{
+  config,
+  lib,
+  pkgs,
+  inputs,
+  ...
+}:
+with lib;
 let
   cfg = config.hyprland;
-in {
+in
+{
   options = {
     hyprland = {
       nvidia = mkOption {

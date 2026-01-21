@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   environment.systemPackages = with pkgs; [
     pavucontrol
     pamixer
@@ -15,4 +16,3 @@
     # jack.enable = true;
   };
 }
-

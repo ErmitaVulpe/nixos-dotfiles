@@ -16,8 +16,8 @@ vim.keymap.set("n", "<S-Tab>", ":bp<CR>", { silent = true })
 
 -- delete to void
 vim.keymap.set("x", "<leader>p", [["_dP]])
-vim.keymap.set({"n", "v"}, "<leader>d", [["_d]])
-vim.keymap.set({"n", "v"}, "<leader>x", [["_x]])
+vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
+vim.keymap.set({ "n", "v" }, "<leader>x", [["_x]])
 
 -- terminal navigation
 vim.keymap.set("t", "<C-w>h", "<C-\\><C-N><C-w>h")
@@ -31,4 +31,3 @@ vim.keymap.set("t", "<C-w><C-q>", "<C-\\><C-N><C-w><C-q>")
 vim.keymap.set('n', 'gl', '<cmd>lua vim.diagnostic.open_float()<cr>')
 vim.keymap.set('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<cr>')
 vim.keymap.set('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<cr>')
-

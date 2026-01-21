@@ -1,22 +1,26 @@
-{ pkgs, lib, ... }: with lib; {
-  environment.defaultPackages = with pkgs; mkForce [
-    btop
-    fastfetch
-    file
-    fzf
-    gh
-    git
-    jq
-    neovim
-    p7zip
-    pciutils
-    tmux
-    tokei
-    trashy
-    tree
-    wget
-    yazi
-  ];
+{ pkgs, lib, ... }:
+with lib;
+{
+  environment.defaultPackages =
+    with pkgs;
+    mkForce [
+      btop
+      fastfetch
+      file
+      fzf
+      gh
+      git
+      jq
+      neovim
+      p7zip
+      pciutils
+      tmux
+      tokei
+      trashy
+      tree
+      wget
+      yazi
+    ];
 
   nixpkgs.config.allowUnfree = true;
 

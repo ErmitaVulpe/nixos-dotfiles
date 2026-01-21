@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   home.pointerCursor = rec {
     name = "phinger-cursors-dark";
     package = pkgs.phinger-cursors;
@@ -10,4 +11,3 @@
     };
   };
 }
-

@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   programs = {
     # configures fish as the default shell https://nixos.wiki/wiki/Fish
     bash = {
@@ -91,4 +92,3 @@
     };
   };
 }
-

@@ -46,4 +46,3 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 if vim.fn.has("gui_running") == 1 or vim.env.COLORTERM or vim.env.TERM_PROGRAM then
   vim.o.termguicolors = true
 end
-

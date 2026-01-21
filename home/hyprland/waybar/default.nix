@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   home.packages = with pkgs; [
     waybar
   ];
@@ -34,7 +35,7 @@
 
         reload_style_on_change = true;
       }
-        // import ./modules.nix;
+      // import ./modules.nix;
     };
   };
 }

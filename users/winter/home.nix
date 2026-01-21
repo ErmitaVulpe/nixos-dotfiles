@@ -1,4 +1,10 @@
-{ config, username, pkgs, ... }: {
+{
+  config,
+  username,
+  pkgs,
+  ...
+}:
+{
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "${username}";
@@ -61,4 +67,3 @@
   # release notes.
   home.stateVersion = "24.11"; # Please read the comment before changing.
 }
-

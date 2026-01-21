@@ -1,13 +1,17 @@
-{ pkgs, ... }: let
-  slock-pkg = (pkgs.slock.override {
-    extraLibs = with pkgs; [
-      xorg.libXinerama
-      xorg.libXft
-    ];
-  }).overrideAttrs (old: {
-      src = ./slock-1.6;
-    });
-in {
+{ pkgs, ... }:
+let
+  slock-pkg =
+    (pkgs.slock.override {
+      extraLibs = with pkgs; [
+        xorg.libXinerama
+        xorg.libXft
+      ];
+    }).overrideAttrs
+      (old: {
+        src = ./slock-1.6;
+      });
+in
+{
   config = {
     environment.systemPackages = with pkgs; [
       xorg.xauth
@@ -38,14 +42,16 @@ in {
     };
     services.xserver.windowManager.dwm = {
       enable = true;
-      package = (pkgs.dwm.override {
-        extraLibs = [ pkgs.xorg.libXcursor ];
-      }).overrideAttrs (old: {
-          src = ./dwm-6.6;
-          patches = old.patches ++ [
-            ./dwm-6.6/patches/cursorfix.diff
-          ];
-        });
+      package =
+        (pkgs.dwm.override {
+          extraLibs = [ pkgs.xorg.libXcursor ];
+        }).overrideAttrs
+          (old: {
+            src = ./dwm-6.6;
+            patches = old.patches ++ [
+              ./dwm-6.6/patches/cursorfix.diff
+            ];
+          });
       extraSessionCommands = ''
         feh --bg-scale ~/.local/share/backgrounds/default.png &
         dwmblocks &
@@ -63,4 +69,3 @@ in {
     ];
   };
 }
-

@@ -1,11 +1,17 @@
-{ pkgs, inputs, lib, ... }: {
+{
+  pkgs,
+  inputs,
+  lib,
+  ...
+}:
+{
   imports = [
     inputs.nixos-hardware.nixosModules.common-cpu-intel
     inputs.nixos-hardware.nixosModules.common-gpu-nvidia
     inputs.nixos-hardware.nixosModules.common-pc-laptop
     inputs.nixos-hardware.nixosModules.common-pc-laptop-ssd
   ];
-  
+
   hardware.enableRedistributableFirmware = lib.mkDefault true;
 
   environment.systemPackages = with pkgs; [
@@ -26,7 +32,7 @@
       finegrained = true;
     };
   };
-  
+
   powerManagement.powertop.enable = true;
 
   # Custom driver settings to lower power usage

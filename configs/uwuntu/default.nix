@@ -1,4 +1,5 @@
-{ pkgs, inputs, ... }: {
+{ inputs, ... }:
+{
   imports = [
     ./hardware-configuration.nix
     ./nixos-hardware.nix
@@ -45,7 +46,7 @@
   #   ctrl_interface_group=wheel
   #   update_config=1
   # '';
-  networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
+  networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
 
   # Set your time zone.
   time.timeZone = "Europe/Warsaw";
@@ -59,9 +60,21 @@
     touchpad = {
       accelProfile = "custom";
       accelSpeed = "0";
-      accelPointsScroll = [ 0 0.5 1.2 1.25 ];
+      accelPointsScroll = [
+        0
+        0.5
+        1.2
+        1.25
+      ];
       accelStepScroll = 3;
-      accelPointsMotion = [0 0.33 1.5 2 3.75 5.5];
+      accelPointsMotion = [
+        0
+        0.33
+        1.5
+        2
+        3.75
+        5.5
+      ];
       accelStepMotion = 2.5;
       clickMethod = "clickfinger";
       naturalScrolling = true;
@@ -83,62 +96,17 @@
     '';
   };
 
-  # services.tlp.settings = {
-  #     TLP_DEFAULT_MODE="balanced";
-  #     TLP_PERSISTENT_DEFAULT=0;
-  #     TLP_PS_IGNORE_SUBMODE_ON_AC=0;
-  #     TLP_PS_IGNORE_SUBMODE_ON_BAT=0;
-  #
-  #     # --------- CPU Settings ---------
-  #     CPU_SCALING_GOVERNOR_ON_AC="performance";
-  #     CPU_SCALING_GOVERNOR_ON_BAT="powersave";
-  #     CPU_ENERGY_PERF_POLICY_ON_AC="performance";
-  #     CPU_ENERGY_PERF_POLICY_ON_BAT="power";
-  #
-  #     # Intel P-state (for newer Intel CPUs)
-  #     CPU_HWP_ON_AC="balance_performance";
-  #     CPU_HWP_ON_BAT="balance_power";
-  #
-  #     # --------- PCI Express Active State Power Management ---------
-  #     PCIE_ASPM_ON_AC="performance";
-  #     PCIE_ASPM_ON_BAT="power_supersave";
-  #
-  #     # --------- Runtime Power Management for PCI Devices ---------
-  #     RUNTIME_PM_ON_AC="on";
-  #     RUNTIME_PM_ON_BAT="auto";
-  #
-  #     # --------- USB Autosuspend ---------
-  #     USB_AUTOSUSPEND=1;
-  #     USB_BLACKLIST_BTUSB=0;
-  #     USB_BLACKLIST_PHONE=1;
-  #     USB_BLACKLIST_PRINTER=1;
-  #
-  #     # --------- WiFi Power Saving ---------
-  #     WIFI_PWR_ON_AC="on";
-  #     WIFI_PWR_ON_BAT="on";
-  #
-  #     # --------- Audio Power Saving ---------
-  #     SOUND_POWER_SAVE_ON_AC=0;
-  #     SOUND_POWER_SAVE_ON_BAT=10;
-  #
-  #     # --------- Graphics (Intel/NVIDIA/AMD Hybrid Support) ---------
-  #     NVIDIA_PWRM="auto";
-  #     NVIDIA_HYBRID_AUTO_DISABLE_GPU=1;
-  #
-  #     # --------- Platform Profile (if supported, e.g., modern ThinkPads, Dells) ---------
-  #     PLATFORM_PROFILE_ON_AC="performance";
-  #     PLATFORM_PROFILE_ON_BAT="balanced";
-  # };
-
   # Swap and hibernation
-  swapDevices = [{
-    device = "/.swapfile";
-    size = 32 * 1024; # 32GiB
-  }];
+  swapDevices = [
+    {
+      device = "/.swapfile";
+      size = 32 * 1024; # 32GiB
+    }
+  ];
   # These two need to be changed on a new system to work properly
   # https://nixos.wiki/wiki/Hibernation
   boot = {
-    kernelParams = ["resume_offset=4161536"];
+    kernelParams = [ "resume_offset=4161536" ];
     resumeDevice = "/dev/disk/by-uuid/9177a52e-b785-48e3-9532-6d5d2ec31a90";
   };
   services = {
@@ -155,7 +123,7 @@
 
   # System groups
   users.groups = {
-    network = {};
+    network = { };
   };
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -174,7 +142,10 @@
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   programs.nh = {
     enable = true;
@@ -200,5 +171,4 @@
   #
   # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
   system.stateVersion = "25.05"; # Did you read the comment?
-
 }

@@ -12,22 +12,23 @@
     hyprland.url = "github:hyprwm/Hyprland";
   };
 
-  outputs = { nixpkgs, ... }@inputs: {
-    nixosConfigurations = {
-      uwuntu = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs;};
-        modules = [ ./configs/uwuntu ];
-      };
-      vmware = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs;};
-        modules = [ ./configs/vmware ];
-      };
-      wsl = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = {inherit inputs;};
-        modules = [ ./configs/wsl ];
+  outputs =
+    { nixpkgs, ... }@inputs:
+    {
+      nixosConfigurations = {
+        uwuntu = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs; };
+          modules = [ ./configs/uwuntu ];
+        };
+        vmware = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs; };
+          modules = [ ./configs/vmware ];
+        };
+        wsl = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs = { inherit inputs; };
+          modules = [ ./configs/wsl ];
+        };
       };
     };
-  };
 }
-

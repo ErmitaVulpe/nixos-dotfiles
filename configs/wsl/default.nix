@@ -5,7 +5,8 @@
 # NixOS-WSL specific options are documented on the NixOS-WSL repository:
 # https://github.com/nix-community/NixOS-WSL
 
-{ pkgs, inputs, ... }: {
+{ pkgs, inputs, ... }:
+{
   wsl.enable = true;
   wsl.defaultUser = "winter";
 
@@ -61,7 +62,10 @@
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   programs.nh = {
     enable = true;
