@@ -9,7 +9,6 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    hyprland.url = "github:hyprwm/Hyprland";
   };
 
   outputs =
@@ -19,10 +18,6 @@
         uwuntu = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs; };
           modules = [ ./configs/uwuntu ];
-        };
-        vmware = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs; };
-          modules = [ ./configs/vmware ];
         };
         wsl = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";

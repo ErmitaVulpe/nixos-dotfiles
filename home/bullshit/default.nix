@@ -4,5 +4,8 @@
     asciiquarium
     cbonsai
     cmatrix
+
+    byobu
+    hollywood
   ];
 }

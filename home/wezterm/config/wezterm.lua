@@ -7,17 +7,16 @@ config.enable_wayland = false
 config.hide_tab_bar_if_only_one_tab = true
 -- wp here
 config.colors = {
-    cursor_bg = "silver",
-    foreground = "#E2DEFF",
+  cursor_bg = "silver",
+  foreground = "#E2DEFF",
 }
 config.text_background_opacity = 1.0
 config.window_padding = {
-    left = "5px",
-    right = "5px",
-    top = "5px",
-    bottom = "5px",
+  left = "5px",
+  right = "5px",
+  top = "5px",
+  bottom = "5px",
 }
 config.harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' }
 
 return config
-
