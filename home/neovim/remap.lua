@@ -9,6 +9,7 @@ vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
+vim.keymap.set("x", "<leader>s", ":'<,'>!sort<CR>")
 
 -- buffer switching
 vim.keymap.set("n", "<Tab>", ":bn<CR>", { silent = true })

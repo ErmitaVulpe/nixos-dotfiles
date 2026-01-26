@@ -42,11 +42,34 @@ cmp.setup({
   },
 })
 
-local lspConfigurator = function(executable, server_name)
+local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
+local function lspConfigurator(executable, server_name, settings)
   if os.execute("which " .. executable .. " > /dev/null 2>&1") == 0 then
-    vim.lsp.config(server_name, {
+    vim.lsp.config(server_name, vim.tbl_extend("keep", settings or {}, {
       capabilities = lsp_capabilities,
-    })
+    }))
     vim.lsp.enable(server_name)
   end
 end
+
+lspConfigurator("lua-language-server", "lua_ls", {
+  settings = {
+    Lua = {
+      diagnostics = {
+        globals = { "vim" }
+      }
+    }
+  }
+})
+lspConfigurator("nixd", "nixd")
+lspConfigurator("pyright", "pyright")
+lspConfigurator("rust-analyzer", "rust_analyzer")
+lspConfigurator("vscode-css-language-server", "cssls")
+lspConfigurator("vscode-eslint-language-server", "eslint")
+lspConfigurator("vscode-html-language-server", "html")
+lspConfigurator("vscode-json-language-server", "jsonls")
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "lua", "nix" },
+  command = "setlocal shiftwidth=2 tabstop=2"
+})

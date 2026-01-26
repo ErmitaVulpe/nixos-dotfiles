@@ -17,20 +17,6 @@
       ${builtins.readFile ./opts.lua}
       ${builtins.readFile ./remap.lua}
       ${builtins.readFile ./lsp.lua}
-
-      lspConfigurator("lua-language-server", "lua_ls")
-      lspConfigurator("nixd", "nixd")
-      lspConfigurator("pyright", "pyright")
-      lspConfigurator("rust-analyzer", "rust_analyzer")
-      lspConfigurator("vscode-css-language-server", "cssls")
-      lspConfigurator("vscode-eslint-language-server", "eslint")
-      lspConfigurator("vscode-html-language-server", "html")
-      lspConfigurator("vscode-json-language-server", "jsonls")
-
-      vim.api.nvim_create_autocmd("FileType", {
-        pattern = { "lua", "nix" },
-        command = "setlocal shiftwidth=2 tabstop=2"
-      })
     '';
 
     plugins =
