@@ -39,16 +39,14 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "uwuntu"; # Define your hostname.
-  # Pick only one of the below networking options.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  # networking.wireless.userControlled.enable = true;
-  # networking.wireless.interfaces = [ "wlp0s20f3" ];
-  # environment.etc."wpa_supplicant.conf".text = ''
-  #   ctrl_interface=/run/wpa_supplicant
-  #   ctrl_interface_group=wheel
-  #   update_config=1
-  # '';
-  networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
+  networking.wireless.userControlled = true;
+  networking.wireless.interfaces = [ "wlp0s20f3" ];
+  environment.etc."wpa_supplicant.conf".text = ''
+    ctrl_interface=/run/wpa_supplicant
+    ctrl_interface_group=wheel
+    update_config=1
+  '';
+  networking.networkmanager.enable = true;
 
   # Set your time zone.
   time.timeZone = "Europe/Warsaw";
