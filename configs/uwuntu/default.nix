@@ -113,6 +113,7 @@
     logind.settings.Login = {
       HandleLidSwitch = "suspend";
       HandleLidSwitchDocked = "ignore";
+      HandlePowerKey = "hibernate";
     };
     upower.enable = true;
   };
