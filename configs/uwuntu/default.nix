@@ -10,7 +10,7 @@
     ../../modules/firmware
     ../../modules/fwupd
     ../../modules/gaming
-    ../../modules/kernel/zen
+    ../../modules/kernel/cachyos_dell_prec_5550
     ../../modules/school
     ../../modules/wm/dwm
     ../../users/winter
