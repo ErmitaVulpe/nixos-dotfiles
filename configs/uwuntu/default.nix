@@ -11,6 +11,7 @@
     ../../modules/fwupd
     ../../modules/gaming
     ../../modules/kernel/cachyos_dell_prec_5550
+    ../../modules/nixowos
     ../../modules/school
     ../../modules/wm/dwm
     ../../users/winter

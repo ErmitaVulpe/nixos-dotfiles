@@ -1,12 +1,11 @@
 { pkgs, lib, ... }:
 with lib;
 {
-  environment.defaultPackages =
-    with pkgs;
-    mkForce [
-      lutris
-      wineWowPackages.full
-      winetricks
-      protontricks
-    ];
+  environment.systemPackages = with pkgs; [
+    SDL2
+    lutris
+    protontricks
+    wineWowPackages.full
+    winetricks
+  ];
 }

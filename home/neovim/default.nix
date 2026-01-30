@@ -13,7 +13,7 @@
       # stylua
     ];
 
-    extraLuaConfig = ''
+    initLua = ''
       ${builtins.readFile ./opts.lua}
       ${builtins.readFile ./remap.lua}
       ${builtins.readFile ./lsp.lua}
