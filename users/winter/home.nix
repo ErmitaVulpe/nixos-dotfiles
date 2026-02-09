@@ -36,7 +36,7 @@
       enable = true;
       settings = {
         user = {
-          email = "tymon.wilczek@gmail.com";
+          email = "emily.wilczek@proton.me";
           name = "ErmitaVulpe";
         };
         credential = {
