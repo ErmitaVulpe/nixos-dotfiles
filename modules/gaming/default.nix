@@ -5,7 +5,7 @@ with lib;
     SDL2
     lutris
     protontricks
-    wineWowPackages.full
+    wineWow64Packages.full
     winetricks
   ];
 }

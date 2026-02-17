@@ -89,7 +89,8 @@
   # Custom settings for X11
   services.xserver = {
     videoDrivers = [
-      "intel"
+      # "intel"
+      "modesetting"
       "nvidia"
     ];
     deviceSection = ''

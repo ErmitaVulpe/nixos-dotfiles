@@ -3,8 +3,8 @@ let
   slock-pkg =
     (pkgs.slock.override {
       extraLibs = with pkgs; [
-        xorg.libXinerama
-        xorg.libXft
+        libXinerama
+        libXft
       ];
     }).overrideAttrs
       (old: {
@@ -14,9 +14,8 @@ in
 {
   config = {
     environment.systemPackages = with pkgs; [
-      xorg.xauth
-      xorg.xf86inputlibinput
-      xorg.libXcursor
+      xf86inputlibinput
+      libXcursor
       dmenu
       feh
       (dwmblocks.overrideAttrs {
@@ -44,7 +43,7 @@ in
       enable = true;
       package =
         (pkgs.dwm.override {
-          extraLibs = [ pkgs.xorg.libXcursor ];
+          extraLibs = [ pkgs.libXcursor ];
         }).overrideAttrs
           (old: {
             src = ./dwm-6.6;
