@@ -20,6 +20,7 @@
     inputs.nixos-wsl.nixosModules.default
     ../../modules/defaults
     ../../modules/docker
+    ../../modules/nixowos
     ../../users/winter
   ];
 
