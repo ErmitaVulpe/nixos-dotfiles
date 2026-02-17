@@ -37,6 +37,24 @@ with lib;
   console = mkDefault {
     font = "Lat2-Terminus16";
     keyMap = "pl";
+    colors = [
+      "000000"
+      "cc5555"
+      "55cc55"
+      "cdcd55"
+      "5455cb"
+      "cc55cc"
+      "7acaca"
+      "cccccc"
+      "555555"
+      "ff5555"
+      "55ff55"
+      "ffff55"
+      "5555ff"
+      "ff55ff"
+      "55ffff"
+      "ffffff"
+    ];
   };
 
   environment.shellAliases = {
