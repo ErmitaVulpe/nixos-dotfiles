@@ -89,12 +89,12 @@
   # Custom settings for X11
   services.xserver = {
     videoDrivers = [
-      # "intel"
       "modesetting"
       "nvidia"
     ];
     deviceSection = ''
       Option "TearFree" "true"
+      Option "PageFlip" "true"
     '';
   };
 
