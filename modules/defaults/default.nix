@@ -5,6 +5,7 @@ with lib;
     with pkgs;
     mkForce [
       btop
+      cfspeedtest
       fastfetch
       file
       fzf
@@ -14,6 +15,7 @@ with lib;
       neovim
       p7zip
       pciutils
+      speedtest-cli
       tmux
       tokei
       trashy

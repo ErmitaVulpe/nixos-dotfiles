@@ -31,6 +31,11 @@ in
       xclip
       xss-lock
     ];
+    services.picom = {
+      enable = true;
+      backend = "glx";
+      vSync = true;
+    };
     services.xserver = {
       enable = true;
       displayManager.startx = {

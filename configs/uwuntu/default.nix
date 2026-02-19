@@ -6,6 +6,7 @@
     ../../modules/audio
     ../../modules/dconf
     ../../modules/defaults
+    ../../modules/defaults/desktop
     ../../modules/dm/ly
     ../../modules/firmware
     ../../modules/fwupd
@@ -92,10 +93,6 @@
       "modesetting"
       "nvidia"
     ];
-    deviceSection = ''
-      Option "TearFree" "true"
-      Option "PageFlip" "true"
-    '';
   };
 
   # Swap and hibernation
