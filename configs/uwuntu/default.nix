@@ -14,6 +14,7 @@
     ../../modules/kernel/cachyos_dell_prec_5550
     ../../modules/nixowos
     ../../modules/school
+    ../../modules/tlp
     ../../modules/wm/dwm
     ../../users/winter
     inputs.home-manager.nixosModules.default
@@ -49,11 +50,11 @@
     update_config=1
   '';
   networking.networkmanager.enable = true;
-  networking.networkmanager.wifi.powersave = false;
-  boot.extraModprobeConfig = ''
-    options iwlwifi power_save=0
-    options iwlwifi uapsd_disable=1
-  '';
+  # networking.networkmanager.wifi.powersave = false;
+  # boot.extraModprobeConfig = ''
+  #   options iwlwifi power_save=0
+  #   options iwlwifi uapsd_disable=1
+  # '';
 
   # Set your time zone.
   time.timeZone = "Europe/Warsaw";
@@ -119,7 +120,6 @@
       HandleLidSwitchDocked = "ignore";
       HandlePowerKey = "hibernate";
     };
-    upower.enable = true;
   };
   systemd.sleep.extraConfig = "HibernateDelaySec=30min";
 

@@ -41,8 +41,6 @@
     };
   };
 
-  powerManagement.powertop.enable = true;
-
   boot.kernelModules = [ "iwlwifi" ];
   boot.kernelParams = [
     "i915.enable_psr=1"
