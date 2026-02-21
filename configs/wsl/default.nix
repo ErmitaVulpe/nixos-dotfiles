@@ -5,7 +5,7 @@
 # NixOS-WSL specific options are documented on the NixOS-WSL repository:
 # https://github.com/nix-community/NixOS-WSL
 
-{ pkgs, inputs, ... }:
+{ pkgs, inputs, lib, ... }:
 {
   wsl.enable = true;
   wsl.defaultUser = "winter";
@@ -40,6 +40,17 @@
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   # networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
+
+  # Ad-hoc ssh for dev on my couch
+  services.openssh = {
+    enable = true;
+    ports = [ 22 ];
+    settings = {
+      UseDns = true;
+      PasswordAuthentication = true;
+    };
+  };
+  systemd.services.sshd.wantedBy = lib.mkForce [ ];
 
   # Set your time zone.
   time.timeZone = "Europe/Warsaw";
