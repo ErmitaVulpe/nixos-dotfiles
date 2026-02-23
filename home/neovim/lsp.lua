@@ -61,6 +61,7 @@ lspConfigurator("lua-language-server", "lua_ls", {
     }
   }
 })
+lspConfigurator("jdtls", "jdtls")
 lspConfigurator("nixd", "nixd")
 lspConfigurator("pyright", "pyright")
 lspConfigurator("rust-analyzer", "rust_analyzer")
