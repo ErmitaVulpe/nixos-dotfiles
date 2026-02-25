@@ -1,4 +1,4 @@
-opts = {
+local opts = {
   options = {
     icons_enabled = true,
   },
