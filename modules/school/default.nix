@@ -2,7 +2,7 @@
 {
   config = {
     environment.systemPackages = with pkgs; [
-      anki
+      anki-bin
       logisim-evolution
     ];
   };
