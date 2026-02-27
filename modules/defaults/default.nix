@@ -20,6 +20,7 @@ with lib;
       tokei
       trashy
       tree
+      unixtools.netstat
       wget
       yazi
     ];
