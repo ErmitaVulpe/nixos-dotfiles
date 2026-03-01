@@ -64,6 +64,9 @@ in
       OfferToSaveLogins = false;
     };
     profiles.default = {
+      mods = [
+        "03a8e7ef-cf00-4f41-bf24-a90deeafc9db"
+      ];
       settings = {
         "browser.translations.neverTranslateLanguages" = "pl";
         "devtools.toolbox.host" = "right";
