@@ -8,6 +8,7 @@
     ../../modules/defaults
     ../../modules/defaults/desktop
     ../../modules/dm/ly
+    ../../modules/dnscrypt-proxy
     ../../modules/firmware
     ../../modules/fwupd
     ../../modules/gaming

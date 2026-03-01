@@ -67,7 +67,15 @@ in
       settings = {
         "browser.translations.neverTranslateLanguages" = "pl";
         "devtools.toolbox.host" = "right";
+        "findbar.highlightAll" = true;
+
+        # Block new requests asking to access your X
+        "permissions.default.camera" = 2;
+        "permissions.default.desktop-notification" = 2;
+        "permissions.default.geo" = 2;
+
         "zen.view.use-single-toolbar" = false;
+        "zen.workspaces.separate-essentials" = false;
       };
     };
   };
