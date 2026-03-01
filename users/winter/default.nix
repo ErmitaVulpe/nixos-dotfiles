@@ -14,7 +14,12 @@ in
       type = lib.types.attrsOf (
         lib.types.submodule {
           options.homeImports = lib.mkOption {
-            type = lib.types.listOf lib.types.path;
+            type = lib.types.listOf (
+              lib.types.oneOf [
+                lib.types.path
+                lib.types.deferredModule
+              ]
+            );
             default = [ ];
             description = "list of additional home modules for this user";
           };

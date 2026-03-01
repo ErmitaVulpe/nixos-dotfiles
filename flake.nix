@@ -12,6 +12,14 @@
     # Do not override its nixpkgs input, otherwise there can be mismatch between
     # patches and kernel version
     nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
+
+    zen-browser = {
+      url = "github:0xc000022070/zen-browser-flake";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        home-manager.follows = "home-manager";
+      };
+    };
   };
 
   outputs =

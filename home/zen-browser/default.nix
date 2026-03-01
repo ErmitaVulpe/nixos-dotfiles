@@ -1,0 +1,74 @@
+{ ... }:
+let
+  mkExtensionEntry =
+    {
+      id,
+      pinned ? true,
+    }:
+    let
+      base = {
+        install_url = "https://addons.mozilla.org/firefox/downloads/latest/${id}/latest.xpi";
+        installation_mode = "force_installed";
+      };
+    in
+    if pinned then base // { default_area = "navbar"; } else base;
+  mkExtensionSettings = builtins.mapAttrs (
+    _: entry:
+    if builtins.isAttrs entry then
+      entry
+    else
+      mkExtensionEntry {
+        id = entry;
+        pinned = false;
+      }
+  );
+in
+{
+  programs.zen-browser = {
+    enable = true;
+    suppressXdgMigrationWarning = true;
+    languagePacks = [ "pl" ];
+    policies = {
+      AutofillAddressEnabled = true;
+      AutofillCreditCardEnabled = false;
+      DisableAppUpdate = true;
+      DisableFeedbackCommands = true;
+      DisableFirefoxStudies = true;
+      DisablePocket = true;
+      DisableTelemetry = true;
+      DontCheckDefaultBrowser = true;
+      EnableTrackingProtection = {
+        Cryptomining = true;
+        Fingerprinting = true;
+        Locked = true;
+        Value = true;
+      };
+      ExtensionSettings = mkExtensionSettings {
+        "@searchengineadremover" = "searchengineadremover";
+        "addon@darkreader.org" = mkExtensionEntry { id = "darkreader"; };
+        "github-no-more@ihatereality.space" = "github-no-more";
+        "github-repository-size@pranavmangal" = "gh-repo-size";
+        "jid1-BoFifL9Vbdl2zQ@jetpack" = "decentraleyes";
+        "shinigamieyes@shinigamieyes" = "shinigami-eyes";
+        "trackmenot@mrl.nyu.edu" = "trackmenot";
+        "uBlock0@raymondhill.net" = mkExtensionEntry { id = "ublock-origin"; };
+        "wappalyzer@crunchlabz.com" = mkExtensionEntry { id = "wappalyzer"; };
+        "{3579f63b-d8ee-424f-bbb6-6d0ce3285e6a}" = "chameleon-ext";
+        "{74145f27-f039-47ce-a470-a662b129930a}" = "clearurls";
+        "{762f9885-5a13-4abd-9c77-433dcd38b8fd}" = "return-youtube-dislikes";
+        "{85860b32-02a8-431a-b2b1-40fbd64c9c69}" = "github-file-icons";
+        "{861a3982-bb3b-49c6-bc17-4f50de104da1}" = "custom-user-agent-revived";
+        "{a4c4eda4-fb84-4a84-b4a1-f7c1cbf2a1ad}" = "refined-github-";
+      };
+      NoDefaultBookmarks = true;
+      OfferToSaveLogins = false;
+    };
+    profiles.default = {
+      settings = {
+        "browser.translations.neverTranslateLanguages" = "pl";
+        "devtools.toolbox.host" = "right";
+        "zen.view.use-single-toolbar" = false;
+      };
+    };
+  };
+}
