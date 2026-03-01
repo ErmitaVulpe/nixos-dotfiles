@@ -10,7 +10,6 @@
 
       # Just for easier config editing
       lua-language-server
-      # stylua
     ];
 
     initLua = ''
@@ -62,6 +61,18 @@
 
           # other plugins
           {
+            plugin = conform-nvim;
+            config = builtins.readFile ./plugins/conform.lua;
+          }
+          {
+            plugin = gitsigns-nvim;
+            config = "require(\"gitsigns\").setup {}";
+          }
+          {
+            plugin = lualine-nvim;
+            config = builtins.readFile ./plugins/lualine.lua;
+          }
+          {
             plugin = nvim-autopairs;
             config = builtins.readFile ./plugins/autopairs.lua;
           }
@@ -70,29 +81,10 @@
             config = builtins.readFile ./plugins/colorizer.lua;
           }
           {
-            plugin = conform-nvim;
-            config = builtins.readFile ./plugins/conform.lua;
+            plugin = nvim-surround;
+            config = "require(\"nvim-surround\").setup()";
           }
-          {
-            plugin = vim-fugitive;
-            config = "vim.keymap.set(\"n\", \"<leader>gs\", vim.cmd.Git)";
-          }
-          {
-            plugin = gitsigns-nvim;
-            config = "require(\"gitsigns\").setup {}";
-          }
-          {
-            plugin = tiny-inline-diagnostic-nvim;
-            config = builtins.readFile ./plugins/tiny-inline-diagnostic.lua;
-          }
-          {
-            plugin = harpoon2;
-            config = builtins.readFile ./plugins/harpoon.lua;
-          }
-          {
-            plugin = oil-nvim;
-            config = builtins.readFile ./plugins/oil.lua;
-          }
+          { plugin = nvim-web-devicons; }
           {
             plugin = oil-git-nvim;
             config = "require(\"oil-git\").setup()";
@@ -102,28 +94,32 @@
             config = "require(\"oil-lsp-diagnostics\").setup()";
           }
           {
+            plugin = oil-nvim;
+            config = builtins.readFile ./plugins/oil.lua;
+          }
+          # Sadly, as of 01.03.26 telescope-nvim doesnt specify this as a dep
+          { plugin = plenary-nvim; }
+          {
             plugin = render-markdown-nvim;
             config = "require(\"render-markdown\").setup()";
-          }
-          {
-            plugin = lualine-nvim;
-            config = builtins.readFile ./plugins/lualine.lua;
-          }
-          {
-            plugin = nvim-surround;
-            config = "require(\"nvim-surround\").setup()";
           }
           {
             plugin = telescope-nvim;
             config = builtins.readFile ./plugins/telescope.lua;
           }
           {
+            plugin = tiny-inline-diagnostic-nvim;
+            config = builtins.readFile ./plugins/tiny-inline-diagnostic.lua;
+          }
+          {
             plugin = undotree;
             config = "vim.keymap.set(\"n\", \"<leader>u\", vim.cmd.UndotreeToggle)";
           }
           {
-            plugin = nvim-web-devicons;
+            plugin = vim-fugitive;
+            config = "vim.keymap.set(\"n\", \"<leader>gs\", vim.cmd.Git)";
           }
+          { plugin = vim-tmux-navigator; }
         ];
       in
       list;

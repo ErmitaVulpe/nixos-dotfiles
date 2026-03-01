@@ -16,6 +16,25 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
     vim.keymap.set({ 'n', 'x' }, '<F3>', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', opts)
     vim.keymap.set('n', '<F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
+
+    vim.keymap.set('n', '<leader>q', function()
+      vim.diagnostic.setloclist({ open = true })
+    end, opts)
+    vim.keymap.set('n', '<leader>Q', function()
+      vim.diagnostic.setloclist({
+        severity = { min = vim.diagnostic.severity.ERROR },
+        open = true
+      })
+    end, opts)
+    vim.keymap.set('n', '<leader>w', function()
+      vim.diagnostic.setqflist({ open = true })
+    end, opts)
+    vim.keymap.set('n', '<leader>W', function()
+      vim.diagnostic.setqflist({
+        severity = { min = vim.diagnostic.severity.ERROR },
+        open = true
+      })
+    end, opts)
   end
 })
 
