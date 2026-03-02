@@ -5,5 +5,5 @@
     vlc
     wireshark
   ];
-
+  programs.wireshark.enable = true;
 }

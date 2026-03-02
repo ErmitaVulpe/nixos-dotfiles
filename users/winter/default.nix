@@ -33,8 +33,9 @@ in
       isNormalUser = true;
       group = "${username}";
       extraGroups = [
-        "wheel"
         "network"
+        "wheel"
+        "wireshark"
       ];
       initialHashedPassword = "$y$j9T$CJyHPv2s.on.ZRekXaXL50$h6cGCKZU2nKZ/zarN1hWLM8oU99rvBGBs9DG2qtl3yB";
     };
