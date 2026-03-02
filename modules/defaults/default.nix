@@ -22,6 +22,7 @@ with lib;
       tree
       unixtools.netstat
       wget
+      xxd
       yazi
     ];
 
