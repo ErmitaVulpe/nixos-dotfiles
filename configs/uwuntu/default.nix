@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ inputs, lib, ... }:
 {
   imports = [
     ./hardware-configuration.nix
@@ -42,6 +42,17 @@
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+
+  # Ad-hoc ssh server
+  services.openssh = {
+    enable = true;
+    ports = [ 22 ];
+    settings = {
+      UseDns = true;
+      PasswordAuthentication = true;
+    };
+  };
+  systemd.services.sshd.wantedBy = lib.mkForce [ ];
 
   networking.hostName = "uwuntu"; # Define your hostname.
   networking.wireless.userControlled = true;
