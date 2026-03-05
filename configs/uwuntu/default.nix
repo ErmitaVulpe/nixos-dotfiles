@@ -29,6 +29,7 @@
       ../../home/cursors/phinger
       ../../home/gtk/carbonfox
       ../../home/hyfetch
+      ../../home/iamb
       ../../home/neovim
       ../../home/shell/fish
       ../../home/tmux
