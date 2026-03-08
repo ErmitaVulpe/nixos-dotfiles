@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 let
   mkExtensionEntry =
     {
@@ -24,10 +24,12 @@ let
   );
 in
 {
+  home.file.".config/tridactyl/tridactylrc".source = ./tridactylrc;
   programs.zen-browser = {
     enable = true;
     suppressXdgMigrationWarning = true;
     languagePacks = [ "pl" ];
+    nativeMessagingHosts = with pkgs; [ tridactyl-native ];
     policies = {
       AutofillAddressEnabled = true;
       AutofillCreditCardEnabled = false;
@@ -51,6 +53,7 @@ in
         "jid1-BoFifL9Vbdl2zQ@jetpack" = "decentraleyes";
         "shinigamieyes@shinigamieyes" = "shinigami-eyes";
         "trackmenot@mrl.nyu.edu" = "trackmenot";
+        "tridactyl.vim@cmcaine.co.uk" = "tridactyl-vim";
         "uBlock0@raymondhill.net" = mkExtensionEntry { id = "ublock-origin"; };
         "wappalyzer@crunchlabz.com" = mkExtensionEntry { id = "wappalyzer"; };
         "{3579f63b-d8ee-424f-bbb6-6d0ce3285e6a}" = "chameleon-ext";
