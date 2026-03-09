@@ -31,6 +31,7 @@
       ../../home/hyfetch
       ../../home/iamb
       ../../home/neovim
+      ../../home/nixowos
       ../../home/shell/fish
       ../../home/tmux
       ../../home/zen-browser
