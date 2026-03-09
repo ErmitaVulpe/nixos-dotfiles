@@ -136,7 +136,9 @@
       HandlePowerKey = "hibernate";
     };
   };
-  systemd.sleep.extraConfig = "HibernateDelaySec=30min";
+  systemd.sleep.settings.Sleep = {
+    HibernateDelaySec = "30min";
+  };
 
   users.mutableUsers = false;
   security.sudo.wheelNeedsPassword = false;

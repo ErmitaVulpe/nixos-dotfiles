@@ -27,7 +27,6 @@ in
   home.file.".config/tridactyl/tridactylrc".source = ./tridactylrc;
   programs.zen-browser = {
     enable = true;
-    suppressXdgMigrationWarning = true;
     languagePacks = [ "pl" ];
     nativeMessagingHosts = with pkgs; [ tridactyl-native ];
     policies = {

@@ -5,7 +5,12 @@
 # NixOS-WSL specific options are documented on the NixOS-WSL repository:
 # https://github.com/nix-community/NixOS-WSL
 
-{ pkgs, inputs, lib, ... }:
+{
+  pkgs,
+  inputs,
+  lib,
+  ...
+}:
 {
   wsl.enable = true;
   wsl.defaultUser = "winter";
@@ -30,6 +35,7 @@
       ../../home/bullshit
       ../../home/hyfetch
       ../../home/neovim
+      ../../home/nixowos
       ../../home/shell/fish
       ../../home/tmux
     ];
