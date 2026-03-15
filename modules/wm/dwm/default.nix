@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 let
   slock-pkg =
     (pkgs.slock.override {
@@ -12,12 +12,15 @@ let
       });
 in
 {
+  imports = [
+    inputs.otter-launcher.nixosModules.default
+  ];
+
   config = {
     environment.systemPackages = with pkgs; [
-      xf86inputlibinput
-      libXcursor
-      dmenu
       feh
+      libXcursor
+      xf86inputlibinput
       (dwmblocks.overrideAttrs {
         src = ./dwmblocks;
         version = "0-unstable-2024-08-24";
@@ -63,9 +66,14 @@ in
         xss-lock -- slock &
       '';
     };
-    programs.slock = {
-      enable = true;
-      package = slock-pkg;
+    programs = {
+      otter-launcher = {
+        enable = true;
+      };
+      slock = {
+        enable = true;
+        package = slock-pkg;
+      };
     };
     fonts.packages = with pkgs; [
       dejavu_fonts
