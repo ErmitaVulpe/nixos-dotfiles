@@ -25,19 +25,20 @@
   users.users.winter = {
     homeImports = [
       inputs.zen-browser.homeModules.twilight-official
+      ../../home/browser/zen-browser
       ../../home/bullshit
       ../../home/cursors/phinger
       ../../home/gtk/carbonfox
       ../../home/hyfetch
       ../../home/iamb
+      ../../home/launcher/otter-launcher
       ../../home/neovim
       ../../home/nixowos
       ../../home/shell/fish
+      ../../home/terminal/wezterm
       ../../home/tmux
-      ../../home/zen-browser
       ../../home/vesktop
       ../../home/wallpapers/xenia
-      ../../home/wezterm
     ];
   };
 

@@ -5,7 +5,7 @@ config.front_end = "WebGpu"
 config.enable_wayland = false
 -- config.font = wezterm.font "Fira Mono Nerd Font"
 config.hide_tab_bar_if_only_one_tab = true
--- wp here
+config.scrollback_lines = 0
 config.colors = {
   cursor_bg = "silver",
   foreground = "#E2DEFF",
