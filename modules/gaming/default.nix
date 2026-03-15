@@ -8,4 +8,8 @@ with lib;
     wineWow64Packages.full
     winetricks
   ];
+  programs.steam = {
+    enable = true;
+    protontricks.enable = true;
+  };
 }
