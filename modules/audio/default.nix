@@ -1,8 +1,8 @@
 { pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
-    pavucontrol
     pamixer
+    wiremix
   ];
 
   services.pulseaudio.enable = false;
