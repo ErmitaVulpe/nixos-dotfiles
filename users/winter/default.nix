@@ -41,6 +41,9 @@ in
     };
     users.groups."${username}" = { };
     home-manager = {
+      extraSpecialArgs = {
+        inherit inputs;
+      };
       users."${username}" = import ./home.nix {
         inherit
           config
