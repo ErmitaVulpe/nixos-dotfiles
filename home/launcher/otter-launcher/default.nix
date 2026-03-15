@@ -6,4 +6,10 @@
   home.packages = with pkgs; [
     fsel
   ];
+  imports = [
+    inputs.otter-launcher.homeModules.default
+  ];
+  programs.otter-launcher = {
+    enable = true;
+  };
 }

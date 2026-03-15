@@ -1,4 +1,4 @@
-{ inputs, pkgs, ... }:
+{ pkgs, ... }:
 let
   slock-pkg =
     (pkgs.slock.override {
@@ -12,10 +12,6 @@ let
       });
 in
 {
-  imports = [
-    inputs.otter-launcher.nixosModules.default
-  ];
-
   config = {
     environment.systemPackages = with pkgs; [
       feh
@@ -30,6 +26,7 @@ in
 
       # System apps
       brightnessctl
+      dmenu
       scrot
       xclip
       xss-lock
@@ -67,9 +64,6 @@ in
       '';
     };
     programs = {
-      otter-launcher = {
-        enable = true;
-      };
       slock = {
         enable = true;
         package = slock-pkg;

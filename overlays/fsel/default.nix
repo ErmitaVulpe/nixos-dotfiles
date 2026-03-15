@@ -1,4 +1,4 @@
 { fselFlake }:
 self: super: {
-  fsel = fselFlake.packages.${self.system}.default;
+  fsel = fselFlake.packages.${self.stdenv.hostPlatform.system}.default;
 }
