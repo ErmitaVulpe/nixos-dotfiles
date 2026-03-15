@@ -17,6 +17,7 @@
     ../../modules/school
     ../../modules/tlp
     ../../modules/wm/dwm
+    ../../modules/xmrig
     ../../users/winter
     inputs.home-manager.nixosModules.default
   ];
