@@ -49,15 +49,17 @@
     git = {
       enable = true;
       settings = {
-        user = {
-          email = "emily.wilczek@proton.me";
-          name = "ErmitaVulpe";
-        };
         credential = {
           helper = "store";
         };
         init.defaultBranch = "main";
-        pull.rebase = true;
+        merge.tool = "nvimdiff";
+        mergetool.keepBackup = false;
+        pull.rebase = false;
+        user = {
+          email = "emily.wilczek@proton.me";
+          name = "ErmitaVulpe";
+        };
       };
       ignores = [
         "nix.profile*"
