@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ config, lib, ... }:
 {
   services.xmrig = {
     enable = true;
@@ -42,7 +42,7 @@
           coin = null;
           url = "pool.hashvault.pro:443";
           user = "45uuAdfoUhSEKLJCNH5Xd9Z7tpKoRhaTodviBPowpSm6Pb9S7vhsP6c37CiDKNHYv4B4k3K5JuZ9VL59AeCmwifN34zotiz";
-          pass = "x";
+          pass = config.networking.hostName;
           rig-id = null;
           nicehash = false;
           keepalive = false;
