@@ -1,4 +1,9 @@
-{ pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 let
   slock-pkg =
     (pkgs.slock.override {
@@ -12,7 +17,11 @@ let
       });
 in
 {
-  config = {
+  options.nixosModules.wm.dwm = {
+    enable = lib.mkEnableOption "Enables the dwm wm";
+  };
+
+  config = lib.mkIf config.nixosModules.wm.dwm.enable {
     environment.systemPackages = with pkgs; [
       feh
       libXcursor

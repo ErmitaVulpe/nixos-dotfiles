@@ -1,26 +1,36 @@
-{ inputs, lib, ... }:
+{
+  inputs,
+  pkgs,
+  ...
+}:
 {
   imports = [
     ./hardware-configuration.nix
     ./nixos-hardware.nix
-    ../../modules/audio
-    ../../modules/dconf
-    ../../modules/defaults
-    ../../modules/defaults/desktop
-    ../../modules/dm/ly
-    ../../modules/dnscrypt-proxy
-    ../../modules/firmware
-    ../../modules/fwupd
-    ../../modules/gaming
-    ../../modules/kernel/cachyos_dell_prec_5550
-    ../../modules/nixowos
-    ../../modules/school
-    ../../modules/tlp
-    ../../modules/wm/dwm
-    ../../modules/xmrig
+    ../../modules
     ../../users/winter
     inputs.home-manager.nixosModules.default
   ];
+
+  nixosModules = {
+    defaults.desktop.enable = true;
+    dm.ly.enable = true;
+    dnscryptProxy.enable = true;
+    firmware.enable = true;
+    gaming.enable = true;
+    kernel = "cachyos_dell_prec_5550";
+    school.enable = true;
+    ssh = {
+      enable = true;
+      onDemand = true;
+    };
+    tlp.enable = true;
+    wm.dwm.enable = true;
+    xmrig = {
+      enable = true;
+      onDemand = true;
+    };
+  };
 
   users.users.root.initialHashedPassword = "$6$aS.0EG/z$7cgSogPyLF2IXtZmH7gn5CZaAWTDS3y71j1gnVh2m4MOgU9.AWtLmAjZIpn2TWcYuuM9HtJta/V3hg4xkPyT01";
   users.users.winter = {
@@ -29,6 +39,7 @@
       ../../home/browser/zen-browser
       ../../home/bullshit
       ../../home/cursors/phinger
+      ../../home/element-desktop
       ../../home/gtk/carbonfox
       ../../home/hyfetch
       ../../home/iamb
@@ -47,17 +58,6 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  # Ad-hoc ssh server
-  services.openssh = {
-    enable = true;
-    ports = [ 22 ];
-    settings = {
-      UseDns = true;
-      PasswordAuthentication = true;
-    };
-  };
-  systemd.services.sshd.wantedBy = lib.mkForce [ ];
-
   networking.hostName = "uwuntu"; # Define your hostname.
   networking.wireless.userControlled = true;
   networking.wireless.interfaces = [ "wlp0s20f3" ];
@@ -66,15 +66,17 @@
     ctrl_interface_group=wheel
     update_config=1
   '';
-  networking.networkmanager.enable = true;
+  networking.networkmanager = {
+    enable = true;
+    plugins = with pkgs; [
+      networkmanager-openvpn
+    ];
+  };
   # networking.networkmanager.wifi.powersave = false;
   # boot.extraModprobeConfig = ''
   #   options iwlwifi power_save=0
   #   options iwlwifi uapsd_disable=1
   # '';
-
-  # Set your time zone.
-  time.timeZone = "Europe/Warsaw";
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -142,9 +144,6 @@
     HibernateDelaySec = "30min";
   };
 
-  users.mutableUsers = false;
-  security.sudo.wheelNeedsPassword = false;
-
   # System groups
   users.groups = {
     network = { };
@@ -165,11 +164,6 @@
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
-
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
 
   programs.nh = {
     enable = true;

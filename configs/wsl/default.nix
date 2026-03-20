@@ -8,7 +8,6 @@
 {
   pkgs,
   inputs,
-  lib,
   ...
 }:
 {
@@ -23,11 +22,18 @@
   imports = [
     inputs.home-manager.nixosModules.default
     inputs.nixos-wsl.nixosModules.default
-    ../../modules/defaults
-    ../../modules/docker
-    ../../modules/nixowos
+    ../../modules
     ../../users/winter
   ];
+
+  nixosModules = {
+    docker.enable = true;
+    nixowos.enable = true;
+    ssh = {
+      enable = true;
+      onDemand = true;
+    };
+  };
 
   users.users.root.initialHashedPassword = "$6$aS.0EG/z$7cgSogPyLF2IXtZmH7gn5CZaAWTDS3y71j1gnVh2m4MOgU9.AWtLmAjZIpn2TWcYuuM9HtJta/V3hg4xkPyT01";
   users.users.winter = {
@@ -47,23 +53,6 @@
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   # networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
 
-  # Ad-hoc ssh for dev on my couch
-  services.openssh = {
-    enable = true;
-    ports = [ 22 ];
-    settings = {
-      UseDns = true;
-      PasswordAuthentication = true;
-    };
-  };
-  systemd.services.sshd.wantedBy = lib.mkForce [ ];
-
-  # Set your time zone.
-  time.timeZone = "Europe/Warsaw";
-
-  users.mutableUsers = false;
-  security.sudo.wheelNeedsPassword = false;
-
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
@@ -80,16 +69,10 @@
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
-
   programs.nh = {
     enable = true;
     flake = "/home/winter/nixos-dotfiles";
   };
-  programs.nix-ld.enable = true;
 
   # This option defines the first version of NixOS you have installed on this particular machine,
   # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.

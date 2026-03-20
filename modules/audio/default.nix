@@ -1,18 +1,29 @@
-{ pkgs, ... }:
 {
-  environment.systemPackages = with pkgs; [
-    pamixer
-    wiremix
-  ];
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+{
+  options.nixosModules.audio = {
+    enable = lib.mkEnableOption "Enables system audio";
+  };
 
-  services.pulseaudio.enable = false;
-  security.rtkit.enable = true;
+  config = lib.mkIf config.nixosModules.audio.enable {
+    environment.systemPackages = with pkgs; [
+      pamixer
+      wiremix
+    ];
 
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    # jack.enable = true;
+    services.pulseaudio.enable = false;
+    security.rtkit.enable = true;
+
+    services.pipewire = {
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
+      # jack.enable = true;
+    };
   };
 }

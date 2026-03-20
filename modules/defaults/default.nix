@@ -1,9 +1,16 @@
-{ pkgs, lib, ... }:
-with lib;
 {
+  lib,
+  pkgs,
+  ...
+}:
+{
+  imports = [
+    ./desktop
+  ];
+
   environment.defaultPackages =
     with pkgs;
-    mkForce [
+    lib.mkForce [
       btop
       cfspeedtest
       fastfetch
@@ -18,17 +25,18 @@ with lib;
       speedtest-cli
       tmux
       tokei
-      trashy
       tree
-      unixtools.netstat
       wget
       xxd
       yazi
     ];
 
+  users.mutableUsers = false;
+  security.sudo.wheelNeedsPassword = false;
+
   nixpkgs.config.allowUnfree = true;
 
-  i18n = mkDefault {
+  i18n = lib.mkDefault {
     defaultLocale = "en_DK.UTF-8";
     extraLocales = [
       "en_DK.UTF-8/UTF-8"
@@ -38,7 +46,7 @@ with lib;
     };
   };
 
-  console = mkDefault {
+  console = lib.mkDefault {
     font = "Lat2-Terminus16";
     keyMap = "pl";
     colors = [
@@ -69,10 +77,11 @@ with lib;
     l = null;
     ll = "ls -lah --group-directories-first";
     ls = "ls --color=tty";
-    trash = "trash -t never";
   };
 
-  programs = mkDefault {
+  time.timeZone = lib.mkDefault "Europe/Warsaw";
+
+  programs = lib.mkDefault {
     bash.promptInit = ''
       # Provide a nice prompt if the terminal supports it.
       if [ "$TERM" != "dumb" ] || [ -n "$INSIDE_EMACS" ]; then
@@ -96,4 +105,9 @@ with lib;
     };
     nix-ld.enable = true;
   };
+
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 }

@@ -9,22 +9,18 @@ let
   username = "winter";
 in
 {
-  options = {
+  options = with lib.types; {
     users.users = lib.mkOption {
-      type = lib.types.attrsOf (
-        lib.types.submodule {
-          options.homeImports = lib.mkOption {
-            type = lib.types.listOf (
-              lib.types.oneOf [
-                lib.types.path
-                lib.types.deferredModule
-              ]
-            );
-            default = [ ];
-            description = "list of additional home modules for this user";
-          };
-        }
-      );
+      type = attrsOf (submodule {
+        options.homeImports = lib.mkOption {
+          type = listOf (oneOf [
+            path
+            deferredModule
+          ]);
+          default = [ ];
+          description = "list of additional home modules for this user";
+        };
+      });
     };
   };
 
