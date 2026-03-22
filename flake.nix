@@ -34,6 +34,10 @@
     { nixpkgs, ... }@inputs:
     {
       nixosConfigurations = {
+        sylveon = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs; };
+          modules = [ ./configs/sylveon ];
+        };
         uwuntu = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs; };
           modules = [ ./configs/uwuntu ];
