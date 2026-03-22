@@ -7,31 +7,27 @@
 }:
 {
   options.nixosModules.kernel = lib.mkOption {
-    type = lib.types.nullOr (
-      lib.types.enum [
-        "cachyos_dell_prec_5550"
-        "latest"
-        "zen"
-      ]
-    );
+    type = lib.types.nullOr lib.types.str;
+    default = null;
     description = "Custom kernel to use";
   };
 
-  config = lib.mkMerge [
-    (lib.mkIf (config.nixosModules.kernel == "cachyos_dell_prec_5550") {
-      nixpkgs.overlays = [ inputs.nix-cachyos-kernel.overlays.pinned ];
-      boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto-x86_64-v3;
+  config = {
+    # Required for cachyos kernel cache
+    nix.settings.substituters = [ "https://attic.xuyh0120.win/lantian" ];
+    nix.settings.trusted-public-keys = [ "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc=" ];
+    nixpkgs.overlays = [ inputs.nix-cachyos-kernel.overlays.pinned ];
 
-      nix.settings.substituters = [ "https://attic.xuyh0120.win/lantian" ];
-      nix.settings.trusted-public-keys = [ "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc=" ];
-    })
-
-    (lib.mkIf (config.nixosModules.kernel == "latest") {
-      boot.kernelPackages = pkgs.linuxPackages_latest;
-    })
-
-    (lib.mkIf (config.nixosModules.kernel == "zen") {
-      boot.kernelPackages = pkgs.linuxKernel.packages.linux_zen;
-    })
-  ];
+    boot.kernelPackages =
+      if config.nixosModules.kernel == null then
+        pkgs.linuxPackages
+      else
+        {
+          cachyos_dell_prec_5550 = pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto-x86_64-v3;
+          cachyos_zen4 = pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto-zen4;
+          latest = pkgs.linuxPackages_latest;
+          zen = pkgs.linuxKernel.packages.linux_zen;
+        }
+        .${config.nixosModules.kernel};
+  };
 }

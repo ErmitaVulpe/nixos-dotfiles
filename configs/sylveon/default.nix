@@ -18,20 +18,22 @@
     dnscryptProxy.enable = true;
     firmware.enable = true;
     gaming.enable = true;
-    kernel = "cachyos_dell_prec_5550";
+    kernel = "cachyos_zen4";
     school.enable = true;
+    spotify.enable = true;
     ssh = {
       enable = true;
       onDemand = true;
     };
     swapFile = {
       enable = true;
-      size = 32;
-      resumeOffset = 4161536;
-      resumeDeviceId = "9177a52e-b785-48e3-9532-6d5d2ec31a90";
+      size = 16;
+      resumeOffset = 243924992;
+      resumeDeviceId = "2f0c63e6-3510-460f-ae4b-ce4827ac685e";
     };
     tlp.enable = true;
     wm.dwm.enable = true;
+    wm.niri.enable = true;
     xmrig = {
       enable = true;
       onDemand = true;
@@ -51,6 +53,7 @@
       ../../home/iamb
       ../../home/launcher/otter-launcher
       ../../home/neovim
+      ../../home/niri
       ../../home/nixowos
       ../../home/shell/fish
       ../../home/terminal/wezterm
@@ -64,25 +67,13 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "uwuntu"; # Define your hostname.
-  networking.wireless.userControlled = true;
-  networking.wireless.interfaces = [ "wlp0s20f3" ];
-  environment.etc."wpa_supplicant.conf".text = ''
-    ctrl_interface=/run/wpa_supplicant
-    ctrl_interface_group=wheel
-    update_config=1
-  '';
+  networking.hostName = "sylveon"; # Define your hostname.
   networking.networkmanager = {
     enable = true;
     plugins = with pkgs; [
       networkmanager-openvpn
     ];
   };
-  # networking.networkmanager.wifi.powersave = false;
-  # boot.extraModprobeConfig = ''
-  #   options iwlwifi power_save=0
-  #   options iwlwifi uapsd_disable=1
-  # '';
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -90,46 +81,18 @@
   # Enable touchpad support (enabled default in most desktopManager).
   services.libinput = {
     enable = true;
-    touchpad = {
-      accelProfile = "custom";
-      accelSpeed = "0";
-      accelPointsScroll = [
-        0
-        0.5
-        1.2
-        1.25
-      ];
-      accelStepScroll = 3;
-      accelPointsMotion = [
-        0
-        0.33
-        1.5
-        2
-        3.75
-        5.5
-      ];
-      accelStepMotion = 2.5;
-      clickMethod = "clickfinger";
-      naturalScrolling = true;
-      tapping = false;
-      additionalOptions = ''
-        Option "ScrollPixelDistance" "10"
-      '';
-    };
   };
 
   # Custom settings for X11
   services.xserver = {
     videoDrivers = [
-      "modesetting"
+      # "modesetting"
       "nvidia"
     ];
   };
 
   services = {
     logind.settings.Login = {
-      HandleLidSwitch = "suspend";
-      HandleLidSwitchDocked = "ignore";
       HandlePowerKey = "hibernate";
     };
   };
@@ -181,5 +144,5 @@
   # and migrated your data accordingly.
   #
   # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
-  system.stateVersion = "25.05"; # Did you read the comment?
+  system.stateVersion = "25.11"; # Did you read the comment?
 }

@@ -2,5 +2,6 @@
 {
   imports = [
     ./dwm
+    ./niri
   ];
 }

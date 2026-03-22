@@ -12,7 +12,9 @@
     ./kernel
     ./nixowos
     ./school
+    ./spotify
     ./ssh
+    ./swapFile
     ./tlp
     ./wm
     ./xmrig

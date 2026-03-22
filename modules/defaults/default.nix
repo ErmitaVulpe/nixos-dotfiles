@@ -11,7 +11,7 @@
   environment.defaultPackages =
     with pkgs;
     lib.mkForce [
-      btop
+      btop-cuda
       cfspeedtest
       fastfetch
       file
