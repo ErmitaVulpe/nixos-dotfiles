@@ -34,13 +34,13 @@
     { nixpkgs, ... }@inputs:
     {
       nixosConfigurations = {
+        flareon = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs; };
+          modules = [ ./configs/flareon ];
+        };
         sylveon = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs; };
           modules = [ ./configs/sylveon ];
-        };
-        uwuntu = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs; };
-          modules = [ ./configs/uwuntu ];
         };
         wsl = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";

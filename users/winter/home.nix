@@ -1,16 +1,30 @@
 {
   config,
-  username,
+  lib,
   pkgs,
+  username,
   ...
 }:
 {
+  imports = [
+    ../../home
+  ];
+
+  homeModules = lib.recursiveUpdate config.users.users."${username}".config {
+    iamb = {
+      defaultProfile = "Zerda";
+      profiles = {
+        ErmitaVulpe = "@ermitavulpe:matrix.org";
+        Zerda = "@zerda:simplybush.pl";
+      };
+    };
+    shell.fish.enable = true;
+  };
+
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "${username}";
   home.homeDirectory = "/home/${username}";
-
-  imports = config.users.users."${username}".homeImports;
 
   home.packages = with pkgs; [
     nixd

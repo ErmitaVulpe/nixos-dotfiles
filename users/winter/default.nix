@@ -12,13 +12,14 @@ in
   options = with lib.types; {
     users.users = lib.mkOption {
       type = attrsOf (submodule {
-        options.homeImports = lib.mkOption {
-          type = listOf (oneOf [
-            path
-            deferredModule
-          ]);
-          default = [ ];
-          description = "list of additional home modules for this user";
+        options.config = lib.mkOption {
+          type = lib.types.attrs;
+          default = { };
+          example = {
+            bullshit.enable = true;
+            gtkTheme = "carbonfox";
+          };
+          description = "Config for home modules";
         };
       });
     };

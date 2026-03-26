@@ -1,8 +1,20 @@
-{ ... }:
 {
   imports = [
     ./browser
     ./bullshit
     ./cursor
+    ./element-desktop
+    ./gtkTheme
+    ./hyfetch
+    ./iamb
+    ./launcher
+    ./neovim
+    ./niri
+    ./nixowos
+    ./shell
+    ./terminal
+    ./tmux
+    ./vesktop
+    ./wallpaper
   ];
 }

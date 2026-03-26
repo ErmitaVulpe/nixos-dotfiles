@@ -1,15 +1,28 @@
-{ pkgs, inputs, ... }:
 {
-  nixpkgs.overlays = [
-    (import ../../../overlays/fsel { fselFlake = inputs.fsel; })
-  ];
-  home.packages = with pkgs; [
-    fsel
-  ];
+  config,
+  inputs,
+  lib,
+  pkgs,
+  ...
+}:
+{
+  options.homeModules.launcher.otter-launcher = {
+    enable = lib.mkEnableOption "Enables otter-launcher";
+  };
+
   imports = [
     inputs.otter-launcher.homeModules.default
   ];
-  programs.otter-launcher = {
-    enable = true;
+
+  config = lib.mkIf config.homeModules.launcher.otter-launcher.enable {
+    nixpkgs.overlays = [
+      (import ../../../overlays/fsel { fselFlake = inputs.fsel; })
+    ];
+    home.packages = with pkgs; [
+      fsel
+    ];
+    programs.otter-launcher = {
+      enable = true;
+    };
   };
 }

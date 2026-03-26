@@ -39,32 +39,27 @@
   };
 
   users.users.root.initialHashedPassword = "$6$aS.0EG/z$7cgSogPyLF2IXtZmH7gn5CZaAWTDS3y71j1gnVh2m4MOgU9.AWtLmAjZIpn2TWcYuuM9HtJta/V3hg4xkPyT01";
-  users.users.winter = {
-    homeImports = [
-      inputs.zen-browser.homeModules.twilight-official
-      ../../home/browser/zen-browser
-      ../../home/bullshit
-      ../../home/cursors/phinger
-      ../../home/element-desktop
-      ../../home/gtk/carbonfox
-      ../../home/hyfetch
-      ../../home/iamb
-      ../../home/launcher/otter-launcher
-      ../../home/neovim
-      ../../home/nixowos
-      ../../home/shell/fish
-      ../../home/terminal/wezterm
-      ../../home/tmux
-      ../../home/vesktop
-      ../../home/wallpapers/xenia
-    ];
+  users.users.winter.config = {
+    browser.zen-browser.enable = true;
+    bullshit.enable = true;
+    cursor = "phinger";
+    element-desktop.enable = true;
+    gtkTheme = "carbonfox";
+    hyfetch.enable = true;
+    iamb.enable = true;
+    launcher.otter-launcher.enable = true;
+    nixowos.enable = true;
+    shell.fish.enable = true;
+    terminal.wezterm.enable = true;
+    vesktop.enable = true;
+    wallpaper = "xenia";
   };
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "uwuntu"; # Define your hostname.
+  networking.hostName = "flareon"; # Define your hostname.
   networking.wireless.userControlled = true;
   networking.wireless.interfaces = [ "wlp0s20f3" ];
   environment.etc."wpa_supplicant.conf".text = ''

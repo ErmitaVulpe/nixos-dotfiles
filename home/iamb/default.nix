@@ -1,18 +1,40 @@
-{ ... }:
+{ config, lib, ... }:
 {
-  programs.iamb = {
-    enable = true;
-    settings = {
-      default_profile = "Zerda";
-      profiles.ErmitaVulpe.user_id = "@ermitavulpe:matrix.org";
-      profiles.Zerda.user_id = "@zerda:simplybush.pl";
+  options.homeModules.iamb = {
+    enable = lib.mkEnableOption "Enables iamb";
+    profiles = lib.mkOption {
+      type = lib.types.attrsOf lib.types.str;
+      default = { };
+      example = {
+        Zerda = "@zerda:simplybush.pl";
+      };
+      description = "Map of profile names to matrix user ids";
+    };
+    defaultProfile = lib.mkOption {
+      type = lib.types.str;
+      description = "The default profile specified in profiles to be used";
+    };
+  };
+
+  config = lib.mkIf config.homeModules.iamb.enable {
+    programs.iamb = {
+      enable = true;
       settings = {
-        notifications.enabled = true;
-        image_preview.protocol = {
-          type = "sixel";
-          size = {
-            height = 10;
-            width = 66;
+        default_profile = config.homeModules.iamb.defaultProfile;
+        profiles = lib.mapAttrs' (name: value: {
+          name = name;
+          value = {
+            user_id = value;
+          };
+        }) config.homeModules.iamb.profiles;
+        settings = {
+          notifications.enabled = true;
+          image_preview.protocol = {
+            type = "sixel";
+            size = {
+              height = 10;
+              width = 66;
+            };
           };
         };
       };
