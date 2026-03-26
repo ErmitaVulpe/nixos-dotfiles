@@ -1,8 +1,8 @@
 {
   config,
-  pkgs,
-  lib,
   inputs,
+  lib,
+  pkgs,
   ...
 }:
 let
@@ -43,9 +43,9 @@ in
       users."${username}" = import ./home.nix {
         inherit
           config
-          pkgs
-          lib
           inputs
+          lib
+          pkgs
           username
           ;
       };

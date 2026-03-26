@@ -43,10 +43,14 @@
   users.users.root.initialHashedPassword = "$6$aS.0EG/z$7cgSogPyLF2IXtZmH7gn5CZaAWTDS3y71j1gnVh2m4MOgU9.AWtLmAjZIpn2TWcYuuM9HtJta/V3hg4xkPyT01";
   users.users.winter = {
     homeImports = [
-      inputs.zen-browser.homeModules.twilight-official
-      ../../home/browser/zen-browser
-      ../../home/bullshit
-      ../../home/cursors/phinger
+      ../../home
+      {
+        homeModules = {
+          browser.zen-browser.enable = true;
+          bullshit.enable = true;
+          cursor = "phinger";
+        };
+      }
       ../../home/element-desktop
       ../../home/gtk/carbonfox
       ../../home/hyfetch
