@@ -65,6 +65,7 @@ in
           "github-no-more@ihatereality.space" = "github-no-more";
           "github-repository-size@pranavmangal" = "gh-repo-size";
           "jid1-BoFifL9Vbdl2zQ@jetpack" = "decentraleyes";
+          "microslop@4o4" = "microslop";
           "shinigamieyes@shinigamieyes" = "shinigami-eyes";
           "trackmenot@mrl.nyu.edu" = "trackmenot";
           "tridactyl.vim@cmcaine.co.uk" = "tridactyl-vim";
