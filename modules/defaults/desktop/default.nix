@@ -21,6 +21,10 @@
       audio.enable = true;
       dconf.enable = true;
       nixowos.enable = true;
+      xmrig = {
+        enable = true;
+        background = true;
+      };
     };
   };
 }

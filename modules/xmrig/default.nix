@@ -1,12 +1,18 @@
 { config, lib, ... }:
 {
   options.nixosModules.xmrig = {
-    enable = lib.mkEnableOption "Enables xmrig";
-    onDemand = lib.mkEnableOption "Weather xmrig should require manual start";
+    enable = lib.mkEnableOption "xmrig";
+    background = lib.mkEnableOption "xmrig services as background";
+    onDemand = lib.mkEnableOption "xmrig to require manual start";
   };
 
   config = lib.mkIf config.nixosModules.xmrig.enable {
-    systemd.services.xmrig.wantedBy = lib.mkIf config.nixosModules.xmrig.onDemand (lib.mkForce [ ]);
+    systemd.services.xmrig = {
+      serviceConfig = {
+        Nice = lib.mkIf config.nixosModules.xmrig.background 19;
+      };
+      wantedBy = lib.mkIf config.nixosModules.xmrig.onDemand (lib.mkForce [ ]);
+    };
     services.xmrig = {
       enable = true;
       settings = {

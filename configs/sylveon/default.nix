@@ -13,6 +13,10 @@
   ];
 
   nixosModules = {
+    boot = {
+      grub.enable = true;
+      multiBoot = true;
+    };
     defaults.desktop.enable = true;
     dm.ly.enable = true;
     dnscryptProxy.enable = true;
@@ -34,10 +38,6 @@
     tlp.enable = true;
     wm.dwm.enable = true;
     wm.niri.enable = true;
-    xmrig = {
-      enable = true;
-      onDemand = true;
-    };
   };
 
   users.users.root.initialHashedPassword = "$6$aS.0EG/z$7cgSogPyLF2IXtZmH7gn5CZaAWTDS3y71j1gnVh2m4MOgU9.AWtLmAjZIpn2TWcYuuM9HtJta/V3hg4xkPyT01";
@@ -56,10 +56,6 @@
     vesktop.enable = true;
     wallpaper = "xenia";
   };
-
-  # Use the systemd-boot EFI boot loader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "sylveon"; # Define your hostname.
   networking.networkmanager = {

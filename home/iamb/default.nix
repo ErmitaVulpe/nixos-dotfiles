@@ -1,4 +1,9 @@
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 {
   options.homeModules.iamb = {
     enable = lib.mkEnableOption "Enables iamb";
@@ -19,6 +24,12 @@
   config = lib.mkIf config.homeModules.iamb.enable {
     programs.iamb = {
       enable = true;
+      # TEMP fix for https://github.com/NixOS/nixpkgs/issues/501937
+      package = pkgs.iamb.overrideAttrs (oldAttrs: {
+        patches = (oldAttrs.patches or [ ]) ++ [
+          ./recursion-fix.patch
+        ];
+      });
       settings = {
         default_profile = config.homeModules.iamb.defaultProfile;
         profiles = lib.mapAttrs' (name: value: {

@@ -2,6 +2,7 @@
 {
   imports = [
     ./audio
+    ./boot
     ./dconf
     ./defaults
     ./dm
