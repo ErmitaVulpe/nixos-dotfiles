@@ -19,9 +19,7 @@
     nixpkgs.overlays = [ inputs.nix-cachyos-kernel.overlays.pinned ];
 
     boot.kernelPackages =
-      if config.nixosModules.kernel == null then
-        pkgs.linuxPackages
-      else
+      lib.mkIf (config.nixosModules.kernel != null)
         {
           cachyos_dell_prec_5550 = pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto-x86_64-v3;
           cachyos_zen4 = pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto-zen4;

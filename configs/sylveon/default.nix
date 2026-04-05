@@ -15,6 +15,7 @@
   nixosModules = {
     boot = {
       grub.enable = true;
+      grub.theme = "bsol";
       multiBoot = true;
     };
     defaults.desktop.enable = true;
