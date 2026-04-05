@@ -5,7 +5,7 @@
 }:
 {
   options.nixosModules.swapFile = {
-    enable = lib.mkEnableOption "Enables a swap file";
+    enable = lib.mkEnableOption "swap file";
     path = lib.mkOption {
       type = lib.types.nonEmptyStr;
       default = "/.swapfile";

@@ -6,7 +6,7 @@
 }:
 {
   options.homeModules.iamb = {
-    enable = lib.mkEnableOption "Enables iamb";
+    enable = lib.mkEnableOption "iamb";
     profiles = lib.mkOption {
       type = lib.types.attrsOf lib.types.str;
       default = { };

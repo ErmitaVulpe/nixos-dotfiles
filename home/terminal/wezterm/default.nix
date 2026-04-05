@@ -6,7 +6,7 @@
 }:
 {
   options.homeModules.terminal.wezterm = {
-    enable = lib.mkEnableOption "Enables wezterm";
+    enable = lib.mkEnableOption "wezterm";
   };
 
   config = lib.mkIf config.homeModules.terminal.wezterm.enable {

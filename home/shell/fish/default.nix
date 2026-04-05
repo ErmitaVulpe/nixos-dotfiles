@@ -6,7 +6,7 @@
 }:
 {
   options.homeModules.shell.fish = {
-    enable = lib.mkEnableOption "Enables fish shell";
+    enable = lib.mkEnableOption "fish shell";
   };
 
   config = lib.mkIf config.homeModules.shell.fish.enable {

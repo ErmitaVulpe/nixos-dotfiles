@@ -1,7 +1,7 @@
 { lib, config, ... }:
 {
   options.homeModules.browser.firefox = {
-    enable = lib.mkEnableOption "Enables firefox";
+    enable = lib.mkEnableOption "firefox";
   };
 
   config = lib.mkIf config.homeModules.browser.firefox.enable {

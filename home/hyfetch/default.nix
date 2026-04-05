@@ -1,7 +1,7 @@
 { config, lib, ... }:
 {
   options.homeModules.hyfetch = {
-    enable = lib.mkEnableOption "Enables hyfetch";
+    enable = lib.mkEnableOption "hyfetch";
   };
 
   config = lib.mkIf config.homeModules.hyfetch.enable {

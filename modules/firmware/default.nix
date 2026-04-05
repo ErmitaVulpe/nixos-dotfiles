@@ -7,7 +7,7 @@
 {
   options = {
     nixosModules.firmware = {
-      enable = lib.mkEnableOption "Enables firmware related config, should be used on real machines";
+      enable = lib.mkEnableOption "firmware related config, should be used on real machines";
     };
   };
 

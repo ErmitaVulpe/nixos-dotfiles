@@ -7,7 +7,7 @@
 }:
 {
   options.homeModules.niri = {
-    enable = lib.mkEnableOption "Enables niri config";
+    enable = lib.mkEnableOption "niri config";
   };
 
   imports = [

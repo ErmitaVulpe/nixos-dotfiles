@@ -1,7 +1,7 @@
 { lib, config, ... }:
 {
   options.nixosModules.nixowos = {
-    enable = lib.mkEnableOption "Enables the nixowos skin";
+    enable = lib.mkEnableOption "nixowos skin";
   };
 
   config = lib.mkIf config.nixosModules.nixowos.enable {

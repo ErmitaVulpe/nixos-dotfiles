@@ -6,7 +6,7 @@
 }:
 {
   options.homeModules.neovim = {
-    enable = lib.mkEnableOption "Enables neovim" // {
+    enable = lib.mkEnableOption "neovim" // {
       default = true;
     };
   };

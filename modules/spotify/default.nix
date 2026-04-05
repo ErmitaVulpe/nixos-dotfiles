@@ -6,7 +6,7 @@
 }:
 {
   options.nixosModules.spotify = {
-    enable = lib.mkEnableOption "Enables spotify";
+    enable = lib.mkEnableOption "spotify";
     localDiscovery = lib.mkEnableOption "Opens firewall ports to allow for local discovery" // {
       default = true;
     };

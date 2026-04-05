@@ -2,7 +2,7 @@
 {
   options = {
     nixosModules.dnscryptProxy = {
-      enable = lib.mkEnableOption "Enables DoH through dnscrypt-proxy";
+      enable = lib.mkEnableOption "DoH through dnscrypt-proxy";
     };
   };
 

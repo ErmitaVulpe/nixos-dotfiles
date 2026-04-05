@@ -2,7 +2,7 @@
 {
   options = {
     nixosModules.docker = {
-      enable = lib.mkEnableOption "Enables docker";
+      enable = lib.mkEnableOption "docker";
     };
   };
 

@@ -5,7 +5,7 @@
 }:
 {
   options.homeModules.vesktop = {
-    enable = lib.mkEnableOption "Enables vesktop";
+    enable = lib.mkEnableOption "vesktop";
   };
 
   config = lib.mkIf config.homeModules.vesktop.enable {

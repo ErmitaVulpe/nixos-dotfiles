@@ -18,7 +18,7 @@ let
 in
 {
   options.nixosModules.wm.dwm = {
-    enable = lib.mkEnableOption "Enables the dwm wm";
+    enable = lib.mkEnableOption "dwm wm";
   };
 
   config = lib.mkIf config.nixosModules.wm.dwm.enable {

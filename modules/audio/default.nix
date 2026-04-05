@@ -6,7 +6,7 @@
 }:
 {
   options.nixosModules.audio = {
-    enable = lib.mkEnableOption "Enables system audio";
+    enable = lib.mkEnableOption "system audio config and utils";
   };
 
   config = lib.mkIf config.nixosModules.audio.enable {

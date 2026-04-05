@@ -5,7 +5,7 @@
 }:
 {
   options.homeModules.nixowos = {
-    enable = lib.mkEnableOption "Enables nixowos";
+    enable = lib.mkEnableOption "nixowos skin";
   };
 
   config = lib.mkIf config.homeModules.nixowos.enable {

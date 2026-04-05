@@ -7,7 +7,7 @@
 }:
 {
   options.homeModules.launcher.otter-launcher = {
-    enable = lib.mkEnableOption "Enables otter-launcher";
+    enable = lib.mkEnableOption "otter-launcher";
   };
 
   imports = [

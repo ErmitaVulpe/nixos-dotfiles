@@ -7,7 +7,7 @@
 {
   options = {
     nixosModules.gaming = {
-      enable = lib.mkEnableOption "Enables gaming platforms";
+      enable = lib.mkEnableOption "gaming platforms";
     };
   };
 

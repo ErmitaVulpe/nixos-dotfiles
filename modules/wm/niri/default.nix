@@ -5,7 +5,7 @@
 }:
 {
   options.nixosModules.wm.niri = {
-    enable = lib.mkEnableOption "Enables the niri wm";
+    enable = lib.mkEnableOption "niri wm";
   };
 
   config = lib.mkIf config.nixosModules.wm.niri.enable {

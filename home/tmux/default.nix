@@ -6,7 +6,7 @@
 }:
 {
   options.homeModules.tmux = {
-    enable = lib.mkEnableOption "Enables tmux" // {
+    enable = lib.mkEnableOption "tmux" // {
       default = true;
     };
   };

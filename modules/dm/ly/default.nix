@@ -6,7 +6,7 @@
 }:
 {
   options.nixosModules.dm.ly = {
-    enable = lib.mkEnableOption "Enables the ly dm";
+    enable = lib.mkEnableOption "ly dm";
   };
 
   config = lib.mkIf config.nixosModules.dm.ly.enable {

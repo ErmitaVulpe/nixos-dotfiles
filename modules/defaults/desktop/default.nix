@@ -6,7 +6,7 @@
 }:
 {
   options.nixosModules.defaults.desktop = {
-    enable = lib.mkEnableOption "Enables default apps and configs for graphic interfaces";
+    enable = lib.mkEnableOption "default apps and configs for graphic interfaces";
   };
 
   config = lib.mkIf config.nixosModules.defaults.desktop.enable {

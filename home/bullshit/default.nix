@@ -6,7 +6,7 @@
 }:
 {
   options.homeModules.bullshit = {
-    enable = lib.mkEnableOption "Enables some useless terminal toys";
+    enable = lib.mkEnableOption "some useless terminal toys";
   };
 
   config = lib.mkIf config.homeModules.bullshit.enable {

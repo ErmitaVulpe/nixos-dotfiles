@@ -6,7 +6,7 @@
 }:
 {
   options.nixosModules.school = {
-    enable = lib.mkEnableOption "Enables programs required by my school";
+    enable = lib.mkEnableOption "programs required by my school";
   };
 
   config = lib.mkIf config.nixosModules.school.enable {

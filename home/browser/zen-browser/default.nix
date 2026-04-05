@@ -35,7 +35,7 @@ in
   ];
 
   options.homeModules.browser.zen-browser = {
-    enable = lib.mkEnableOption "Enables zen browser";
+    enable = lib.mkEnableOption "zen browser";
   };
 
   config = lib.mkIf config.homeModules.browser.zen-browser.enable {

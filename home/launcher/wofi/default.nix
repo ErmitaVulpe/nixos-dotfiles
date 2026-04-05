@@ -5,7 +5,7 @@
 }:
 {
   options.homeModules.launcher.wofi = {
-    enable = lib.mkEnableOption "Enables wofi launcher";
+    enable = lib.mkEnableOption "wofi launcher";
   };
 
   config = lib.mkIf config.homeModules.launcher.wofi.enable {

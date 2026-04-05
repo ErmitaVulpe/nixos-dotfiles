@@ -1,7 +1,7 @@
 { lib, config, ... }:
 {
   options.nixosModules.dconf = {
-    enable = lib.mkEnableOption "Enables the dconf service, required for GTK themes";
+    enable = lib.mkEnableOption "dconf service, required for GTK themes";
   };
 
   config = lib.mkIf config.nixosModules.dconf.enable {
