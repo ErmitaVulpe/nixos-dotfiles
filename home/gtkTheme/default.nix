@@ -15,22 +15,26 @@
     if config.homeModules.gtkTheme == null then
       { enable = false; }
     else
-      {
-        carbonfox = {
-          enable = true;
-          colorScheme = "dark";
-          theme = {
-            package = pkgs.nightfox-gtk-theme.override {
-              colorVariants = [ "dark" ];
-              themeVariants = [ "default" ];
-              tweakVariants = [
-                "black"
-                "carbonfox"
-              ];
+      lib.recursiveUpdate
+        {
+          gtk4.theme = null;
+        }
+        {
+          carbonfox = {
+            enable = true;
+            colorScheme = "dark";
+            theme = {
+              package = pkgs.nightfox-gtk-theme.override {
+                colorVariants = [ "dark" ];
+                themeVariants = [ "default" ];
+                tweakVariants = [
+                  "black"
+                  "carbonfox"
+                ];
+              };
+              name = "Nightfox-Dark-Carbonfox";
             };
-            name = "Nightfox-Dark-Carbonfox";
           };
-        };
-      }
-      .${config.homeModules.gtkTheme};
+        }
+        .${config.homeModules.gtkTheme};
 }

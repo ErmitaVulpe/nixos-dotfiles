@@ -12,6 +12,7 @@
   config = lib.mkIf config.nixosModules.school.enable {
     environment.systemPackages = with pkgs; [
       anki-bin
+      drawio
       logisim-evolution
       quartus-prime-lite
     ];

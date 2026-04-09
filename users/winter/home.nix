@@ -57,11 +57,12 @@
           helper = "store";
         };
         init.defaultBranch = "main";
-        pull.rebase = false;
+        pull.rebase = true;
       };
       ignores = [
         "nix.profile*"
       ];
+      signing.format = null;
     };
     neovim = {
       vimAlias = true;
