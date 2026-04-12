@@ -42,7 +42,7 @@ in
     boot.plymouth = lib.mkMerge [
       { enable = true; }
 
-      (lib.mkIf (cfg.theme != null && themes ? ${cfg.theme}) themes.${cfg.theme})
+      (if cfg.theme != null then themes.${cfg.theme} else { })
     ];
   };
 }

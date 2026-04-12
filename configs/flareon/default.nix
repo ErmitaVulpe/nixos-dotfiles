@@ -13,7 +13,13 @@
   ];
 
   nixosModules = {
-    boot.loader.systemd-boot.enable = true;
+    boot = {
+      loader.systemd-boot.enable = true;
+      plymouth = {
+        enable = true;
+        theme = "polishcow";
+      };
+    };
     defaults.desktop.enable = true;
     dm.ly.enable = true;
     dnscryptProxy.enable = true;
