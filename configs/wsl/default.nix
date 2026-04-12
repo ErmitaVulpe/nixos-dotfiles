@@ -33,18 +33,20 @@
       enable = true;
       onDemand = true;
     };
+    xmrig = {
+      enable = true;
+      background = true;
+      onDemand = true;
+    };
   };
 
   users.users.root.initialHashedPassword = "$6$aS.0EG/z$7cgSogPyLF2IXtZmH7gn5CZaAWTDS3y71j1gnVh2m4MOgU9.AWtLmAjZIpn2TWcYuuM9HtJta/V3hg4xkPyT01";
   users.users.winter = {
-    homeImports = [
-      ../../home/bullshit
-      ../../home/hyfetch
-      ../../home/neovim
-      ../../home/nixowos
-      ../../home/shell/fish
-      ../../home/tmux
-    ];
+    config = {
+      bullshit.enable = true;
+      hyfetch.enable = true;
+      nixowos.enable = true;
+    };
     extraGroups = [ "docker" ];
   };
 
