@@ -5,7 +5,7 @@
   ...
 }:
 {
-  options.nixosModules.boot.grub = {
+  options.nixosModules.boot.loader.grub = {
     enable = lib.mkEnableOption "grub boot loader";
     theme = lib.mkOption {
       type = lib.types.nullOr lib.types.str;
@@ -14,9 +14,9 @@
     };
   };
 
-  config = lib.mkIf config.nixosModules.boot.grub.enable {
-    nixpkgs.overlays = lib.mkIf (config.nixosModules.boot.grub.theme == "bsol") [
-      (import ../../overlays/bsol-grub-theme)
+  config = lib.mkIf config.nixosModules.boot.loader.grub.enable {
+    nixpkgs.overlays = lib.mkIf (config.nixosModules.boot.loader.grub.theme == "bsol") [
+      (import ../../../overlays/bsol-grub-theme)
     ];
 
     boot.loader = {
@@ -32,12 +32,12 @@
           useOSProber = true;
         })
 
-        (lib.mkIf (config.nixosModules.boot.grub.theme != null) {
+        (lib.mkIf (config.nixosModules.boot.loader.grub.theme != null) {
           theme =
             {
               bsol = "${pkgs.bsol-grub-theme}";
             }
-            .${config.nixosModules.boot.grub.theme};
+            .${config.nixosModules.boot.loader.grub.theme};
         })
       ];
     };

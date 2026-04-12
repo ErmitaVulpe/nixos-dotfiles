@@ -14,9 +14,15 @@
 
   nixosModules = {
     boot = {
-      grub.enable = true;
-      grub.theme = "bsol";
+      loader.grub = {
+        enable = true;
+        theme = "bsol";
+      };
       multiBoot = true;
+      plymouth = {
+        enable = true;
+        theme = "polishcow";
+      };
     };
     defaults.desktop.enable = true;
     dm.ly.enable = true;

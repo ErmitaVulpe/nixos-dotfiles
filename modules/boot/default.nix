@@ -9,8 +9,8 @@
   };
 
   imports = [
-    ./grub.nix
-    ./systemd-boot.nix
+    ./loader
+    ./plymouth.nix
   ];
 
   config = lib.mkIf config.nixosModules.boot.multiBoot {
