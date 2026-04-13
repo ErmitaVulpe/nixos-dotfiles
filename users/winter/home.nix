@@ -72,6 +72,11 @@
     };
   };
 
+  xdg.userDirs = {
+    enable = true;
+    setSessionVariables = true;
+  };
+
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
