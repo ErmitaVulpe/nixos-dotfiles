@@ -26,7 +26,6 @@
     firmware.enable = true;
     gaming.enable = true;
     kernel = "cachyos_dell_prec_5550";
-    school.enable = true;
     ssh = {
       enable = true;
       onDemand = true;
@@ -53,6 +52,7 @@
     iamb.enable = true;
     launcher.otter-launcher.enable = true;
     nixowos.enable = true;
+    school.enable = true;
     terminal.wezterm.enable = true;
     vesktop.enable = true;
     wallpaper = "xenia";

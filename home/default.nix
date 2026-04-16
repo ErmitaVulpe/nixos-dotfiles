@@ -11,10 +11,13 @@
     ./neovim
     ./niri
     ./nixowos
+    ./school
     ./shell
     ./terminal
     ./tmux
     ./vesktop
     ./wallpaper
   ];
+
+  nixpkgs.config.allowUnfree = true;
 }

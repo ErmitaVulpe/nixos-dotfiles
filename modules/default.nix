@@ -12,7 +12,6 @@
     ./gaming
     ./kernel
     ./nixowos
-    ./school
     ./spotify
     ./ssh
     ./swapFile

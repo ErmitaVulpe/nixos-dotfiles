@@ -30,7 +30,6 @@
     firmware.enable = true;
     gaming.enable = true;
     kernel = "cachyos_zen4";
-    school.enable = true;
     spotify.enable = true;
     ssh = {
       enable = true;
@@ -57,8 +56,9 @@
     hyfetch.enable = true;
     iamb.enable = true;
     launcher.otter-launcher.enable = true;
-    nixowos.enable = true;
     niri.enable = true;
+    nixowos.enable = true;
+    school.enable = true;
     terminal.wezterm.enable = true;
     vesktop.enable = true;
     wallpaper = "xenia";
