@@ -53,7 +53,6 @@
     iamb.enable = true;
     launcher.otter-launcher.enable = true;
     nixowos.enable = true;
-    shell.fish.enable = true;
     terminal.wezterm.enable = true;
     vesktop.enable = true;
     wallpaper = "xenia";

@@ -7,6 +7,9 @@
 }:
 let
   username = "winter";
+  finalHomeModules = config.home-manager.users.${username}.homeModules;
+  customLoginShell =
+    if (finalHomeModules.shell.zsh.default && finalHomeModules.shell.zsh.enable) then "zsh" else null;
 in
 {
   options = with lib.types; {
@@ -26,6 +29,12 @@ in
   };
 
   config = {
+    programs = lib.mkMerge [
+      (lib.mkIf (customLoginShell == "zsh") {
+        zsh.enable = true;
+      })
+    ];
+
     users.users."${username}" = {
       isNormalUser = true;
       group = "${username}";
@@ -34,6 +43,7 @@ in
         "wheel"
         "wireshark"
       ];
+      shell = lib.mkIf (customLoginShell != null) pkgs."${customLoginShell}";
       initialHashedPassword = "$y$j9T$CJyHPv2s.on.ZRekXaXL50$h6cGCKZU2nKZ/zarN1hWLM8oU99rvBGBs9DG2qtl3yB";
     };
     users.groups."${username}" = { };

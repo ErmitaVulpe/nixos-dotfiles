@@ -19,6 +19,8 @@
       };
     };
     shell.fish.enable = true;
+    shell.zsh.enable = true;
+    shell.zsh.default = false;
   };
 
   # Home Manager needs a bit of information about you and the paths it should

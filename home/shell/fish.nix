@@ -7,14 +7,17 @@
 {
   options.homeModules.shell.fish = {
     enable = lib.mkEnableOption "fish shell";
+    default = lib.mkEnableOption "set fish as the default shell" // {
+      default = true;
+    };
   };
 
   config = lib.mkIf config.homeModules.shell.fish.enable {
     programs = {
       # configures fish as the default shell https://nixos.wiki/wiki/Fish
       bash = {
-        enable = true;
-        initExtra = ''
+        enable = lib.mkIf config.homeModules.shell.fish.default true;
+        initExtra = lib.mkIf config.homeModules.shell.fish.default ''
           if [[ $(${pkgs.procps}/bin/ps --no-header --pid=$PPID --format=comm) != "fish" && -z ''${BASH_EXECUTION_STRING} ]]
           then
             shopt -q login_shell && LOGIN_OPTION='--login' || LOGIN_OPTION=""
@@ -99,7 +102,7 @@
       };
       nix-your-shell = {
         enable = true;
-        enableFishIntegration = true;
+        enableFishIntegration = config.homeModules.shell.fish.default;
       };
     };
   };
