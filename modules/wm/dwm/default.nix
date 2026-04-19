@@ -29,8 +29,6 @@ in
       (dwmblocks.overrideAttrs {
         src = ./dwmblocks;
         version = "0-unstable-2024-08-24";
-        # TEMP fix for https://github.com/NixOS/nixpkgs/issues/475479
-        env.NIX_CFLAGS_COMPILE = "-std=gnu17";
       })
 
       # System apps
