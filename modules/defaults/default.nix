@@ -19,6 +19,7 @@
       gh
       git
       jq
+      ncdu
       neovim
       p7zip
       pciutils
