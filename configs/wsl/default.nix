@@ -15,7 +15,6 @@
   wsl.defaultUser = "winter";
 
   environment.systemPackages = with pkgs; [
-    wslu
     kmod # For usbpid (esp32 development)
   ];
 
