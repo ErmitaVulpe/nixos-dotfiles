@@ -23,6 +23,7 @@
       neovim
       p7zip
       pciutils
+      rsync
       speedtest-cli
       tmux
       tokei
