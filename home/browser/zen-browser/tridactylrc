@@ -2,3 +2,8 @@ sanitise tridactyllocal tridactylsync
 
 bind J tabnext
 bind K tabprev
+
+unbind <C-f>
+unbind /
+
+autocmd DocStart youtube.com mode ignore
