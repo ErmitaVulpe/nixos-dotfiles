@@ -10,6 +10,15 @@
   };
 
   config = lib.mkIf config.nixosModules.gaming.enable {
+    # TEMP fix for lutris failing to build
+    nixpkgs.overlays = [
+      (final: prev: {
+        openldap = prev.openldap.overrideAttrs (_: {
+          doCheck = false;
+        });
+      })
+    ];
+
     environment.systemPackages = with pkgs; [
       SDL2
       lutris
