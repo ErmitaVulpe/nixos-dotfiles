@@ -9,9 +9,16 @@
     enable = lib.mkEnableOption "neovim" // {
       default = true;
     };
+    useAsManpager = lib.mkEnableOption "neovim as the default manpage viewer" // {
+      default = true;
+    };
   };
 
   config = lib.mkIf config.homeModules.neovim.enable {
+    home.sessionVariables = lib.mkIf config.homeModules.neovim.useAsManpager {
+      MANPAGER = "nvim +Man!";
+    };
+
     programs.neovim = {
       enable = true;
       viAlias = true;
