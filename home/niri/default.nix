@@ -15,10 +15,12 @@
   ];
 
   config = lib.mkIf config.homeModules.niri.enable {
-    homeModules.launcher.wofi.enable = true;
+    homeModules = {
+      launcher.wofi.enable = true;
+      terminal.foot.enable = true;
+    };
 
     home.packages = with pkgs; [
-      foot
       swayidle
       swaylock
       # waybar
