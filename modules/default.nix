@@ -7,8 +7,8 @@
     ./defaults
     ./dm
     ./dnscrypt-proxy
-    ./firmware
     ./docker
+    ./firmware
     ./gaming
     ./kernel
     ./nixowos
