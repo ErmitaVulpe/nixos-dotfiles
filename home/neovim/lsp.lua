@@ -80,6 +80,7 @@ lspConfigurator("lua-language-server", "lua_ls", {
     }
   }
 })
+lspConfigurator("clangd", "clangd")
 lspConfigurator("jdtls", "jdtls")
 lspConfigurator("nixd", "nixd")
 lspConfigurator("pyright", "pyright")
