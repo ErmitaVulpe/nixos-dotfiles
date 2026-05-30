@@ -38,6 +38,7 @@
     };
     tlp.enable = true;
     wm.dwm.enable = true;
+    wm.mango.enable = true;
     xmrig.onDemand = true;
   };
 
@@ -54,6 +55,7 @@
     nixowos.enable = true;
     school.enable = true;
     terminal.wezterm.enable = true;
+    terminal.foot.enable = true;
     vesktop.enable = true;
     wallpaper = "xenia";
   };
