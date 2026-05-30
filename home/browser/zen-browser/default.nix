@@ -31,11 +31,14 @@ let
 in
 {
   imports = [
-    inputs.zen-browser.homeModules.twilight-official
+    inputs.zen-browser.homeModules.twilight
   ];
 
   options.homeModules.browser.zen-browser = {
     enable = lib.mkEnableOption "zen browser";
+    default = lib.mkEnableOption "zen as the default browser" // {
+      default = true;
+    };
   };
 
   config = lib.mkIf config.homeModules.browser.zen-browser.enable {
@@ -44,6 +47,7 @@ in
       enable = true;
       languagePacks = [ "pl" ];
       nativeMessagingHosts = with pkgs; [ tridactyl-native ];
+      setAsDefaultBrowser = config.homeModules.browser.zen-browser.default;
       policies = {
         AutofillAddressEnabled = true;
         AutofillCreditCardEnabled = false;
@@ -99,13 +103,13 @@ in
         };
       };
     };
-    xdg.mimeApps = {
-      associations = {
-        added = {
-          "x-scheme-handler/http" = "zen.desktop";
-          "x-scheme-handler/https" = "zen.desktop";
-        };
-      };
-    };
+    # xdg.mimeApps = {
+    #   associations = {
+    #     added = {
+    #       "x-scheme-handler/http" = "zen.desktop";
+    #       "x-scheme-handler/https" = "zen.desktop";
+    #     };
+    #   };
+    # };
   };
 }
