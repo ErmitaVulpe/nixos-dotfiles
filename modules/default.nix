@@ -3,6 +3,7 @@
   imports = [
     ./audio
     ./boot
+    ./certbot
     ./dconf
     ./defaults
     ./dm

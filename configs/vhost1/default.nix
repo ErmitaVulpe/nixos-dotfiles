@@ -12,6 +12,7 @@ in
   imports = [
     inputs.disko.nixosModules.disko
     inputs.home-manager.nixosModules.default
+    inputs.personal-server.nixosModules."aarch64-linux".default
     (modulesPath + "/installer/scan/not-detected.nix")
     (modulesPath + "/profiles/qemu-guest.nix")
     ./disk-config.nix
@@ -20,6 +21,7 @@ in
   ];
 
   nixosModules = {
+    certbot.enable = true;
     nixowos.enable = true;
     ssh.enable = true;
     xmrig = {
@@ -48,6 +50,10 @@ in
   };
 
   networking.hostName = "vhost1";
+
+  services = {
+    personal-server.enable = true;
+  };
 
   programs.nh = {
     enable = true;
