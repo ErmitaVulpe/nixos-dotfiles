@@ -49,7 +49,7 @@ in
     users.groups."${username}" = { };
     home-manager = {
       extraSpecialArgs = {
-        inherit inputs;
+        inherit inputs username;
       };
       users."${username}" = import ./home.nix {
         inherit

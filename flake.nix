@@ -12,6 +12,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     # Do not override its nixpkgs input, otherwise there can be mismatch between
     # patches and kernel version
     nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
@@ -48,6 +52,11 @@
         sylveon = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs; };
           modules = [ ./configs/sylveon ];
+        };
+        vhost1 = nixpkgs.lib.nixosSystem {
+          system = "aarch64-linux";
+          specialArgs = { inherit inputs; };
+          modules = [ ./configs/vhost1 ];
         };
         wsl = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
