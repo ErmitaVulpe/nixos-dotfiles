@@ -35,7 +35,6 @@ in
   users.users.root.openssh.authorizedKeys.keys = sshKey;
   users.users.winter = {
     config = {
-      bullshit.enable = true;
       hyfetch.enable = true;
       nixowos.enable = true;
     };
