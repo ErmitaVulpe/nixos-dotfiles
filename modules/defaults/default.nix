@@ -33,6 +33,8 @@
       yazi
     ];
 
+  networking.firewall.enable = lib.mkDefault false;
+
   users.mutableUsers = false;
   security.sudo.wheelNeedsPassword = false;
 
