@@ -34,7 +34,7 @@
     # home.file.".config/waybar/style.css".source = ./waybar.css;
     home.file.".local/bin/nws.sh".source = ./nws.sh;
 
-    programs.noctalia-shell = {
+    programs.noctalia = {
       enable = true;
       settings = {
         # configure noctalia here

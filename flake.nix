@@ -34,7 +34,7 @@
     };
     # Only used on vhost1
     personal-server = {
-      url = "git+ssh://git@github.com/ErmitaVulpe/personal-server.git?shallow=1";
+      url = "path:flakes/personal-server";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     zen-browser = {
