@@ -38,7 +38,6 @@
         '';
         shellAbbrs = {
           cls = "clear";
-          "git-tree" = "git log --oneline --graph --decorate --all";
         };
         functions = {
           edit_cwd = {

@@ -51,6 +51,9 @@
     git = {
       enable = true;
       settings = {
+        alias = {
+          tree = "log --oneline --graph --decorate --all";
+        };
         credential = {
           helper = "store";
         };
