@@ -5,7 +5,7 @@ self: super: {
 
     src = ./assets;
 
-    nativeBuildInputs = [ super.pkgs.imagemagick ];
+    nativeBuildInputs = [ super.imagemagick ];
 
     installPhase = ''
       set -euo pipefail

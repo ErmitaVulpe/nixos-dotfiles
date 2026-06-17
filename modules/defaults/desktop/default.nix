@@ -12,18 +12,19 @@
   config = lib.mkIf config.nixosModules.defaults.desktop.enable {
     environment.systemPackages = with pkgs; [
       gimp
+      libreoffice
       vlc
       wireshark
     ];
     programs.wireshark.enable = true;
 
     nixosModules = {
-      audio.enable = true;
-      dconf.enable = true;
-      nixowos.enable = true;
+      audio.enable = lib.mkDefault true;
+      dconf.enable = lib.mkDefault true;
+      nixowos.enable = lib.mkDefault true;
       xmrig = {
-        enable = true;
-        background = true;
+        enable = lib.mkDefault true;
+        background = lib.mkDefault true;
       };
     };
   };
