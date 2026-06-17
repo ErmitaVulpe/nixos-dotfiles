@@ -14,6 +14,7 @@
     services.displayManager.ly = {
       enable = true;
       settings = {
+        bigclock = "en";
         xauth_cmd = "${pkgs.xauth}/bin/xauth > /dev/null 2>&1";
       };
     };
