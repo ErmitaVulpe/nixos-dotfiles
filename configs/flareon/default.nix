@@ -74,7 +74,7 @@
       networkmanager-openvpn
     ];
   };
-  # networking.networkmanager.wifi.powersave = false;
+  networking.networkmanager.wifi.powersave = false;
   # boot.extraModprobeConfig = ''
   #   options iwlwifi power_save=0
   #   options iwlwifi uapsd_disable=1
