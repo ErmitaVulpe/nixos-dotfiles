@@ -14,6 +14,3 @@ require("nvim-treesitter").setup({
     additional_vim_regex_highlighting = { "markdown" },
   },
 })
-
-vim.wo[0][0].foldexpr = 'v:lua.vim.treesitter.foldexpr()'
-vim.wo[0][0].foldmethod = 'expr'
