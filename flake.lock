@@ -557,6 +557,7 @@
         "noctalia": "noctalia",
         "otter-launcher": "otter-launcher",
         "personal-server": "personal-server",
+        "txm": "txm",
         "zen-browser": "zen-browser"
       }
     },
@@ -636,6 +637,26 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default",
+        "type": "github"
+      }
+    },
+    "txm": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1783704419,
+        "narHash": "sha256-LsQr+pmWbct/JK+7YP8NrV6xt4hGCFrPjA9u5eDuswI=",
+        "owner": "thatmagicalcat",
+        "repo": "txm",
+        "rev": "48c0c561e541214775d7fe9c308f17ada0728807",
+        "type": "github"
+      },
+      "original": {
+        "owner": "thatmagicalcat",
+        "repo": "txm",
         "type": "github"
       }
     },

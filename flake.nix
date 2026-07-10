@@ -37,6 +37,10 @@
       url = "path:flakes/personal-server";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    txm = {
+      url = "github:thatmagicalcat/txm";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
       inputs = {

@@ -1,4 +1,5 @@
 {
+  inputs,
   lib,
   pkgs,
   ...
@@ -6,6 +7,10 @@
 {
   imports = [
     ./desktop
+  ];
+
+  nixpkgs.overlays = [
+    (import ../../overlays/txm { txmFlake = inputs.txm; })
   ];
 
   environment.defaultPackages =
@@ -16,6 +21,7 @@
       fastfetch
       file
       fzf
+      txm
       gh
       git
       jq
