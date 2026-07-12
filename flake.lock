@@ -531,10 +531,10 @@
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1780954934,
-        "narHash": "sha256-3+l8NQ9fK53gI9GT6OrRXXMxY+8xkf2OKdq1Eqnww3Q=",
+        "lastModified": 1783871984,
+        "narHash": "sha256-AHD3Y3iwC3NXO0JZn4P6E8c2lQeolKOtdoLq/Gd+OIs=",
         "ref": "refs/heads/main",
-        "rev": "baf42182fba58cef62fc6deea281abc5e493b10d",
+        "rev": "41cf8f28c45ba89bb5c8e13dfe960f938e2e8a5e",
         "shallow": true,
         "type": "git",
         "url": "ssh://git@github.com/ErmitaVulpe/personal-server.git"

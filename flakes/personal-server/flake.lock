@@ -45,11 +45,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1781577229,
-        "narHash": "sha256-lrp67w8AulE9Ks53n27I45ADSzbOCn4H+CNW1Ck8B+8=",
+        "lastModified": 1783776592,
+        "narHash": "sha256-UgCQzxeWI75XM8G+hPrPh+MKzEPjG3SpAj7dtqSbksA=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "567a49d1913ce81ac6e9582e3553dd90a955875f",
+        "rev": "e7a3ca8092b61ff85b6a45bf863ea2b2d6a661b3",
         "type": "github"
       },
       "original": {
@@ -84,10 +84,10 @@
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1780954934,
-        "narHash": "sha256-3+l8NQ9fK53gI9GT6OrRXXMxY+8xkf2OKdq1Eqnww3Q=",
+        "lastModified": 1783871984,
+        "narHash": "sha256-AHD3Y3iwC3NXO0JZn4P6E8c2lQeolKOtdoLq/Gd+OIs=",
         "ref": "refs/heads/main",
-        "rev": "baf42182fba58cef62fc6deea281abc5e493b10d",
+        "rev": "41cf8f28c45ba89bb5c8e13dfe960f938e2e8a5e",
         "shallow": true,
         "type": "git",
         "url": "ssh://git@github.com/ErmitaVulpe/personal-server.git"
