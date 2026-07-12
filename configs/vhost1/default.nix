@@ -54,9 +54,13 @@ in
     personal-server.enable = true;
   };
 
-  programs.nh = {
+  system.autoUpgrade = {
+    allowReboot = true;
     enable = true;
-    flake = "/home/winter/nixos-dotfiles";
+    fixedRandomDelay = true;
+    flake = "github:ErmitaVulpe/nixos-dotfiles";
+    randomizedDelaySec = "45min";
+    runGarbageCollection = true;
   };
 
   # This option defines the first version of NixOS you have installed on this particular machine,
