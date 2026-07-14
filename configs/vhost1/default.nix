@@ -61,6 +61,7 @@ in
     flake = "github:ErmitaVulpe/nixos-dotfiles";
     randomizedDelaySec = "45min";
     runGarbageCollection = true;
+    upgrade = false;
   };
 
   # This option defines the first version of NixOS you have installed on this particular machine,
