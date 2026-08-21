@@ -62,7 +62,6 @@
               p.python
               p.rust
               p.sql
-              p.tmux
               p.toml
               p.typescript
               p.yaml
