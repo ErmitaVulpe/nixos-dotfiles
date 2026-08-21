@@ -48,7 +48,8 @@
     bullshit.enable = true;
     cursor = "phinger";
     element-desktop.enable = true;
-    gtkTheme = "carbonfox";
+    # TEMP carbonfox got removed
+    # gtkTheme = "carbonfox";
     hyfetch.enable = true;
     iamb.enable = true;
     launcher.otter-launcher.enable = true;
