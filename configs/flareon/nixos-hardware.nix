@@ -11,11 +11,34 @@
     inputs.nixos-hardware.nixosModules.common-pc-laptop-ssd
   ];
 
-  hardware.enableRedistributableFirmware = lib.mkDefault true;
+  specialisation = {
+    with-quadro.configuration = {
+      environment.systemPackages = with pkgs; [
+        nvitop
+      ];
 
-  environment.systemPackages = with pkgs; [
-    nvitop
-  ];
+      hardware.nvidia = {
+        open = false;
+        modesetting.enable = true;
+        prime = {
+          intelBusId = "PCI:0:2:0";
+          nvidiaBusId = "PCI:1:0:0";
+          offload = {
+            enable = true;
+            enableOffloadCmd = true;
+          };
+        };
+        powerManagement = {
+          enable = true;
+          finegrained = true;
+        };
+      };
+
+      services.xserver.videoDrivers = [ "nvidia" ];
+    };
+  };
+
+  hardware.enableRedistributableFirmware = lib.mkDefault true;
 
   hardware.enableAllFirmware = true;
   hardware.graphics.enable = true;
@@ -23,22 +46,6 @@
     # mediaRuntime = "intel-media-sdk"; # lots of CVEs
     computeRuntime = "legacy";
     vaapiDriver = "intel-media-driver";
-  };
-  hardware.nvidia = {
-    open = false;
-    modesetting.enable = true;
-    prime = {
-      intelBusId = "PCI:0:2:0";
-      nvidiaBusId = "PCI:1:0:0";
-      offload = {
-        enable = true;
-        enableOffloadCmd = true;
-      };
-    };
-    powerManagement = {
-      enable = true;
-      finegrained = true;
-    };
   };
 
   boot.kernelModules = [ "iwlwifi" ];
