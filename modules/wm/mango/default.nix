@@ -9,6 +9,6 @@
   };
 
   config = lib.mkIf config.nixosModules.wm.mango.enable {
-    programs.mangowc.enable = true;
+    programs.mango.enable = true;
   };
 }

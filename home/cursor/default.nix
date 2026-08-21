@@ -16,6 +16,9 @@
       { enable = false; }
     else
       {
+        enable = true;
+      }
+      // {
         phinger = rec {
           name = "phinger-cursors-dark";
           package = pkgs.phinger-cursors;
