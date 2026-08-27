@@ -38,7 +38,7 @@
     };
   };
 
-  hardware.enableRedistributableFirmware = lib.mkDefault true;
+  hardware.enableRedistributableFirmware = true;
 
   hardware.enableAllFirmware = true;
   hardware.graphics.enable = true;

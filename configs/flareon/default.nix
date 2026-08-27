@@ -64,24 +64,21 @@
   };
 
   networking.hostName = "flareon"; # Define your hostname.
-  networking.wireless.userControlled = true;
-  networking.wireless.interfaces = [ "wlp0s20f3" ];
-  environment.etc."wpa_supplicant.conf".text = ''
-    ctrl_interface=/run/wpa_supplicant
-    ctrl_interface_group=wheel
-    update_config=1
-  '';
+  # # TEMP Supposedly fixes hibernation issues
+  # networking.wireless.userControlled = true;
+  # networking.wireless.interfaces = [ "wlp0s20f3" ];
+  # environment.etc."wpa_supplicant.conf".text = ''
+  #   ctrl_interface=/run/wpa_supplicant
+  #   ctrl_interface_group=wheel
+  #   update_config=1
+  # '';
   networking.networkmanager = {
     enable = true;
     plugins = with pkgs; [
       networkmanager-openvpn
     ];
+    wifi.powersave = false;
   };
-  networking.networkmanager.wifi.powersave = false;
-  # boot.extraModprobeConfig = ''
-  #   options iwlwifi power_save=0
-  #   options iwlwifi uapsd_disable=1
-  # '';
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
