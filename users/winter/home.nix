@@ -60,7 +60,8 @@
         init.defaultBranch = "main";
         merge.tool = "nvimdiff";
         mergetool.keepBackup = false;
-        pull.rebase = false;
+        pull.rebase = true;
+        push.autoSetupRemote = true;
         user = {
           email = "emily.wilczek@proton.me";
           name = "ErmitaVulpe";
