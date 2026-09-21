@@ -12,8 +12,6 @@
     inputs.home-manager.nixosModules.default
   ];
 
-  environment.systemPackages = with pkgs; [ citrix-workspace ];
-
   nixosModules = {
     boot = {
       loader.systemd-boot.enable = true;
