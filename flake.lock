@@ -523,7 +523,6 @@
         "noctalia": "noctalia",
         "otter-launcher": "otter-launcher",
         "personal-server": "personal-server",
-        "txm": "txm",
         "zen-browser": "zen-browser"
       }
     },
@@ -558,27 +557,6 @@
         "owner": "rust-lang",
         "ref": "nightly",
         "repo": "rust-analyzer",
-        "type": "github"
-      }
-    },
-    "rust-overlay": {
-      "inputs": {
-        "nixpkgs": [
-          "txm",
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1783747106,
-        "narHash": "sha256-KlepQu/O5m11lAjcJ4ER5bc6bIzyX2UMPDARzMzQfIw=",
-        "owner": "oxalica",
-        "repo": "rust-overlay",
-        "rev": "e598b37857b895b81020a65a802ef55f5bbed72f",
-        "type": "github"
-      },
-      "original": {
-        "owner": "oxalica",
-        "repo": "rust-overlay",
         "type": "github"
       }
     },
@@ -624,27 +602,6 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default",
-        "type": "github"
-      }
-    },
-    "txm": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ],
-        "rust-overlay": "rust-overlay"
-      },
-      "locked": {
-        "lastModified": 1787116607,
-        "narHash": "sha256-ZpR4uCjGP3GdMbwNTflQNReytPsJjfFw7OdU4P6bDTw=",
-        "owner": "thatmagicalcat",
-        "repo": "txm",
-        "rev": "0264ae1f0e19c0f98a2eab2b77235938087b9f50",
-        "type": "github"
-      },
-      "original": {
-        "owner": "thatmagicalcat",
-        "repo": "txm",
         "type": "github"
       }
     },
