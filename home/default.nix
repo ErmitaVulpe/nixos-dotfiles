@@ -9,7 +9,6 @@
     ./iamb
     ./launcher
     ./neovim
-    ./niri
     ./nixowos
     ./school
     ./shell
@@ -17,6 +16,7 @@
     ./tmux
     ./vesktop
     ./wallpaper
+    ./wm
   ];
 
   nixpkgs.config.allowUnfree = true;

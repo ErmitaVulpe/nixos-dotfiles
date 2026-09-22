@@ -6,7 +6,7 @@
   ...
 }:
 {
-  options.homeModules.niri = {
+  options.homeModules.wm.niri = {
     enable = lib.mkEnableOption "niri config";
   };
 
@@ -14,7 +14,7 @@
     inputs.noctalia.homeModules.default
   ];
 
-  config = lib.mkIf config.homeModules.niri.enable {
+  config = lib.mkIf config.homeModules.wm.niri.enable {
     homeModules = {
       launcher.wofi.enable = true;
       terminal.foot.enable = true;

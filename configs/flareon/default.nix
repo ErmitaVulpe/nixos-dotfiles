@@ -55,10 +55,14 @@
     launcher.otter-launcher.enable = true;
     nixowos.enable = true;
     school.enable = true;
+    terminal.foot = {
+      enable = true;
+      fontsize = 8;
+    };
     terminal.wezterm.enable = true;
-    terminal.foot.enable = true;
     vesktop.enable = true;
     wallpaper = "xenia";
+    wm.mango.enable = true;
   };
 
   networking.hostName = "flareon"; # Define your hostname.

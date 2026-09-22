@@ -56,12 +56,12 @@
     hyfetch.enable = true;
     iamb.enable = true;
     launcher.otter-launcher.enable = true;
-    niri.enable = true;
     nixowos.enable = true;
     school.enable = true;
     terminal.wezterm.enable = true;
     vesktop.enable = true;
     wallpaper = "xenia";
+    wm.niri.enable = true;
   };
 
   networking.hostName = "sylveon"; # Define your hostname.

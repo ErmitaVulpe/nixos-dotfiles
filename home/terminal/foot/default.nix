@@ -4,9 +4,17 @@
   pkgs,
   ...
 }:
+let
+  cfg = config.homeModules.terminal.foot;
+in
 {
   options.homeModules.terminal.foot = {
     enable = lib.mkEnableOption "foot";
+    fontsize = lib.mkOption {
+      type = lib.types.int;
+      default = 12;
+      description = "Font size";
+    };
   };
 
   config = lib.mkIf config.homeModules.terminal.foot.enable {
@@ -20,7 +28,7 @@
       settings = {
         main = {
           term = "xterm-256color";
-          font = "JetBrainsMono Nerd Font:size=11:style=Regular";
+          font = "JetBrainsMono Nerd Font:size=${toString cfg.fontsize}:style=Regular";
           dpi-aware = "yes";
           pad = "3x3 center";
           resize-by-cells = "no";

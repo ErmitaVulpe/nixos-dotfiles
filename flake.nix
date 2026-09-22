@@ -20,8 +20,8 @@
     # patches and kernel version
     nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
 
-    fsel = {
-      url = "github:Mjoyufull/fsel";
+    mangowm = {
+      url = "github:mangowm/mango";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     noctalia = {
