@@ -5,6 +5,9 @@
   pkgs,
   ...
 }:
+let
+  bar = config.homeModules.bar.eww { wm = "mango"; };
+in
 {
   options.homeModules.wm.mango = {
     enable = lib.mkEnableOption "mango config";
@@ -23,6 +26,7 @@
     home.packages = with pkgs; [
       swayidle
       swaylock
+      bar.pkg
     ];
 
     wayland.windowManager.mango = {
@@ -65,13 +69,26 @@
         globalcolor = "0xb153a7ff";
         overlaycolor = "0x14a57cff";
 
+        exec-once = bar.start;
+
         bind = [
           "super,r,reload_config"
           "super,m,quit"
           "alt,q,killclient"
 
           # menu and terminal
-          "alt,space,spawn_shell,mmsg get all-clients | jq -e 'any(.[] | .appid == \"otter-launcher\")' > /dev/null || foot -W 58x9 --app-id=otter-launcher otter-launcher"
+          (
+            let
+              sizeCfg = config.homeModules.launcher.otter-launcher.size;
+              launcherCheck = "mmsg get all-clients | jq -e 'any(.[] | .appid == \"otter-launcher\")' > /dev/null";
+              launcherStart =
+                "foot "
+                + "-W ${toString sizeCfg.width}x${toString sizeCfg.height} "
+                + "--app-id=otter-launcher "
+                + "otter-launcher";
+            in
+            "alt,space,spawn_shell,${launcherCheck} || ${launcherStart}"
+          )
           "alt,Return,spawn,foot"
 
           "super,1,view,1,0"

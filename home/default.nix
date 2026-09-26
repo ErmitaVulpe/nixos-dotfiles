@@ -1,5 +1,6 @@
 {
   imports = [
+    ./bar
     ./browser
     ./bullshit
     ./cursor
