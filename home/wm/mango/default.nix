@@ -6,28 +6,66 @@
   ...
 }:
 let
-  bar = config.homeModules.bar.eww { wm = "mango"; };
+  cfg = config.homeModules.wm.mango;
 in
 {
   options.homeModules.wm.mango = {
     enable = lib.mkEnableOption "mango config";
+
+    widgets = lib.mkOption {
+      description = "Widget system settings";
+      default = { };
+      type = lib.types.submodule {
+        options = {
+          hasWifi = lib.mkEnableOption "a wifi widget";
+          hasBat = lib.mkEnableOption "a battery widget";
+
+          eww = {
+            enable = lib.mkEnableOption "eww based widgets";
+            package = lib.mkOption {
+              description = "Preconfigured eww package";
+              type = lib.types.package;
+            };
+            start = lib.mkOption {
+              description = "Command used to start the widgets";
+              type = lib.types.pathInStore;
+              readOnly = true;
+            };
+
+            modules = lib.mkOption {
+              description = "List of eww modules to enable";
+              type = lib.types.listOf lib.types.str;
+              default = [
+                "activate-linux"
+                "bar-powerline"
+                "wallpaper"
+              ];
+              example = [ ];
+            };
+          };
+        };
+      };
+    };
   };
 
   imports = [
+    ./widgets
     inputs.mangowm.hmModules.mango
   ];
 
-  config = lib.mkIf config.homeModules.wm.mango.enable {
+  config = lib.mkIf cfg.enable {
     homeModules = {
       launcher.otter-launcher.enable = true;
       terminal.foot.enable = true;
     };
 
-    home.packages = with pkgs; [
-      swayidle
-      swaylock
-      bar.pkg
-    ];
+    home.packages =
+      with pkgs;
+      [
+        swayidle
+        swaylock
+      ]
+      ++ lib.optional cfg.widgets.eww.enable cfg.widgets.eww.package;
 
     wayland.windowManager.mango = {
       enable = true;
@@ -69,7 +107,7 @@ in
         globalcolor = "0xb153a7ff";
         overlaycolor = "0x14a57cff";
 
-        exec-once = bar.start;
+        exec-once = [ ] ++ lib.optional cfg.widgets.eww.enable cfg.widgets.eww.start;
 
         bind = [
           "super,r,reload_config"

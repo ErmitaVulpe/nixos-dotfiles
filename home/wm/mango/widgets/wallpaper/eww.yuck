@@ -1,0 +1,9 @@
+(defwindow wallpaper
+ :monitor 0
+ :stacking "bg"
+ :geometry (geometry :width "100%" :height "100%")
+ (wallpaper_layout))
+
+(defwidget wallpaper_layout []
+ (box :class "layout-box" :space-evenly false :orientation "vertical"
+  :style "background-image:url('${wallpaper_path}');background-size:cover;background-position: center;"))

@@ -92,6 +92,6 @@ lspConfigurator("vscode-html-language-server", "html")
 lspConfigurator("vscode-json-language-server", "jsonls")
 
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "lua", "nix" },
+  pattern = { "lua", "nix", "yuck" },
   command = "setlocal shiftwidth=2 tabstop=2"
 })

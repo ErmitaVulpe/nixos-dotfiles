@@ -1,0 +1,15 @@
+(defwindow bar-powerline
+ :monitor 0
+ :stacking "fg"
+ :exclusive true
+ :geometry (geometry :width "100%" :height "5%"
+   :anchor "top center")
+ (bar-powerline_layout))
+
+(defwidget bar-powerline_layout []
+ (box :class "layout-box" :space-evenly false :orientation "vertical"
+  :style "background-image: url('./wallpaper')"
+  (box :valign "start" :space-evenly false :spacing 25
+   (label :text "|" :class "sep"))
+  (box :space-evenly false :hexpand true :vexpand true)))
+

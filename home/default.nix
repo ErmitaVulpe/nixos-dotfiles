@@ -1,11 +1,9 @@
 {
   imports = [
-    ./bar
     ./browser
     ./bullshit
     ./cursor
     ./element-desktop
-    ./gtkTheme
     ./hyfetch
     ./iamb
     ./launcher
@@ -14,9 +12,9 @@
     ./school
     ./shell
     ./terminal
+    ./theme
     ./tmux
     ./vesktop
-    ./wallpaper
     ./wm
   ];
 

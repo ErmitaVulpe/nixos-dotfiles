@@ -48,8 +48,6 @@
     bullshit.enable = true;
     cursor = "phinger";
     element-desktop.enable = true;
-    # TEMP carbonfox got removed
-    # gtkTheme = "carbonfox";
     hyfetch.enable = true;
     iamb.enable = true;
     launcher.otter-launcher.enable = true;
@@ -60,9 +58,17 @@
       fontsize = 8;
     };
     terminal.wezterm.enable = true;
+    theme = {
+      enable = true;
+      wallpaper = "xenia";
+    };
     vesktop.enable = true;
-    wallpaper = "xenia";
-    wm.mango.enable = true;
+    wm.mango = {
+      enable = true;
+      widgets.eww = {
+        enable = true;
+      };
+    };
   };
 
   networking.hostName = "flareon"; # Define your hostname.
