@@ -16,7 +16,11 @@
       vlc
       wireshark
     ];
-    programs.wireshark.enable = true;
+
+    programs = {
+      dconf.enable = true;
+      wireshark.enable = true;
+    };
 
     nixosModules = {
       audio.enable = lib.mkDefault true;
