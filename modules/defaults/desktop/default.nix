@@ -20,7 +20,6 @@
 
     nixosModules = {
       audio.enable = lib.mkDefault true;
-      dconf.enable = lib.mkDefault true;
       nixowos.enable = lib.mkDefault true;
       xmrig = {
         enable = lib.mkDefault true;

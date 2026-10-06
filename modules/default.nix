@@ -4,7 +4,6 @@
     ./audio
     ./boot
     ./certbot
-    ./dconf
     ./defaults
     ./dm
     ./dnscrypt-proxy
