@@ -12,6 +12,8 @@
     inputs.home-manager.nixosModules.default
   ];
 
+  environment.systemPackages = with pkgs; [ iw ];
+
   nixosModules = {
     boot = {
       loader.systemd-boot.enable = true;
@@ -72,14 +74,6 @@
   };
 
   networking.hostName = "flareon"; # Define your hostname.
-  # # TEMP Supposedly fixes hibernation issues
-  # networking.wireless.userControlled = true;
-  # networking.wireless.interfaces = [ "wlp0s20f3" ];
-  # environment.etc."wpa_supplicant.conf".text = ''
-  #   ctrl_interface=/run/wpa_supplicant
-  #   ctrl_interface_group=wheel
-  #   update_config=1
-  # '';
   networking.networkmanager = {
     enable = true;
     plugins = with pkgs; [
@@ -87,6 +81,17 @@
     ];
     wifi.powersave = false;
   };
+
+  environment.etc."systemd/system-sleep/rfkill-wifi".source = pkgs.writeShellScript "rfkill-wifi" ''
+    case "$1" in
+      pre)
+        ${pkgs.util-linux}/bin/rfkill block wifi
+        ;;
+      post)
+        ${pkgs.util-linux}/bin/rfkill unblock wifi
+        ;;
+    esac
+  '';
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
