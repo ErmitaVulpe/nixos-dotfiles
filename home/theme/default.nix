@@ -23,8 +23,9 @@ in
       targets = {
         fish.enable = false;
         foot.enable = false;
-        tmux.enable = false;
         neovim.enable = false;
+        tmux.enable = false;
+        zen-browser.enable = false;
       };
     };
   };

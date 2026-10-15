@@ -1,6 +1,7 @@
 {
-  pkgs,
   config,
+  lib,
+  pkgs,
   ...
 }:
 let
@@ -12,11 +13,20 @@ let
 
   concatConfigs =
     fileType:
-    pkgs.writeText "${wm}-eww.${fileType}" (
-      builtins.concatStringsSep "\n" (
-        map (x: x.${fileType}) (builtins.filter (x: builtins.hasAttr fileType x) loadedModules)
-      )
-    );
+    let
+      extractors = type: [
+        (m: m.${type}.prefix or null)
+        (m: m.${type}.text or null)
+        (m: lib.optional (m.${type}.source != null) (builtins.readFile m.${type}.source))
+      ];
+    in
+    loadedModules
+    |> builtins.filter (x: builtins.hasAttr fileType x)
+
+    |> (mods: extractors fileType |> map (e: map (m: e m) mods |> lib.filter (x: x != null)))
+    |> lib.flatten
+    |> builtins.concatStringsSep "\n"
+    |> pkgs.writeText "${wm}-eww.${fileType}";
   yuckConfig = concatConfigs "yuck";
   scssConfig = concatConfigs "scss";
 

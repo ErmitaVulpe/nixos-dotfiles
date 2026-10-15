@@ -1,5 +1,5 @@
 { ... }: {
   windowsToOpen = [ "bar-powerline" ];
-  scss = builtins.readFile ./eww.scss;
-  yuck = builtins.readFile ./eww.yuck;
+  scss.source = ./eww.scss;
+  yuck.source = ./eww.yuck;
 }
