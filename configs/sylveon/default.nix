@@ -29,7 +29,7 @@
     dnscryptProxy.enable = true;
     firmware.enable = true;
     gaming.enable = true;
-    kernel = "cachyos_zen4";
+    kernel = "zen";
     spotify.enable = true;
     ssh = {
       enable = true;

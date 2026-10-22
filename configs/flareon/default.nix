@@ -27,7 +27,7 @@
     dnscryptProxy.enable = true;
     firmware.enable = true;
     gaming.enable = true;
-    kernel = "cachyos_dell_prec_5550";
+    kernel = "zen";
     ssh = {
       enable = true;
       onDemand = true;
