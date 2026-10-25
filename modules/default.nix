@@ -11,6 +11,7 @@
     ./firmware
     ./gaming
     ./kernel
+    ./nh
     ./nixowos
     ./spotify
     ./ssh

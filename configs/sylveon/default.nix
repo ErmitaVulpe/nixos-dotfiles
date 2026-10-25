@@ -30,6 +30,7 @@
     firmware.enable = true;
     gaming.enable = true;
     kernel = "zen";
+    nh.flake = "/home/winter/nixos-dotfiles";
     spotify.enable = true;
     ssh = {
       enable = true;
@@ -108,11 +109,6 @@
   #   enable = true;
   #   enableSSHSupport = true;
   # };
-
-  programs.nh = {
-    enable = true;
-    flake = "/home/winter/nixos-dotfiles";
-  };
 
   # This option defines the first version of NixOS you have installed on this particular machine,
   # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.
