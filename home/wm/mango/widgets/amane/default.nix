@@ -61,16 +61,18 @@ let
   };
 in
 {
-  config = {
-    homeModules.wm.mango.widgets.amane = {
-      package = amanePkg;
-      start = pkgs.writeShellScript "${wm}-amane-start" ''
-        ${cfg.package}/bin/${wm}-amane run
-      '';
-    };
-
-    xdg.configFile."amane/src" = lib.mkIf cfg.dev {
-      source = config.lib.file.mkOutOfStoreSymlink ./src;
-    };
-  };
+  config = lib.mkMerge [
+    {
+      homeModules.wm.mango.widgets.amane = {
+        package = amanePkg;
+        start = pkgs.writeShellScript "${wm}-amane-start" ''
+          ${cfg.package}/bin/${wm}-amane run
+        '';
+      };
+    }
+    (lib.mkIf cfg.dev {
+      home.packages = [ amane ];
+      xdg.configFile."amane/src".source = config.lib.file.mkOutOfStoreSymlink ./src;
+    })
+  ];
 }

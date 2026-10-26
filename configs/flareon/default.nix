@@ -71,6 +71,7 @@
       widgets = {
         amane = {
           enable = true;
+          dev = true;
         };
         eww = {
           enable = true;
