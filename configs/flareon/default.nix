@@ -68,8 +68,13 @@
     vesktop.enable = true;
     wm.mango = {
       enable = true;
-      widgets.eww = {
-        enable = true;
+      widgets = {
+        amane = {
+          enable = true;
+        };
+        eww = {
+          enable = true;
+        };
       };
     };
   };

@@ -27,6 +27,10 @@
     # patches and kernel version
     nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
 
+    amane = {
+      url = "github:MystiaFin/amane";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     mangowm = {
       url = "github:mangowm/mango";
       inputs = {

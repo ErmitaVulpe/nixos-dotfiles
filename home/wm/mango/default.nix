@@ -20,6 +20,20 @@ in
           hasWifi = lib.mkEnableOption "a wifi widget";
           hasBat = lib.mkEnableOption "a battery widget";
 
+          amane = {
+            enable = lib.mkEnableOption "amane based widgets";
+            dev = lib.mkEnableOption "dev mode. Places the source tree at $XDG_CONFIG_HOME/amane/src";
+            package = lib.mkOption {
+              description = "Preconfigured amane package";
+              type = lib.types.package;
+            };
+            start = lib.mkOption {
+              description = "Command used to start the widgets";
+              type = lib.types.pathInStore;
+              readOnly = true;
+            };
+          };
+
           eww = {
             enable = lib.mkEnableOption "eww based widgets";
             package = lib.mkOption {
@@ -65,7 +79,8 @@ in
         swayidle
         swaylock
       ]
-      ++ lib.optional cfg.widgets.eww.enable cfg.widgets.eww.package;
+      ++ lib.optional cfg.widgets.eww.enable cfg.widgets.eww.package
+      ++ lib.optional cfg.widgets.amane.enable cfg.widgets.amane.package;
 
     wayland.windowManager.mango = {
       enable = true;
@@ -107,7 +122,10 @@ in
         globalcolor = "0xb153a7ff";
         overlaycolor = "0x14a57cff";
 
-        exec-once = [ ] ++ lib.optional cfg.widgets.eww.enable cfg.widgets.eww.start;
+        exec-once =
+          [ ]
+          ++ lib.optional cfg.widgets.eww.enable cfg.widgets.eww.start
+          ++ lib.optional cfg.widgets.amane.enable cfg.widgets.amane.start;
 
         bind = [
           "super,r,reload_config"
