@@ -147,7 +147,7 @@ in
           )
 
           "alt,Return,spawn,foot"
-          # "super+shift,s,spawn_shell,${pkgs.hyprshot}/bin/hyprshot -m region --clipboard-only"
+          "super+shift,s,spawn_shell,${pkgs.hyprshot}/bin/hyprshot -m region --clipboard-only"
 
           "super,1,view,1,0"
           "super,2,view,2,0"
