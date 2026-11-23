@@ -25,6 +25,7 @@ in
         foot.enable = false;
         neovim.enable = false;
         tmux.enable = false;
+        wayprompt.enable = false;
         zen-browser.enable = false;
       };
     };

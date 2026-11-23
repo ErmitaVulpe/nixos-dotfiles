@@ -103,26 +103,26 @@ in
         animations = 0;
 
         # Appearance
-        borderpx = 2;
-        gappih = 0;
-        gappiv = 0;
-        gappoh = 0;
-        gappov = 0;
+        border_px = 2;
+        gap_inner_horizontal = 0;
+        gap_inner_vertical = 0;
+        gap_outer_horizontal = 0;
+        gap_outer_vertical = 0;
 
         scratchpad_width_ratio = 0.8;
         scratchpad_height_ratio = 0.9;
-        rootcolor = "0x201b14ff";
-        bordercolor = "0x444444ff";
-        dropcolor = "0x8FBA7C55";
-        splitcolor = "0xEB441EFF";
-        focuscolor = "0xc9b890ff";
-        maximizescreencolor = "0x89aa61ff";
-        urgentcolor = "0xad401fff";
-        scratchpadcolor = "0x516c93ff";
-        globalcolor = "0xb153a7ff";
-        overlaycolor = "0x14a57cff";
+        root_color = "0x201b14ff";
+        border_color = "0x444444ff";
+        drop_color = "0x8FBA7C55";
+        split_color = "0xEB441EFF";
+        focus_color = "0xc9b890ff";
+        maximized_screen_color = "0x89aa61ff";
+        urgent_color = "0xad401fff";
+        scratchpad_color = "0x516c93ff";
+        global_color = "0xb153a7ff";
+        overlay_color = "0x14a57cff";
 
-        exec-once =
+        exec_once =
           [ ]
           ++ lib.optional cfg.widgets.eww.enable cfg.widgets.eww.start
           ++ lib.optional cfg.widgets.amane.enable cfg.widgets.amane.start;
@@ -145,7 +145,9 @@ in
             in
             "alt,space,spawn_shell,${launcherCheck} || ${launcherStart}"
           )
+
           "alt,Return,spawn,foot"
+          # "super+shift,s,spawn_shell,${pkgs.hyprshot}/bin/hyprshot -m region --clipboard-only"
 
           "super,1,view,1,0"
           "super,2,view,2,0"
@@ -173,16 +175,16 @@ in
         # Misc
         no_border_when_single = 1;
         focus_on_activate = 1;
-        idleinhibit_ignore_visible = 0;
-        idleinhibit_when_fullscreen = 0;
+        idle_inhibit_ignore_visible = 0;
+        idle_inhibit_when_fullscreen = 0;
         enable_floating_snap = 1;
         snap_distance = 30;
         # cursor_size = 24;
         drag_tile_to_tile = 1;
         drag_tile_small = 1;
 
-        windowrule = [
-          "appid:otter-launcher,isfloating:1,isoverlay:1"
+        window_rule = [
+          "app_id:otter-launcher,is_floating:1,is_overlay:1"
         ];
 
         gesturebind = [
@@ -209,25 +211,25 @@ in
 
         # Master-Stack Layout Setting
         new_is_master=1
-        default_mfact=0.55
-        default_nmaster=1
+        default_master_factor=0.55
+        default_master_count=1
         tag_num=9
-        smartgaps=0
+        smart_gaps=0
 
         # Dwindle Layout Setting
         dwindle_smart_split=0
         dwindle_drop_simple_split=1
         dwindle_manual_split=0
-        dwindle_hsplit=1
-        dwindle_vsplit=1
+        dwindle_horizontal_split=1
+        dwindle_vertical_split=1
         dwindle_preserve_split=0
 
         # Overview Setting
         hotarea_size=10
         enable_hotarea=0
         hotarea_disable_on_fullscreen=1
-        overviewgappi=5
-        overviewgappo=30
+        overview_gap_inner=5
+        overview_gap_outer=30
         overcircle_center_ratio=0.5
 
         # mouse
@@ -236,15 +238,15 @@ in
 
         # layout support:
         # tile,scroller,grid,deck,monocle,center_tile,vertical_tile,vertical_scroller
-        tagrule=id:1,layout_name:tile
-        tagrule=id:2,layout_name:tile
-        tagrule=id:3,layout_name:tile
-        tagrule=id:4,layout_name:tile
-        tagrule=id:5,layout_name:tile
-        tagrule=id:6,layout_name:tile
-        tagrule=id:7,layout_name:tile
-        tagrule=id:8,layout_name:tile
-        tagrule=id:9,layout_name:tile
+        tag_rule=id:1,layout_name:tile
+        tag_rule=id:2,layout_name:tile
+        tag_rule=id:3,layout_name:tile
+        tag_rule=id:4,layout_name:tile
+        tag_rule=id:5,layout_name:tile
+        tag_rule=id:6,layout_name:tile
+        tag_rule=id:7,layout_name:tile
+        tag_rule=id:8,layout_name:tile
+        tag_rule=id:9,layout_name:tile
 
         # switch window focus
         bind=SUPER,Tab,focusstack,next
