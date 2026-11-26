@@ -11,6 +11,7 @@ in
 {
   options.homeModules.wm.mango = {
     enable = lib.mkEnableOption "mango config";
+    isLaptop = lib.mkEnableOption "config related to laptop hardware";
 
     widgets = lib.mkOption {
       description = "Widget system settings";
@@ -127,12 +128,7 @@ in
           ++ lib.optional cfg.widgets.eww.enable cfg.widgets.eww.start
           ++ lib.optional cfg.widgets.amane.enable cfg.widgets.amane.start;
 
-        bind = [
-          "super,r,reload_config"
-          "super,m,quit"
-          "alt,q,killclient"
-
-          # menu and terminal
+        bindn = [
           (
             let
               sizeCfg = config.homeModules.launcher.otter-launcher.size;
@@ -147,7 +143,25 @@ in
           )
 
           "alt,Return,spawn,foot"
+          "alt,q,killclient"
           "super+shift,s,spawn_shell,${pkgs.hyprshot}/bin/hyprshot -m region --clipboard-only"
+        ];
+
+        bindl = [
+          "none,XF86AudioRaiseVolume,spawn,wpctl set-volume @DEFAULT_SINK@ 5%+"
+          "none,XF86AudioLowerVolume,spawn,wpctl set-volume @DEFAULT_SINK@ 5%-"
+          "none,XF86AudioMute,spawn,wpctl set-mute @DEFAULT_SINK@ toggle"
+        ]
+        ++ lib.optionals cfg.isLaptop [
+          "none,XF86MonBrightnessUp,spawn,brightnessctl -e s +5%"
+          "shift,XF86MonBrightnessUp,spawn,brightnessctl s 100%"
+          "none,XF86MonBrightnessDown,spawn,brightnessctl -e s 5%-"
+          "shift,XF86MonBrightnessDown,spawn,brightnessctl s 1"
+        ];
+
+        bind = [
+          "super,r,reload_config"
+          "super,m,quit"
 
           "super,1,view,1,0"
           "super,2,view,2,0"

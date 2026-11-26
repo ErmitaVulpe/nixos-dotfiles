@@ -68,15 +68,8 @@
     vesktop.enable = true;
     wm.mango = {
       enable = true;
-      widgets = {
-        amane = {
-          enable = true;
-          dev = true;
-        };
-        eww = {
-          enable = true;
-        };
-      };
+      isLaptop = true;
+      widgets.amane.enable = true;
     };
   };
 
